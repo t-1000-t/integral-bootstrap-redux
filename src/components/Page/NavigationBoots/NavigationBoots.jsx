@@ -148,7 +148,7 @@ const mapStateToProps = state => {
     return {
         isNavCatShow: state.isNavCatShow,
         isShowAboutUs: state.isShowAboutUs,
-        isSearchQueryValue: state.isSearchQueryValue,
+        isSearchQueryValue: state.textSearchQueryValue,
     }
 };
 

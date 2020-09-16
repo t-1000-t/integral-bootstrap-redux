@@ -1,21 +1,19 @@
 import React, {Component} from "react";
+import {connect} from "react-redux";
+import mainBootsLoadingAction from "../../../redux/Actions/mainBootsLoadingAction";
 import MainCard from "./MainCard";
-
+import arrMainBootsAction from "../../../redux/Actions/arrMainBootsAction";
 
 
 class MainBoots extends Component {
-
-    state = {
-        arrMain: [],
-        isLoading: false
-    };
 
     componentDidMount() {
         this.fetchHomeProducts();
     }
 
     fetchHomeProducts() {
-        this.setState({isLoading: true});
+        const {mainBootsLoadingTrue, arrayMainBoots} = this.props;
+        mainBootsLoadingTrue();
         try {
             return fetch(
                 // `http://localhost:5000/api/main`
@@ -24,18 +22,15 @@ class MainBoots extends Component {
                 .then((res) => res.json())
                 .then((data) => data.main)
                 .then((arr) => {
-                    this.setState((state) => ({
-                        arrMain: [...state.arrMain, ...arr]
-                    }));
+                    arrayMainBoots(arr);
                 })
                 .catch((error) => {
-                    this.setState({error});
+                    console.error(error);
                 })
                 .finally(() => {
-                    this.setState(
-                        {isLoading: false}
-                    );
-                });
+                    const {mainBootsLoadingFalse} = this.props;
+                    mainBootsLoadingFalse();
+                })
         } catch (err) {
             console.error(err);
         }
@@ -43,15 +38,15 @@ class MainBoots extends Component {
 
 
     render() {
-        const {isLoading, arrMain} = this.state;
+        const {isLoadingSpinner, arrMain} = this.props;
         return (
             <main role="main">
-                {isLoading &&
-                    <div className="text-center">
-                        <div className="spinner-border m-5" role="status">
-                            <span className="sr-only">Loading...</span>
-                        </div>
-                    </div>}
+                {isLoadingSpinner &&
+                <div className="text-center">
+                    <div className="spinner-border m-5" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>}
                 <div className="album py-5 bg-white">
                     <div className="container">
                         <div className="row">
@@ -66,4 +61,19 @@ class MainBoots extends Component {
     }
 }
 
-export default MainBoots;
+const mapStateToProps = state => {
+    return {
+        isLoadingSpinner: state.mainBootsloadingSpinner,
+        arrMain: state.arrMaBo,
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        mainBootsLoadingFalse: () => dispatch(mainBootsLoadingAction.mainBootsLoadingFalse()),
+        mainBootsLoadingTrue: () => dispatch(mainBootsLoadingAction.mainBootsLoadingTrue()),
+        arrayMainBoots: (val) => dispatch(arrMainBootsAction.arrayMainBoots(val))
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainBoots);
