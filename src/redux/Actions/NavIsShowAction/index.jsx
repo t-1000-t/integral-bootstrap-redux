@@ -1,3 +1,3 @@
-import NavIsShowAction from "./NavIsShowAction";
+import NavIsShowAction from "./navIsShowAction";
 
 export default NavIsShowAction;

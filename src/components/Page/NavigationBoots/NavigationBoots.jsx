@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import NavIsShowActions from "../../../redux/Actions/NavIsShowAction";
+import navIsShowActions from "../../../redux/Actions/navIsShowAction";
 import dropDownAboutUsAction from "../../../redux/Actions/dropDownAboutUsAction";
+import navSearchQueryAction from "../../../redux/Actions/navSearchQueryAction";
 import {NavLink} from "react-router-dom";
 import closeDropdown from "../../middleware/closeDropdown";
 import showDropdown from "../../middleware/showDropdown";
@@ -12,11 +13,6 @@ import routes from "../../../routes/routes";
 
 
 class NavigationBoots extends Component {
-
-
-    state = {
-        query: ""
-    };
 
     componentDidMount() {
         this._isMounted = true;
@@ -48,17 +44,14 @@ class NavigationBoots extends Component {
     };
 
     handleChange = (e) => {
-        this.setState({
-            query: e.target.value,
-        });
+        const {navSearchQuery} = this.props;
+        navSearchQuery(e.target.value)
     };
-
-    // Open or Close category
 
 
     render() {
-        const {isNavCatShow, isShowAboutUs, NavIsShowToggle, NavIsShowFalse, showAboutUs } = this.props;
-        const {query} = this.state;
+        const {isNavCatShow, isShowAboutUs, textSearchQueryValue, NavIsShowToggle, NavIsShowFalse, showAboutUs, navSearchQuery} = this.props;
+
         return (
             <header>
                 <div>
@@ -87,7 +80,7 @@ class NavigationBoots extends Component {
                                              aria-labelledby="navbarDropdownMenuLink">
                                             {categ_list.category.map(elem => (
                                                 <Dropright key={shortid.generate()} id={shortid.generate()}
-                                                           category={elem.category} list={elem.list} />
+                                                           category={elem.category} list={elem.list}/>
                                             ))}
                                             <button onClick={NavIsShowFalse} className="dropdown-item text-muted"
                                                     href="/#">Закрыть <svg width="1em"
@@ -104,9 +97,9 @@ class NavigationBoots extends Component {
                                     </li>
                                 </ul>
                             </div>
-                            <form className="form-inline mt-0 mt-md-0 ml-sm-2 mr-sm-4">
+                            <form onSubmit={navSearchQuery} className="form-inline mt-0 mt-md-0 ml-sm-2 mr-sm-4">
                                 <input className="form-control mr-sm-2" type="text" placeholder="Поиск..."
-                                       aria-label="Поиск..." value={query} onChange={this.handleChange}/>
+                                       aria-label="Поиск..." value={textSearchQueryValue} onChange={this.handleChange}/>
                             </form>
 
                             <button onClick={() => showAboutUs(isShowAboutUs)} type="button" className="btn-sm"
@@ -137,7 +130,7 @@ class NavigationBoots extends Component {
 
                                 <ul className="list-unstyled">
                                     <NavLink to={`${routes.CONTACT}`} className="text-white">
-                                       <li>contact page</li>
+                                        <li>contact page</li>
                                     </NavLink>
                                     <li><a href="/#" className="text-white">Like on Facebook</a></li>
                                     <li><a href="/#" className="text-white">Email</a></li>
@@ -155,14 +148,16 @@ const mapStateToProps = state => {
     return {
         isNavCatShow: state.isNavCatShow,
         isShowAboutUs: state.isShowAboutUs,
+        isSearchQueryValue: state.isSearchQueryValue,
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        NavIsShowToggle: (isNavShow) => dispatch(NavIsShowActions.NavIsShowToggle(isNavShow)),
-        NavIsShowFalse: () => dispatch(NavIsShowActions.NavIsShowFalse()),
-        showAboutUs: (isShowAboutUs) => dispatch(dropDownAboutUsAction.showAboutUs(isShowAboutUs))
+        NavIsShowToggle: (isNavShow) => dispatch(navIsShowActions.navIsShowToggle(isNavShow)),
+        NavIsShowFalse: () => dispatch(navIsShowActions.navIsShowFalse()),
+        showAboutUs: (isShowAboutUs) => dispatch(dropDownAboutUsAction.showAboutUs(isShowAboutUs)),
+        navSearchQuery: (isSearchQueryValue) => dispatch(navSearchQueryAction.navSearchQuery(isSearchQueryValue))
     }
 };
 

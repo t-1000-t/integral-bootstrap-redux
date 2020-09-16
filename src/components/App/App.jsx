@@ -7,7 +7,6 @@ function App() {
     return (
         <div className={stylish.App}>
             <BrowserRouter>
-                {/*<header className={stylish.AppHeader}>!!!!!!!!!!!!!!!!!!!!!!!</header>*/}
                 <NavigationBoots/>
             </BrowserRouter>
         </div>
