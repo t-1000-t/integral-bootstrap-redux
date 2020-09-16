@@ -1,0 +1,270 @@
+{
+  "category": [
+    {
+      "category": "Ноутбуки",
+      "list": [
+        {
+          "name": "Ноутбуки",
+          "category_number": "1191"
+        },
+        {
+          "name": "Аксессуары для ноутбуков",
+          "category_number": "1211"
+        },
+        {
+          "name": "Комплектующие к ноутбукам",
+          "category_number": "1233"
+        },
+        {
+          "name": "Запчасти для ноутбуков",
+          "category_number": "8568"
+        },
+        {
+          "name": "Сумки к ноутбукам",
+          "category_number": "1204"
+        },
+        {
+          "name": "Рюкзаки к ноутбукам",
+          "category_number": "1205"
+        },
+        {
+          "name": "Подставки для ноутбуков",
+          "category_number": "1471"
+        },
+        {
+          "name": "Матриця до ноутбука",
+          "category_number": "8516"
+        },
+        {
+          "name": "Модули памяти к ноутбукам",
+          "category_number": "1237"
+        },
+        {
+          "name": "Ноутбуки, планшеты",
+          "category_number": "1181"
+        }
+      ]
+    },
+    {
+      "category": "Планшеты",
+      "list": [
+        {
+          "name": "Планшеты",
+          "category_number": "1192"
+        },
+        {
+          "name": "Аксессуары для планшетов",
+          "category_number": "7981"
+        },
+        {
+          "name": "Чехлы к планшетам",
+          "category_number": "1207"
+        },
+        {
+          "name": "Электронные книги",
+          "category_number": "1194"
+        },
+        {
+          "name": "Ноутбуки, планшеты",
+          "category_number": "1181"
+        }
+      ]
+    },
+    {
+      "category": "Компьютеры",
+      "list": [
+        {
+          "name": "Компьютеры",
+          "category_number": "1053"
+        },
+        {
+          "name": "Компьютеры, аксессуары",
+          "category_number": "1331"
+        },
+        {
+          "name": "Модули памяти для компьютера",
+          "category_number": "1334"
+        },
+        {
+          "name": "Компьютерные игры",
+          "category_number": "1418"
+        },
+        {
+          "name": "Компьютерные игры Доп. раздел",
+          "category_number": "8366"
+        },
+        {
+          "name": "Манипуляторы",
+          "category_number": "1547"
+        },
+        {
+          "name": "Кресло игровое",
+          "category_number": "8230"
+        },
+        {
+          "name": "Кресла",
+          "category_number": "7453"
+        }
+      ]
+    },
+    {
+      "category": "Комплектующие",
+      "list": [
+        {
+          "name": "Комплектующие для ПК",
+          "category_number": "1330"
+        },
+        {
+          "name": "Комплектующие к Ноутбукам",
+          "category_number": "1233"
+        },
+        {
+          "name": "Манипуляторы",
+          "category_number": "1547"
+        },
+        {
+          "name": "Кресло игровое",
+          "category_number": "8230"
+        }
+      ]
+    },
+    {
+      "category": "Смартфоны, связь, навигация",
+      "list": [
+        {
+          "name": "Смартфоны, связь, навигация",
+          "category_number": "1266"
+        },
+        {
+          "name": "Ремешки к смарт часам и браслетам",
+          "category_number": "8520"
+        },
+        {
+          "name": "Смарт-Чехол от солнца",
+          "category_number": "8375"
+        }
+      ]
+    },
+    {
+      "category": "Принтеры",
+      "list": [
+        {
+          "name": "Принтеры",
+          "category_number": "7820"
+        },
+        {
+          "name": "3D-Принтер",
+          "category_number": "8220"
+        },
+        {
+          "name": "Струйный принтер",
+          "category_number": "1193"
+        },
+        {
+          "name": "Лазерный принтер",
+          "category_number": "8170"
+        },
+        {
+          "name": "Матричный принтер",
+          "category_number": "8171"
+        },
+        {
+          "name": "Мобильный Фотопринтер",
+          "category_number": "8228"
+        },
+        {
+          "name": "Аксесуары к принтерам",
+          "category_number": "7902"
+        },
+        {
+          "name": "Кабели для принтера",
+          "category_number": "7903"
+        },
+        {
+          "name": "Принтер этикеток",
+          "category_number": "7939"
+        },
+        {
+          "name": "Принтер чеков",
+          "category_number": "7938"
+        },
+        {
+          "name": "Принтер пластиковых карт",
+          "category_number": "7937"
+        }
+      ]
+    },
+    {
+      "category": "Сетевое оборудование",
+      "list": [
+        {
+          "name": "Сетевое оборудование",
+          "category_number": "1392"
+        },
+        {
+          "name": "Активное сетевое оборудование",
+          "category_number": "1561"
+        },
+        {
+          "name": "Пассивное сетевое оборудование",
+          "category_number": "1564"
+        }
+      ]
+    },
+    {
+      "category": "Телевизоры, проекторы",
+      "list": [
+        {
+          "name": "Телевизоры и проекторы",
+          "category_number": "1098"
+        },
+        {
+          "name": "Аксессуары к телевизорам",
+          "category_number": "7815"
+        },
+        {
+          "name": "Аксессуары к телевизорам и другое",
+          "category_number": "1099"
+        },
+        {
+          "name": "Кабель телевизионный",
+          "category_number": "8407"
+        },
+        {
+          "name": "Гаджеты (HI-TECH)",
+          "category_number": "8162"
+        }
+      ]
+    },
+    {
+      "category": "Гарнитура",
+      "list": [
+        {
+          "name": "Наушники и гарнитуры",
+          "category_number": "1365"
+        },
+        {
+          "name": "Аксессуары к телевизорам и другое",
+          "category_number": "1099"
+        }
+      ]
+    },
+    {
+      "category": "Бытовая техника",
+      "list": [
+        {
+          "name": "Бытовая техника",
+          "category_number": "7302"
+        },
+        {
+          "name": "Мелкая бытовая техника",
+          "category_number": "7275"
+        },
+        {
+          "name": "Крупная бытовая техника",
+          "category_number": "7442"
+        }
+      ]
+    }
+  ]
+}
