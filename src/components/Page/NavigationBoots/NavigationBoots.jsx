@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import navIsShowActions from "../../../redux/Actions/navIsShowAction/navIsShowAction";
-import dropDownAboutUsAction from "../../../redux/Actions/dropDownAboutUsAction/dropDownAboutUsAction";
+import {navIsShowFalse, navIsShowToggle} from "../../../redux/Actions/navIsShowAction/navIsShowAction";
+import dropDownAboutUsAction from "../../../redux/Actions/dropDownAboutUsAction";
 import navSearchQueryAction from "../../../redux/Actions/navSearchQueryAction";
 import {NavLink} from "react-router-dom";
 import closeDropdown from "../../middleware/closeDropdown";
@@ -154,8 +154,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        NavIsShowToggle: (isNavShow) => dispatch(navIsShowActions.navIsShowToggle(isNavShow)),
-        NavIsShowFalse: () => dispatch(navIsShowActions.navIsShowFalse()),
+        NavIsShowToggle: (isNavShow) => dispatch(navIsShowToggle(isNavShow)),
+        NavIsShowFalse: () => dispatch(navIsShowFalse()),
         showAboutUs: (isShowAboutUs) => dispatch(dropDownAboutUsAction.showAboutUs(isShowAboutUs)),
         navSearchQuery: (isSearchQueryValue) => dispatch(navSearchQueryAction.navSearchQuery(isSearchQueryValue))
     }

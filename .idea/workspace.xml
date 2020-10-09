@@ -64,7 +64,7 @@
       <workItem from="1602077747305" duration="1565000" />
       <workItem from="1602151213246" duration="1856000" />
       <workItem from="1602190842149" duration="28000" />
-      <workItem from="1602240845408" duration="10362000" />
+      <workItem from="1602240845408" duration="10871000" />
     </task>
     <servers />
   </component>
@@ -77,6 +77,10 @@
     </state>
     <state x="380" y="253" key="#Notifications/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1602245846161" />
     <state x="1900" y="361" key="#Notifications/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1602190863112" />
+    <state x="2056" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602252493000">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2056" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1602252493000" />
     <state x="451" y="103" key="FileChooserDialogImpl" timestamp="1602242373397">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

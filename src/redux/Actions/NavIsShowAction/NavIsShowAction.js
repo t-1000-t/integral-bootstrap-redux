@@ -1,4 +1,4 @@
-const navIsShowFalse = () => {
+export const navIsShowFalse = () => {
     return {
         type: "NAV_ACTION_SHOW_FALSE",
         payload: {
@@ -7,7 +7,7 @@ const navIsShowFalse = () => {
     }
 };
 
-const navIsShowToggle = (value) => {
+export const navIsShowToggle = (value) => {
     value.preventDefault();
     return {
         type: "NAV_ACTION_SHOW_TOGGLE",
@@ -16,5 +16,3 @@ const navIsShowToggle = (value) => {
         }
     }
 };
-
-export default {navIsShowFalse, navIsShowToggle};
