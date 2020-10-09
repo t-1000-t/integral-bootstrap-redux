@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import navIsShowActions from "../../../redux/Actions/navIsShowAction";
-import dropDownAboutUsAction from "../../../redux/Actions/dropDownAboutUsAction";
+import navIsShowActions from "../../../redux/Actions/navIsShowAction/navIsShowAction";
+import dropDownAboutUsAction from "../../../redux/Actions/dropDownAboutUsAction/dropDownAboutUsAction";
 import navSearchQueryAction from "../../../redux/Actions/navSearchQueryAction";
 import {NavLink} from "react-router-dom";
 import closeDropdown from "../../middleware/closeDropdown";
