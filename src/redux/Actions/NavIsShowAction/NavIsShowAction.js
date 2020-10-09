@@ -8,6 +8,7 @@ const navIsShowFalse = () => {
 };
 
 const navIsShowToggle = (value) => {
+    value.preventDefault();
     return {
         type: "NAV_ACTION_SHOW_TOGGLE",
         payload: {

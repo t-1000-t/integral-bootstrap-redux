@@ -47,7 +47,7 @@ class MainBoots extends Component {
                         <span className="sr-only">Loading...</span>
                     </div>
                 </div>}
-                <div className="album py-5 bg-white">
+                {!isLoadingSpinner && <div className="album py-5 bg-white">
                     <div className="container">
                         <div className="row">
                             {arrMain.length > 0 && arrMain.map(elem => (
@@ -55,7 +55,7 @@ class MainBoots extends Component {
                             ))}
                         </div>
                     </div>
-                </div>
+                </div>}
             </main>
         )
     }

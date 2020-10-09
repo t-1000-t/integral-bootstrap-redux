@@ -6,21 +6,27 @@ import ContactBoots from "../Page/MainBoots/ContactBoots/ContactBoots";
 import ViewCategoryProducts from "../Page/MainBoots/ViewCategoryProducts";
 import routes from "../../routes/routes";
 import stylish from "./App.module.css";
+import FooterBoots from "../Page/FooterBoots/FooterBoots";
 
 
 function App() {
     return (
-        <div className={stylish.App}>
-            <BrowserRouter>
+
+        <BrowserRouter>
+            <div className={stylish.App}>
                 <NavigationBoots/>
                 <Switch>
                     <Route exact path={routes.HOME} component={MainBoots}/>
                     <Route exact path={routes.CONTACT} component={ContactBoots}/>
                     <Route path={`${routes.PRODUCTS}/:categorynum`} component={ViewCategoryProducts}/>
-                    <Redirect to={routes.HOME} />
+                    <Redirect to={routes.HOME}/>
                 </Switch>
-            </BrowserRouter>
-        </div>
+                <footer className={stylish.appFooter}>
+                    <FooterBoots/>
+                </footer>
+            </div>
+        </BrowserRouter>
+
     );
 }
 
