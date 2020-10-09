@@ -16,3 +16,5 @@ export const navIsShowToggle = (value) => {
         }
     }
 };
+
+export default {navIsShowFalse, navIsShowToggle};

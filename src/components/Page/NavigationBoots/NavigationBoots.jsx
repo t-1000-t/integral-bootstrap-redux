@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {navIsShowFalse, navIsShowToggle} from "../../../redux/Actions/navIsShowAction/navIsShowAction";
+import navIsShowAction from "../../../redux/Actions/navIsShowAction";
 import dropDownAboutUsAction from "../../../redux/Actions/dropDownAboutUsAction";
 import navSearchQueryAction from "../../../redux/Actions/navSearchQueryAction";
 import {NavLink} from "react-router-dom";
@@ -154,8 +154,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        NavIsShowToggle: (isNavShow) => dispatch(navIsShowToggle(isNavShow)),
-        NavIsShowFalse: () => dispatch(navIsShowFalse()),
+        NavIsShowToggle: (isNavShow) => dispatch(navIsShowAction.navIsShowToggle(isNavShow)),
+        NavIsShowFalse: () => dispatch(navIsShowAction.navIsShowFalse()),
         showAboutUs: (isShowAboutUs) => dispatch(dropDownAboutUsAction.showAboutUs(isShowAboutUs)),
         navSearchQuery: (isSearchQueryValue) => dispatch(navSearchQueryAction.navSearchQuery(isSearchQueryValue))
     }

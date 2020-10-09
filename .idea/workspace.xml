@@ -19,7 +19,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../traine/Constructor_Vladilen" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/redux/Actions/navIsShowAction" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="C:\Users\home\Desktop\react\BOILERPLAT\integral-bootstrap-redux\node_modules\eslint" />
@@ -30,6 +30,9 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\home\Desktop\react\BOILERPLAT\integral-bootstrap-redux\src\redux\Actions\navIsShowAction" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\home\Desktop\react\BOILERPLAT\integral-bootstrap-redux\src\redux\Reducers" />
       <recent name="C:\Users\home\Desktop\react\BOILERPLAT\integral-bootstrap-redux\src\components\Page" />
@@ -64,7 +67,7 @@
       <workItem from="1602077747305" duration="1565000" />
       <workItem from="1602151213246" duration="1856000" />
       <workItem from="1602190842149" duration="28000" />
-      <workItem from="1602240845408" duration="12631000" />
+      <workItem from="1602240845408" duration="14118000" />
     </task>
     <servers />
   </component>
