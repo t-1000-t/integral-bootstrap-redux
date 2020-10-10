@@ -4,6 +4,7 @@ import dropDownAboutUsReducer from "./Reducers/dropDownAboutUsReducer";
 import navSearchQueryReducer from "./Reducers/navSearchQueryReducer";
 import mainBootsLoadingReducer from "./Reducers/mainBootsLoadingReducer";
 import arrMainBootsReducer from "./Reducers/arrMainBootsReducer";
+import viewCategoryProductsReducer from "./Reducers/viewCategoryProductsReducer";
 
 const rootReducer = combineReducers({
     isNavCatShow: NavIsShowCatalogReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
     textSearchQueryValue: navSearchQueryReducer,
     mainBootsloadingSpinner: mainBootsLoadingReducer,
     arrMaBo: arrMainBootsReducer,
+    isLoadingVCP: viewCategoryProductsReducer,
 });
 
 

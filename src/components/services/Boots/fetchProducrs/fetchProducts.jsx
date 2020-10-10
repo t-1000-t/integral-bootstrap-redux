@@ -1,5 +1,4 @@
 const fetchProducts = async (categoryNumber, pagenum) => {
-    console.log(categoryNumber, pagenum);
     try {
         return await fetch(
             // `http://localhost:5000/api/products/${this.categoryNumber}/${pagenum}`

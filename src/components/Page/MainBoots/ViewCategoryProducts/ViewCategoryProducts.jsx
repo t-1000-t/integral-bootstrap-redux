@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import closeDropdown from "../../../middleware/closeDropdown";
 import CardProduct from "./CardProduct";
 import fetchProducts from "../../../services/Boots/fetchProducrs/fetchProducts";
+import viewCategoryProductsAction from "../../../../redux/Actions/viewCategoryProductsAction";
+import {connect} from "react-redux";
 
 class ViewCategoryProducts extends Component {
 
     state = {
-        isLoading: false,
         arrProducts: [],
         currentPage: 0,
         count: 0,
@@ -29,9 +30,10 @@ class ViewCategoryProducts extends Component {
 
     // --- keep all products --- //
     fetchArrProducts() {
-        const categoryNumber = this.props.match.params.categorynum;
+        const {isLoading, toggleIsLoading} = this.props
         const {currentPage} = this.state;
-        this.setState({isLoading: true});
+        const categoryNumber = this.props.match.params.categorynum;
+        toggleIsLoading(isLoading);
         try {
             fetchProducts(categoryNumber, currentPage)
                 .then((data) => {
@@ -46,7 +48,7 @@ class ViewCategoryProducts extends Component {
                     });
                 })
                 .finally(() => {
-                    this.setState({isLoading: false, isLoadingMoreProducts: false});
+                    toggleIsLoading(isLoading);
                 });
         } catch (err) {
             console.error(err);
@@ -54,7 +56,8 @@ class ViewCategoryProducts extends Component {
     }
 
     render() {
-        const {isLoading, arrProducts} = this.state;
+        const {isLoading} = this.props;
+        const {arrProducts} = this.state;
         return (
             <>
                 {isLoading &&
@@ -77,4 +80,16 @@ class ViewCategoryProducts extends Component {
     }
 }
 
-export default ViewCategoryProducts;
+const mapStateToProps = (state) => {
+    return {
+        isLoading: state.isLoadingVCP,
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        toggleIsLoading: (boolean) => dispatch(viewCategoryProductsAction.viewCatProdIsLoadingToggle(boolean))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ViewCategoryProducts);
+
