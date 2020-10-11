@@ -5,6 +5,7 @@ import navSearchQueryReducer from "./Reducers/navSearchQueryReducer";
 import mainBootsLoadingReducer from "./Reducers/mainBootsLoadingReducer";
 import arrMainBootsReducer from "./Reducers/arrMainBootsReducer";
 import viewCategoryProductsReducer from "./Reducers/viewCategoryProductsReducer";
+import forGetArrProductsAction from "./Reducers/forGetArrProductsReducer";
 
 const rootReducer = combineReducers({
     isNavCatShow: NavIsShowCatalogReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     mainBootsloadingSpinner: mainBootsLoadingReducer,
     arrMaBo: arrMainBootsReducer,
     isLoadingVCP: viewCategoryProductsReducer,
+    arrProducts: forGetArrProductsAction,
 });
 
 

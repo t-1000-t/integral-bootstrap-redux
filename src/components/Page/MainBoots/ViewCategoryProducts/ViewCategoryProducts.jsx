@@ -3,12 +3,12 @@ import closeDropdown from "../../../middleware/closeDropdown";
 import CardProduct from "./CardProduct";
 import fetchProducts from "../../../services/Boots/fetchProducrs/fetchProducts";
 import viewCategoryProductsAction from "../../../../redux/Actions/viewCategoryProductsAction";
+import forGetArrProductsAction from "../../../../redux/Actions/forGetArrProductsAction";
 import {connect} from "react-redux";
 
 class ViewCategoryProducts extends Component {
 
     state = {
-        arrProducts: [],
         currentPage: 0,
         count: 0,
         isLoadingMoreProducts: false,
@@ -30,16 +30,17 @@ class ViewCategoryProducts extends Component {
 
     // --- keep all products --- //
     fetchArrProducts() {
-        const {isLoading, toggleIsLoading} = this.props
+        const {isLoading, toggleIsLoading, getArrProducts} = this.props
         const {currentPage} = this.state;
         const categoryNumber = this.props.match.params.categorynum;
         toggleIsLoading(isLoading);
         try {
             fetchProducts(categoryNumber, currentPage)
                 .then((data) => {
+                    console.log("data.newArr", data.newArr);
+                    getArrProducts(data.newArr);
                     this.setState(({
                         count: data.count,
-                        arrProducts: [...data.newArr],
                     }));
                 })
                 .catch((error) => {
@@ -56,8 +57,7 @@ class ViewCategoryProducts extends Component {
     }
 
     render() {
-        const {isLoading} = this.props;
-        const {arrProducts} = this.state;
+        const {isLoading, products} = this.props;
         return (
             <>
                 {isLoading &&
@@ -68,7 +68,7 @@ class ViewCategoryProducts extends Component {
                 </div>}
                 <div className="container">
                     <div className="row row-cols-1 row-cols-md-3 mt-3">
-                        {arrProducts.length > 0 && arrProducts.map(elem => (
+                        {products.length > 0 && products.map(elem => (
                             <div key={elem.productID} className="col mb-4">
                                 <CardProduct elem={elem} />
                             </div>
@@ -83,11 +83,13 @@ class ViewCategoryProducts extends Component {
 const mapStateToProps = (state) => {
     return {
         isLoading: state.isLoadingVCP,
+        products: state.arrProducts,
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        toggleIsLoading: (boolean) => dispatch(viewCategoryProductsAction.viewCatProdIsLoadingToggle(boolean))
+        toggleIsLoading: (boolean) => dispatch(viewCategoryProductsAction.viewCatProdIsLoadingToggle(boolean)),
+        getArrProducts: (arr) => dispatch(forGetArrProductsAction.getArrProducts(arr))
     }
 }
 
