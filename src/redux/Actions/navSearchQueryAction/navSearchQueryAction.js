@@ -7,4 +7,4 @@ const navSearchQuery = (value) => {
     }
 };
 
-export default {navSearchQuery};
+export default {navSearchQuery}; 
