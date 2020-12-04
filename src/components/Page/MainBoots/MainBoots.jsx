@@ -69,7 +69,7 @@ class MainBoots extends Component {
     mainBootsLoadingTrue();
     try {
       await fetch(
-        `http://nodeint-env.eba-zgn2whfp.us-east-2.elasticbeanstalk.com/api/search/${isSearchQueryValue}`
+        `https://intshop.link/api/search/${isSearchQueryValue}`
         // `https://shop-integral.herokuapp.com/api/search/${isSearchQueryValue}`
         // `https://shop-bootstrap.herokuapp.com/api/search/${isSearchQueryValue}`
       )
