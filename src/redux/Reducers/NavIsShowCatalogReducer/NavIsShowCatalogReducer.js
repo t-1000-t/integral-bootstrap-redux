@@ -1,12 +1,12 @@
 const NavIsShowCatalogReducer = (state = false, action) => {
-switch (action.type) {
+  switch (action.type) {
     case "NAV_ACTION_SHOW_FALSE":
-        return state = false;
+      return (state = false);
     case "NAV_ACTION_SHOW_TOGGLE":
-        return state = !state;
+      return (state = !state);
     default:
-        return state;
-}
+      return state;
+  }
 };
 
 export default NavIsShowCatalogReducer;

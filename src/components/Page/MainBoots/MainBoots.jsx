@@ -78,7 +78,7 @@ class MainBoots extends Component {
         .then(arr => {
           console.log("ARR 2", arr);
           // console.log("ARR count", arr.length);
-          if (!arr) {
+          if (!arr || arr === []) {
             return;
           }
           isArraySP(arr);

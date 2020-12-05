@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import navIsShowAction from "../../../redux/Actions/navIsShowAction";
 import dropDownAboutUsAction from "../../../redux/Actions/dropDownAboutUsAction";
 import navSearchQueryAction from "../../../redux/Actions/navSearchQueryAction";
-// import mainBootsLoadingAction from "../../../redux/Actions/arrMainBootsAction";
+import forGetArrProductsAction from "../../../redux/Actions/forGetArrProductsAction";
 import { NavLink } from "react-router-dom";
 import closeDropdown from "../../middleware/closeDropdown";
 import showDropdown from "../../middleware/showDropdown";
-// import arrSearchAction from "../../../redux/Actions/arrSearchAction";
+import arrSearchAction from "../../../redux/Actions/arrSearchAction";
 import Dropright from "../MainBoots/Dropright";
 import shortid from "shortid";
 import categ_list from "../../services/categ_list";
@@ -53,9 +53,11 @@ class NavigationBoots extends Component {
 
   handleSubmit = e => {
     const { text } = this.state;
-    const { navSearchQuery } = this.props;
+    const { navSearchQuery, getArrProducts } = this.props;
     e.preventDefault();
     navSearchQuery(text);
+    getArrProducts([]);
+    closeDropdown();
   };
 
   handleChange = e => {
@@ -72,7 +74,8 @@ class NavigationBoots extends Component {
       textSearchQueryValue,
       NavIsShowToggle,
       NavIsShowFalse,
-      showAboutUs
+      showAboutUs,
+      isArraySP
     } = this.props;
 
     return (
@@ -80,7 +83,11 @@ class NavigationBoots extends Component {
         <div>
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container d-flex">
-              <a href="/#" className="navbar-brand d-flex align-items-center">
+              <NavLink
+                onClick={NavIsShowFalse}
+                to={`${routes.HOME}`}
+                className="navbar-brand d-flex align-items-center"
+              >
                 <svg
                   width="1.5em"
                   height="1.5em"
@@ -95,16 +102,16 @@ class NavigationBoots extends Component {
                   />
                   <path d="M0 12h16v.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5V12z" />
                 </svg>
-                <strong>Integral</strong>
-              </a>
+                <strong onClick={() => isArraySP([])}>Integral</strong>
+              </NavLink>
               <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="navbar-nav">
                   <li
                     id="closeDropdownShow"
                     className="nav-item dropdown active"
                   >
-                    <a
-                      href="/#"
+                    <NavLink
+                      to={`${routes.HOME}`}
                       onClick={NavIsShowToggle}
                       className="nav-link dropdown-toggle"
                       id="navbarDropdownMenuLink"
@@ -114,7 +121,7 @@ class NavigationBoots extends Component {
                       aria-expanded={isNavCatShow ? "true" : "false"}
                     >
                       Каталог товаров
-                    </a>
+                    </NavLink>
                     <div
                       id="menuDropdownShow"
                       className="dropdown-menu row"
@@ -131,9 +138,8 @@ class NavigationBoots extends Component {
                       <button
                         onClick={NavIsShowFalse}
                         className="dropdown-item text-muted"
-                        href="/#"
                       >
-                        Закрыть{" "}
+                        Закрыть
                         <svg
                           width="1em"
                           height="1em"
@@ -238,7 +244,9 @@ const mapDispatchToProps = dispatch => {
     showAboutUs: isShowAboutUs =>
       dispatch(dropDownAboutUsAction.showAboutUs(isShowAboutUs)),
     navSearchQuery: isSearchQueryValue =>
-      dispatch(navSearchQueryAction.navSearchQuery(isSearchQueryValue))
+      dispatch(navSearchQueryAction.navSearchQuery(isSearchQueryValue)),
+    isArraySP: arr => dispatch(arrSearchAction.arrayAction(arr)),
+    getArrProducts: arr => dispatch(forGetArrProductsAction.getArrProducts(arr))
   };
 };
 
