@@ -69,9 +69,8 @@ class MainBoots extends Component {
     mainBootsLoadingTrue();
     try {
       await fetch(
-        `https://intshop.link/api/search/${isSearchQueryValue}`
         // `https://shop-integral.herokuapp.com/api/search/${isSearchQueryValue}`
-        // `https://shop-bootstrap.herokuapp.com/api/search/${isSearchQueryValue}`
+        `https://shop-bootstrap.herokuapp.com/api/search/${isSearchQueryValue}`
       )
         .then(res => res.json())
         .then(async data => await data.item)
