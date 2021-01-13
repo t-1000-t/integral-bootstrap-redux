@@ -68,9 +68,10 @@ class MainBoots extends Component {
     console.log("TEXT :", isSearchQueryValue);
     mainBootsLoadingTrue();
     try {
+      // const proxy = "https://cors-anywhere.herokuapp.com";
       await fetch(
         // `https://shop-integral.herokuapp.com/api/search/${isSearchQueryValue}`
-        `https://shop-bootstrap.herokuapp.com/api/search/${isSearchQueryValue}`
+        `https://req-server-boots.herokuapp.com/api/search/${isSearchQueryValue}`
       )
         .then(res => res.json())
         .then(async data => await data.item)

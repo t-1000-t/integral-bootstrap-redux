@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import useCountRenders from "../../../services/useCountRenders";
 // import useFetchSearch from "../../../services/useFetchSearch/useFetchSearch";
 import MainCard from "../MainCard";
-import arrSearchAction from "../../../../redux/Actions/arrSearchAction";
+// import arrSearchAction from "../../../../redux/Actions/arrSearchAction";
 
 // http://localhost:5000/api/search/:string
 
 const SearchProducts = ({ loading, data }) => {
   useCountRenders();
 
-  //   const { data, loading } = useFetchSearch(
-  //     // "http://localhost:5000/api/search/DELL"
-  //     `http://localhost:5000/api/search/${isQueryValue}`
-  //   );
-  //   console.log("DATA!: ", typeof data);
-  //   console.log("DATA!: ", data);
+  // const { state } = useFetchSearch(
+  //   // "http://localhost:5000/api/search/DELL"
+  //   `http://localhost:5000/api/search/${text}`
+  // );
+  // console.log("DATA!: ", typeof data);
+  // console.log("DATA!: ", data);
 
   return (
     <main role="main">
