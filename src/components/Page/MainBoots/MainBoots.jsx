@@ -4,6 +4,7 @@ import mainBootsLoadingAction from "../../../redux/Actions/mainBootsLoadingActio
 import MainCard from "./MainCard";
 import arrMainBootsAction from "../../../redux/Actions/arrMainBootsAction";
 import arrSearchAction from "../../../redux/Actions/arrSearchAction";
+import routes from "../../../routes";
 // import useCountRenders from "../../services/useCountRenders";
 
 class MainBoots extends Component {
@@ -42,8 +43,7 @@ class MainBoots extends Component {
     try {
       return fetch(
         // `http://localhost:5000/api/main`
-        `https://shop-integral.herokuapp.com/api/main`
-        // `https://shop-bootstrap.herokuapp.com/api/main`
+        `${routes.URL}/api/main`
       )
         .then(res => res.json())
         .then(data => data.main)
@@ -71,12 +71,12 @@ class MainBoots extends Component {
       // const proxy = "https://cors-anywhere.herokuapp.com";
       await fetch(
         // `https://shop-integral.herokuapp.com/api/search/${isSearchQueryValue}`
-        `https://req-server-boots.herokuapp.com/api/search/${isSearchQueryValue}`
+        `${routes.URL}/api/search/${isSearchQueryValue}`
       )
         .then(res => res.json())
         .then(async data => await data.item)
         .then(arr => {
-          console.log("ARR 2", arr);
+          // console.log("ARR 2", arr);
           // console.log("ARR count", arr.length);
           if (!arr || arr === []) {
             return;

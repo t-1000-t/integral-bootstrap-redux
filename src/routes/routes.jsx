@@ -1,4 +1,5 @@
 export default {
+  URL: "https://integral-server-route.herokuapp.com",
   HOME: "/",
   MAIN: "/main",
   CONTACT: "/contact",
@@ -6,6 +7,6 @@ export default {
   PRODUCT_CODE: "/product/product_code",
   PRODUCTS: "/products",
   FILTERDB: "/filterdb",
-  SEARCH: "/search",
+  SEARCH: "/search"
   //   PRODUCTS_DETAILS: "/products/:someone"
 };
