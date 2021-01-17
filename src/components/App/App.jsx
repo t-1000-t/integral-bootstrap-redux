@@ -4,6 +4,7 @@ import MainBoots from "../Page/MainBoots/MainBoots";
 import NavigationBoots from "../Page/NavigationBoots";
 import ContactBoots from "../Page/MainBoots/ContactBoots/ContactBoots";
 import ViewCategoryProducts from "../Page/MainBoots/ViewCategoryProducts";
+// import FeedBackForm from "../Page/MainBoots/FeedBackForm";
 // import SearchProducts from "../Page/MainBoots/SearchProducts_";
 import ViewProduct from "../Page/MainBoots/ViewProduct/ViewProduct";
 import routes from "../../routes/routes";
@@ -18,6 +19,7 @@ function App() {
         <Switch>
           <Route exact path={routes.HOME} component={MainBoots} />
           <Route exact path={routes.CONTACT} component={ContactBoots} />
+          {/* <Route exact path={routes.FEEDBACK} component={FeedBackForm} /> */}
           <Route
             path={`${routes.PRODUCTS}/:categorynum`}
             component={ViewCategoryProducts}

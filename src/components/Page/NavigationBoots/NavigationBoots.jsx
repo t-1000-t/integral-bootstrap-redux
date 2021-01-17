@@ -203,13 +203,19 @@ class NavigationBoots extends Component {
                   <h4 className="text-white">Контакты</h4>
 
                   <ul className="list-unstyled">
-                    <NavLink to={`${routes.CONTACT}`} className="text-white">
+                    <NavLink to={routes.CONTACT} className="text-white">
                       <li>contact page</li>
                     </NavLink>
                     <li>
-                      <a href="/#" className="text-white">
-                        Like on Facebook
+                      <a
+                        href="https://sending-feedback-form.herokuapp.com"
+                        className="text-white"
+                      >
+                        Форма обратной связи
                       </a>
+                      {/* <NavLink to={routes.FEEDBACK} className="text-white">
+                        <li>Форма обратной связи</li>
+                      </NavLink> */}
                     </li>
                     <li>
                       <a href="/#" className="text-white">

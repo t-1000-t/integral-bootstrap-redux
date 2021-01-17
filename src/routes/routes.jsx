@@ -7,6 +7,7 @@ export default {
   PRODUCT_CODE: "/product/product_code",
   PRODUCTS: "/products",
   FILTERDB: "/filterdb",
-  SEARCH: "/search"
+  SEARCH: "/search",
+  FEEDBACK: "/feedback"
   //   PRODUCTS_DETAILS: "/products/:someone"
 };
