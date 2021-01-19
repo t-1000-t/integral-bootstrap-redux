@@ -1,5 +1,6 @@
 export default {
   URL: "https://integral-server-route.herokuapp.com",
+  URLSearch: "https://req-server-boots.herokuapp.com",
   HOME: "/",
   MAIN: "/main",
   CONTACT: "/contact",

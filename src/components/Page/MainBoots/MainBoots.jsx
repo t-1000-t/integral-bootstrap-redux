@@ -71,7 +71,7 @@ class MainBoots extends Component {
       // const proxy = "https://cors-anywhere.herokuapp.com";
       await fetch(
         // `https://shop-integral.herokuapp.com/api/search/${isSearchQueryValue}`
-        `${routes.URL}/api/search/${isSearchQueryValue}`
+        `${routes.URLSearch}/api/search/${isSearchQueryValue}`
       )
         .then(res => res.json())
         .then(async data => await data.item)
