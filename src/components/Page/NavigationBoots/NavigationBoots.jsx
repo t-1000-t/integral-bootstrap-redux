@@ -51,15 +51,6 @@ class NavigationBoots extends Component {
     this.props.NavIsShowFalse();
   };
 
-  handleSubmit = e => {
-    const { text } = this.state;
-    const { navSearchQuery, getArrProducts } = this.props;
-    e.preventDefault();
-    navSearchQuery(text);
-    getArrProducts([]);
-    closeDropdown();
-  };
-
   handleChange = e => {
     e.preventDefault();
     this.setState({
@@ -71,7 +62,7 @@ class NavigationBoots extends Component {
     const {
       isNavCatShow,
       isShowAboutUs,
-      textSearchQueryValue,
+
       NavIsShowToggle,
       NavIsShowFalse,
       showAboutUs,
@@ -155,20 +146,6 @@ class NavigationBoots extends Component {
                   </li>
                 </ul>
               </div>
-              <form
-                onSubmit={this.handleSubmit}
-                className="form-inline mt-0 mt-md-0 ml-sm-2 mr-sm-4"
-              >
-                <input
-                  className="form-control mr-sm-2"
-                  type="text"
-                  placeholder="Поиск..."
-                  aria-label="Поиск..."
-                  value={textSearchQueryValue}
-                  onChange={this.handleChange}
-                />
-              </form>
-
               <button
                 onClick={() => showAboutUs(isShowAboutUs)}
                 type="button"

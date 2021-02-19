@@ -1,176 +1,109 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import mainBootsLoadingAction from "../../../redux/Actions/mainBootsLoadingAction";
+import React, {useState, useEffect, useReducer, useRef, Fragment} from "react";
 import MainCard from "./MainCard";
-import arrMainBootsAction from "../../../redux/Actions/arrMainBootsAction";
-import arrSearchAction from "../../../redux/Actions/arrSearchAction";
 import routes from "../../../routes";
-// import useCountRenders from "../../services/useCountRenders";
+import axios from "axios"
+import itemsReducer from "../../services/ServiceHooks/itemsReducer";
+import SinglePage from "./SinglePage/SinglePage";
 
-class MainBoots extends Component {
-  state = {
-    count: 0,
-    send: false
-  };
-  componentDidMount() {
-    this.fetchHomeProducts();
-  }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    const { isSearchQueryValue } = this.props;
-    if (prevProps.isSearchQueryValue !== isSearchQueryValue) {
-      this.setState({
-        count: 0
-      });
-      this.fetchArrSearch();
-    }
-  }
+const MainBoots = () => {
+    const [isLoadingSpinner, setIsLoadingSpinner] = useState(false)
+    const [isError, setIsError] = useState(false)
+    const [isSend, setIsSend] = useState(false)
 
-  increment = () => {
-    this.setState(state => ({
-      count: state.count + 1
-    }));
-  };
-  decrement = () => {
-    this.setState(state => ({
-      count: state.count - 1
-    }));
-  };
+    // count
+    const [count, setCount] = useState(0)
 
-  fetchHomeProducts() {
-    const { mainBootsLoadingTrue, arrayMainBoots } = this.props;
-    mainBootsLoadingTrue();
-    try {
-      return fetch(
-        // `http://localhost:5000/api/main`
-        `${routes.URL}/api/main`
-      )
-        .then(res => res.json())
-        .then(data => data.main)
-        .then(arr => {
-          arrayMainBoots(arr);
-        })
-        .catch(error => {
-          console.error(error);
-        })
-        .finally(() => {
-          const { mainBootsLoadingFalse } = this.props;
-          mainBootsLoadingFalse();
-        });
-    } catch (err) {
-      console.error(err);
-    }
-  }
 
-  // fetch 2
-  fetchArrSearch = async () => {
-    const { isArraySP, mainBootsLoadingTrue, isSearchQueryValue } = this.props;
-    console.log("TEXT :", isSearchQueryValue);
-    mainBootsLoadingTrue();
-    try {
-      // const proxy = "https://cors-anywhere.herokuapp.com";
-      await fetch(
-        // `https://shop-integral.herokuapp.com/api/search/${isSearchQueryValue}`
-        `${routes.URLSearch}/api/search/${isSearchQueryValue}`
-      )
-        .then(res => res.json())
-        .then(async data => await data.item)
-        .then(arr => {
-          // console.log("ARR 2", arr);
-          // console.log("ARR count", arr.length);
-          if (!arr || arr === []) {
-            return;
-          }
-          isArraySP(arr);
-          if (arr.length === 0) {
-            this.setState({
-              send: true
-            });
-          } else {
-            this.setState({
-              send: false
-            });
-          }
-        })
-        .catch(error => {
-          console.error(error);
-        })
-        .finally(() => {
-          const { mainBootsLoadingFalse } = this.props;
-          mainBootsLoadingFalse();
-        });
-    } catch (err) {
-      console.error(err);
-    }
-  };
 
-  render() {
-    const { count, send } = this.state;
-    const { isLoadingSpinner, arrMain, isArray } = this.props;
+    // Array by text query
+    const [isSearchQueryValue, setIsSearchQueryValue] = useState('')
+    const [search, setSearch] = useState(null)
+
+    // for clean search text
+    useEffect(() => {
+        if (!isSearchQueryValue) {
+            setSearch(null)
+        }
+    }, [isSearchQueryValue])
+
+    const [items, dispatch] = useReducer(itemsReducer, [])
+
+
+    useEffect(() => {
+        let source = axios.CancelToken.source()
+        const fetchData = async () => {
+            setIsLoadingSpinner(true)
+            setIsError(false)
+            try {
+                const result = await axios(`${routes.URLSearch}/api/search/${search}`, {
+                    cancelToken: source.token
+                })
+                console.log("AxiosCancel: got response")
+                const {item} = result.data
+                dispatch({type: 'addItems', payload: {item}})
+            } catch (error) {
+                if (axios.isCancel(error)) {
+                    console.log("AxiosCancel: caught cancel")
+                }
+                setIsError(true)
+            }
+            setIsLoadingSpinner(false)
+        }
+        fetchData().then(data => data)
+
+        return () => {
+            console.log("AxiosCancel: unmounting");
+            source.cancel()
+        }
+    }, [search])
+
+
+    console.log("render")
+
     return (
-      <main role="main">
-        {isLoadingSpinner && (
-          <div className="text-center">
-            <div className="spinner-border m-5" role="status">
-              <span className="sr-only">Loading...</span>
+        <div className="bg-white">
+            <div className="container p-1">
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault()
+                        setSearch(isSearchQueryValue)}}
+                    className="form-inline mt-0 mt-md-0 ml-sm-2 mr-sm-4"
+                >
+                    <input
+                        className="form-control mr-sm-2"
+                        type="text"
+                        placeholder="Глобальный поиск..."
+                        aria-label="Глобальный поиск..."
+                        value={isSearchQueryValue}
+                        onChange={e => setIsSearchQueryValue(e.target.value)}
+                    />
+                </form>
             </div>
-          </div>
-        )}
-        {!isLoadingSpinner && (
-          <div className="album py-5 bg-white">
-            <div className="container">
-              <div className="row">
-                {send && <div>Товара в таким именем нет в базе!</div>}
-                {isArray.length >= 1
-                  ? isArray[count].map((elem, idx) => (
-                      <MainCard key={idx} elem={elem}></MainCard>
-                    ))
-                  : arrMain.map((elem, idx) => (
-                      <MainCard key={idx} elem={elem}></MainCard>
-                    ))}
-              </div>
-            </div>
-            <button
-              disabled={!count}
-              onClick={() => {
-                this.decrement();
-              }}
-            >
-              More items
-            </button>
-            <button
-              disabled={count === isArray.length - 1}
-              onClick={() => {
-                this.increment();
-              }}
-            >
-              More items
-            </button>
-          </div>
-        )}
-      </main>
-    );
-  }
+            {isError && <div>Something went wrong ...</div>}
+            <main role="main">
+                {isLoadingSpinner && (
+                    <div className="text-center">
+                        <div className="spinner-border m-5" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                )}
+                {!isLoadingSpinner && (
+                    <div className="album py-5 bg-white">
+                        <div className="container">
+                            <div className="row">
+                                {isSend && <div>Товара в таким именем в базе нет!</div>}
+                                {items.length !== 0 ? items[count].map((elem, idx) => (
+                                    <MainCard key={idx} elem={elem}/>)) : <SinglePage />}
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </main>
+        </div>
+    )
 }
 
-const mapStateToProps = state => {
-  return {
-    isLoadingSpinner: state.mainBootsloadingSpinner,
-    arrMain: state.arrMaBo,
-    isSearchQueryValue: state.textSearchQueryValue,
-    isArray: state.arraySP
-  };
-};
 
-const mapDispatchToProps = dispatch => {
-  return {
-    mainBootsLoadingFalse: () =>
-      dispatch(mainBootsLoadingAction.mainBootsLoadingFalse()),
-    mainBootsLoadingTrue: () =>
-      dispatch(mainBootsLoadingAction.mainBootsLoadingTrue()),
-    arrayMainBoots: val => dispatch(arrMainBootsAction.arrayMainBoots(val)),
-    isArraySP: arr => dispatch(arrSearchAction.arrayAction(arr))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainBoots);
+export default MainBoots;
