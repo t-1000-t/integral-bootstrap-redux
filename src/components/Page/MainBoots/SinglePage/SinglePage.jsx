@@ -33,20 +33,21 @@ export default function SinglePage() {
 
         fetchData().then(data => data)
 
-        return() => {
+        return () => {
             console.log("AxiosCancel: unmounting")
             source.cancel()
         }
     }, [query])
 
     return (
-        <Fragment>
+        <main role="main" className="container p-1">
             {isLoading && (
-                <div className="text-center">
-                    <div className="spinner-border m-5" role="status">
-                        <span className="sr-only">Loading...</span>
+                    <div className="text-center">
+                        <div className="spinner-border m-5" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </div>
                     </div>
-                </div>
+
             )}
             {isError && <div>Something went wrong ..</div>}
             {!isLoading && (
@@ -59,6 +60,6 @@ export default function SinglePage() {
                     </div>
                 </div>
             )}
-        </Fragment>
+        </main>
     )
 }

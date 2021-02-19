@@ -90,7 +90,7 @@ const MainBoots = () => {
                     </div>
                 )}
                 {!isLoadingSpinner && (
-                    <div className="album py-5 bg-white">
+                    <div className="album py-1 bg-white">
                         <div className="container">
                             <div className="row">
                                 {isSend && <div>Товара в таким именем в базе нет!</div>}
