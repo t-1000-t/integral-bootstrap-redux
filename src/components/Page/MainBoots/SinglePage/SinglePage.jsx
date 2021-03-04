@@ -2,7 +2,7 @@ import React, {useState, useEffect, useReducer, Fragment} from 'react'
 import axios from "axios"
 import routes from "../../../../routes"
 import MainCard from "../MainCard";
-import mainReducer from "../../../services/ServiceHooks/mainReducer";
+import mainReducer from "../../../services/ServiceHooks/allReducers/mainReducer";
 
 export default function SinglePage() {
     const [query, setQuery] = useState('main')
@@ -24,14 +24,15 @@ export default function SinglePage() {
                 dispatch({type: "getMain", payload: {main}})
             } catch (error) {
                 if (axios.isCancel(error)) {
-                    console.log("AxiosCancel: caught cancel")
+                    console.log("AxiosCancel: caught cancel", error.message)
+                } else {
+                    setIsError(true)
                 }
-                setIsError(true)
             }
             setIsLoading(false)
         }
 
-        fetchData().then(data => data)
+        fetchData()
 
         return () => {
             console.log("AxiosCancel: unmounting")
@@ -42,11 +43,11 @@ export default function SinglePage() {
     return (
         <main role="main" className="container p-1">
             {isLoading && (
-                    <div className="text-center">
-                        <div className="spinner-border m-5" role="status">
-                            <span className="sr-only">Loading...</span>
-                        </div>
+                <div className="text-center">
+                    <div className="spinner-border m-5" role="status">
+                        <span className="sr-only">Loading...</span>
                     </div>
+                </div>
 
             )}
             {isError && <div>Something went wrong ..</div>}

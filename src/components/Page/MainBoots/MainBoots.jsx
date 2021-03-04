@@ -1,8 +1,8 @@
-import React, {useState, useEffect, useReducer, useRef, Fragment} from "react";
+import React, {useState, useEffect, useReducer} from "react";
 import MainCard from "./MainCard";
 import routes from "../../../routes";
 import axios from "axios"
-import itemsReducer from "../../services/ServiceHooks/itemsReducer";
+import itemsReducer from "../../services/ServiceHooks/allReducers/itemsReducer";
 import SinglePage from "./SinglePage/SinglePage";
 
 
@@ -13,7 +13,6 @@ const MainBoots = () => {
 
     // count
     const [count, setCount] = useState(0)
-
 
 
     // Array by text query
@@ -58,16 +57,14 @@ const MainBoots = () => {
         }
     }, [search])
 
-
-    console.log("render")
-
     return (
         <div className="bg-white">
             <div className="container p-1">
                 <form
                     onSubmit={(e) => {
                         e.preventDefault()
-                        setSearch(isSearchQueryValue)}}
+                        setSearch(() => isSearchQueryValue)
+                    }}
                     className="form-inline mt-0 mt-md-0 ml-sm-2 mr-sm-4"
                 >
                     <input
@@ -95,7 +92,7 @@ const MainBoots = () => {
                             <div className="row">
                                 {isSend && <div>Товара в таким именем в базе нет!</div>}
                                 {items.length !== 0 ? items[count].map((elem, idx) => (
-                                    <MainCard key={idx} elem={elem}/>)) : <SinglePage />}
+                                    <MainCard key={idx} elem={elem}/>)) : <SinglePage/>}
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-const itemsReducer = (state, action) => {
+const itemsReducer = (state = [], action) => {
     switch (action.type) {
         case 'addItems':
             return [...action.payload.item]

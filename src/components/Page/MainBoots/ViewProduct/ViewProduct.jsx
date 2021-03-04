@@ -1,13 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class ViewProduct extends Component {
-    render() {
+function ViewProduct() {
         return (
             <div>
                 OK
             </div>
         );
-    }
 }
 
 export default ViewProduct;

@@ -1,4 +1,4 @@
-const mainReducer = (state, action) => {
+const mainReducer = (state = [], action) => {
     switch (action.type) {
         case "getMain":
             return [...action.payload.main]

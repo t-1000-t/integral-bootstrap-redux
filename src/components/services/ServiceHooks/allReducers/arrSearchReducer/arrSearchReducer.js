@@ -1,7 +1,7 @@
 const arrSearchReducer = (state = [], action) => {
   switch (action.type) {
     case "ARR_SEARCH":
-      return (state = action.payload.arrSearch);
+      return [...action.payload.isArraySP];
     default:
       return state;
   }
