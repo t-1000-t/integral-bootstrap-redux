@@ -10,9 +10,6 @@ const MainBoots = () => {
     const [isLoadingSpinner, setIsLoadingSpinner] = useState(false)
     const [isError, setIsError] = useState(false)
 
-    // count
-    const [count, setCount] = useState(0)
-
 
     // Array by text query
     const [isSearchQueryValue, setIsSearchQueryValue] = useState('')
@@ -89,7 +86,7 @@ const MainBoots = () => {
                     <div className="album py-1 bg-white">
                         <div className="container">
                             <div className="row">
-                                {items.length !== 0 ? items[count].map((elem, idx) => (
+                                {items.length !== 0 ? items[0].map((elem, idx) => (
                                     <MainCard key={idx} elem={elem}/>)) : <SinglePage/>}
                             </div>
                         </div>

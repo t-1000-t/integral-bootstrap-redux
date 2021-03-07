@@ -52,8 +52,8 @@ function NavigationBoots() {
     return (
         <header>
             <>
-                <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <div className="container d-flex">
+                <nav className="fixed-top navbar navbar-expand-lg navbar-light bg-light">
+                    <div className="container d-flex justify-content-around">
                         <NavLink
                             onClick={() => dispatch({type: "NAV_SHOW_TOGGLE", payload: {navIS}})}
                             to={`${routes.HOME}`}
@@ -79,61 +79,61 @@ function NavigationBoots() {
                             })}>Integral</strong>
                         </NavLink>
                         <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                                <ul className="navbar-nav" id="ulBarDropdownMenuLink">
-                                    <li
-                                        id="closeDropdownShow"
-                                        className="nav-item dropdown active"
+                            <ul className="navbar-nav" id="ulBarDropdownMenuLink">
+                                <li
+                                    id="closeDropdownShow"
+                                    className="nav-item dropdown active"
+                                >
+                                    <nav
+                                        onClick={() => dispatchCatalog({
+                                            type: "NAV_SHOW_CATALOG_TOGGLE",
+                                            payload: {navISC}
+                                        })}
+                                        className={navISC ? "nav-link dropdown-toggle show" : "nav-link dropdown-toggle"}
+                                        id="navbarDropdownMenuLink"
+                                        role="button"
+                                        data-toggle="dropdown"
+                                        aria-haspopup="false"
+                                        aria-expanded={navISC ? "true" : "false"}
                                     >
-                                        <nav
+                                        Каталог товаров
+                                    </nav>
+                                    <div
+                                        id="menuDropdownShow"
+                                        className={navISC ? "dropdown-menu row show" : "dropdown-menu row"}
+                                        aria-labelledby="navbarDropdownMenuLink"
+                                    >
+                                        {categ_list.category.map(elem => (
+                                            <Dropright
+                                                key={shortid.generate()}
+                                                id={shortid.generate()}
+                                                category={elem.category}
+                                                list={elem.list}
+                                            />
+                                        ))}
+                                        <button
                                             onClick={() => dispatchCatalog({
                                                 type: "NAV_SHOW_CATALOG_TOGGLE",
                                                 payload: {navISC}
                                             })}
-                                            className={navISC ? "nav-link dropdown-toggle show" : "nav-link dropdown-toggle"}
-                                            id="navbarDropdownMenuLink"
-                                            role="button"
-                                            data-toggle="dropdown"
-                                            aria-haspopup="false"
-                                            aria-expanded={navISC ? "true" : "false"}
+                                            className="dropdown-item text-muted"
                                         >
-                                            Каталог товаров
-                                        </nav>
-                                        <div
-                                            id="menuDropdownShow"
-                                            className={navISC ? "dropdown-menu row show" : "dropdown-menu row"}
-                                            aria-labelledby="navbarDropdownMenuLink"
-                                        >
-                                            {categ_list.category.map(elem => (
-                                                <Dropright
-                                                    key={shortid.generate()}
-                                                    id={shortid.generate()}
-                                                    category={elem.category}
-                                                    list={elem.list}
-                                                />
-                                            ))}
-                                            <button
-                                                onClick={() => dispatchCatalog({
-                                                    type: "NAV_SHOW_CATALOG_TOGGLE",
-                                                    payload: {navISC}
-                                                })}
-                                                className="dropdown-item text-muted"
+                                            Закрыть
+                                            <svg
+                                                width="1em"
+                                                height="1em"
+                                                viewBox="0 0 16 16"
+                                                className="bi bi-caret-up-fill text-success"
+                                                fill="currentColor"
+                                                xmlns="http://www.w3.org/2000/svg"
                                             >
-                                                Закрыть
-                                                <svg
-                                                    width="1em"
-                                                    height="1em"
-                                                    viewBox="0 0 16 16"
-                                                    className="bi bi-caret-up-fill text-success"
-                                                    fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                >
-                                                    <path
-                                                        d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </li>
-                                </ul>
+                                                <path
+                                                    d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                         <button
                             onClick={() => dispatchAboutUs({type: "DROP_DOWN_ABOUT_US", payload: {showAU}})}
@@ -156,21 +156,24 @@ function NavigationBoots() {
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-8 col-md-7 py-4">
-                                <h4 className="text-white">О нас</h4>
-                                <p className="text-muted">
-                                    Add some information about the album below, the author, or
-                                    any other background context. Make it a few sentences long
-                                    so folks can pick up some informative tidbits. Then, link
-                                    them off to some social networking sites or contact
-                                    information.
-                                </p>
+                                <div className="pt-5">
+                                    <h4 className="text-white">О нас</h4>
+                                    <p className="text-muted">
+                                        Мы занимаемся продажей и сборкой компьютеров в Украине.
+                                        Наш высокий уровень сотрудничества подтверждается официальным статусом работы.
+                                        В каталоге нашего интернет-магазина представлены сотни конфигураций под разные
+                                        задачи и бюджеты.
+                                        Мы учтем все пожелания по конфигурации, внешнему виду, способу оплаты, времени
+                                        сборки и доставки.
+                                    </p>
+                                </div>
                             </div>
                             <div className="col-sm-4 offset-md-1 py-4">
                                 <h4 className="text-white">Контакты</h4>
 
                                 <ul className="list-unstyled">
                                     <NavLink to={routes.CONTACT} className="text-white">
-                                        <li>contact page</li>
+                                        <li>Контакты</li>
                                     </NavLink>
                                     <li>
                                         <a
@@ -184,8 +187,11 @@ function NavigationBoots() {
                       </NavLink> */}
                                     </li>
                                     <li>
-                                        <a href="/#" className="text-white">
-                                            Email
+                                        <a
+                                            href="#"
+                                            className="text-white"
+                                        >
+                                            Оплата
                                         </a>
                                     </li>
                                 </ul>

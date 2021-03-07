@@ -19,12 +19,14 @@ function ViewCategoryProducts() {
 
     // useParams
     const params = useParams()
-    const categoryNumber = params.categorynum
+    const categoryNumber = params.categoryNum
 
     // useEffect by closeDropdown
     useEffect(() => {
         closeDropdown()
     }, [])
+
+    console.log(currentPage)
 
     // --- useEffect for will get all products --- //
     useEffect(() => {
@@ -38,10 +40,6 @@ function ViewCategoryProducts() {
                 })
                 console.log("AxiosCancel: got response products")
                 const {newArr} = result.data
-                if (newArr) {
-                    console.log("OK")
-                    dispatchCatalog({type: "NAV_SHOW_CATALOG_CLOSE", payload: {navISC}})
-                }
                 dispatchP({type: 'GET_ARR_PRODUCTS', payload: {newArr}})
             } catch (error) {
                 if (axios.isCancel(error)) {
@@ -52,7 +50,7 @@ function ViewCategoryProducts() {
             setIsLoading(false)
         }
 
-        fetchData()
+        fetchData().then(r => r)
 
         return () => {
             console.log("AxiosCancel: unmounting products");
@@ -63,24 +61,35 @@ function ViewCategoryProducts() {
     return (
         <>
             {isLoading && (
-                <div className="text-center">
+                <div className="text-center mt-5">
                     <div className="spinner-border m-5" role="status">
                         <span className="sr-only">Loading...</span>
                     </div>
                 </div>
             )}
 
-            <div className="container">
-                {isError && <div>Something went wrong ...</div>}
-                <div className="row row-cols-1 row-cols-md-3 mt-3">
-                    {products.length > 0 &&
-                    products.map(elem => (
-                        <div key={elem.productID} className="col mb-4">
-                            <CardProduct elem={elem}/>
-                        </div>
-                    ))}
+            {!isLoading && (<div className="container">
+                    {isError && <div>Something went wrong ...</div>}
+                    <div class="d-flex justify-content-center">
+                    <button disabled={!currentPage} onClick={() => {
+                        setCurrentPage(e => e - 1)
+                    }} type="button" className="btn btn-secondary m-2">
+                    </button>
+                    <div className="row row-cols-1 row-cols-md-3 mt-3 pt-5">
+                        {products.length > 0 &&
+                        products.map(elem => (
+                            <div key={elem.productID} className="col mb-4">
+                                <CardProduct elem={elem}/>
+                            </div>
+                        ))}
+                    </div>
+                        <button onClick={() => {
+                            setCurrentPage(e => e + 1)
+                        }} type="button" class="btn btn-secondary m-2">
+                        </button>
+                    </div>
                 </div>
-            </div>
+            )}
         </>
     );
 }

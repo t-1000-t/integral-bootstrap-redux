@@ -22,11 +22,11 @@ function App() {
                         <Route exact path={routes.CONTACT} component={ContactBoots}/>
                         {/* <Route exact path={routes.FEEDBACK} component={FeedBackForm} /> */}
                         <Route
-                            path={`${routes.PRODUCTS}/:categorynum`}
+                            path={`${routes.PRODUCTS}/:categoryNum`}
                             component={ViewCategoryProducts}
                         />
                         <Route
-                            path={`${routes.PRODUCT}/:someIDproduct`}
+                            path={`${routes.PRODUCT}/:someIdProduct`}
                             component={ViewProduct}
                         />
 
