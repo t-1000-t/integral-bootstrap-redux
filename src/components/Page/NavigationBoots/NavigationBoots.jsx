@@ -188,7 +188,7 @@ function NavigationBoots() {
                                     </li>
                                     <li>
                                         <a
-                                            href="#"
+                                            href="/#"
                                             className="text-white"
                                         >
                                             Оплата
