@@ -4,7 +4,6 @@ import axios from 'axios'
 import CardProduct from "./CardProduct"
 import closeDropdown from "../../../middleware/closeDropdown"
 import routes from "../../../../routes";
-import navIsShowCatalogReducer from "../../../services/ServiceHooks/allReducers/navIsShowCatalogReducer";
 import forGetArrProductsReducer
     from "../../../services/ServiceHooks/allReducers/forGetArrProductsReducer/forGetArrProductsReducer";
 
