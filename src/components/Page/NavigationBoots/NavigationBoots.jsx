@@ -9,7 +9,6 @@ import navIsShowCatalogReducer from "../../services/ServiceHooks/allReducers/nav
 import navIsShowReducer from "../../services/ServiceHooks/allReducers/navIsShowReducer";
 import dropDownAboutUsReducer from "../../services/ServiceHooks/allReducers/dropDownAboutUsReducer";
 import arrSearchReducer from "../../services/ServiceHooks/allReducers/arrSearchReducer";
-import Modal from "../../services/Modal/Modal";
 
 
 function NavigationBoots() {

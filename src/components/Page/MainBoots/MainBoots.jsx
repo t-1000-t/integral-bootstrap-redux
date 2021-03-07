@@ -9,7 +9,6 @@ import SinglePage from "./SinglePage/SinglePage";
 const MainBoots = () => {
     const [isLoadingSpinner, setIsLoadingSpinner] = useState(false)
     const [isError, setIsError] = useState(false)
-    const [isSend, setIsSend] = useState(false)
 
     // count
     const [count, setCount] = useState(0)
@@ -25,8 +24,6 @@ const MainBoots = () => {
             setSearch(null)
         }
     }, [isSearchQueryValue])
-
-    const [items, dispatch] = useReducer(itemsReducer, [])
 
 
     useEffect(() => {
@@ -90,9 +87,7 @@ const MainBoots = () => {
                     <div className="album py-1 bg-white">
                         <div className="container">
                             <div className="row">
-                                {isSend && <div>Товара в таким именем в базе нет!</div>}
-                                {items.length !== 0 ? items[count].map((elem, idx) => (
-                                    <MainCard key={idx} elem={elem}/>)) : <SinglePage/>}
+                               <SinglePage/>}
                             </div>
                         </div>
                     </div>
