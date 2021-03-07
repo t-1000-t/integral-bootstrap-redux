@@ -15,7 +15,6 @@ function ViewCategoryProducts() {
     const [isLoading, setIsLoading] = useState(false)
 
     const [products, dispatchP] = useReducer(forGetArrProductsReducer, [])
-    const [navISC, dispatchCatalog] = useReducer(navIsShowCatalogReducer, false)
 
     // useParams
     const params = useParams()
@@ -56,7 +55,7 @@ function ViewCategoryProducts() {
             console.log("AxiosCancel: unmounting products");
             source.cancel()
         }
-    }, [currentPage, categoryNumber, navISC])
+    }, [currentPage, categoryNumber])
 
     return (
         <>
