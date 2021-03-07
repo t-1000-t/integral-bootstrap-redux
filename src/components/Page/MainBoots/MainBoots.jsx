@@ -25,6 +25,8 @@ const MainBoots = () => {
         }
     }, [isSearchQueryValue])
 
+    const [items, dispatch] = useReducer(itemsReducer, [])
+
 
     useEffect(() => {
         let source = axios.CancelToken.source()
@@ -87,7 +89,8 @@ const MainBoots = () => {
                     <div className="album py-1 bg-white">
                         <div className="container">
                             <div className="row">
-                               <SinglePage/>}
+                                {items.length !== 0 ? items[count].map((elem, idx) => (
+                                    <MainCard key={idx} elem={elem}/>)) : <SinglePage/>}
                             </div>
                         </div>
                     </div>
