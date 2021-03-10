@@ -4,6 +4,7 @@ export default {
   URLSearch: "https://intshop.herokuapp.com",
   HOME: "/",
   CONTACT: "/contact",
+  CATEGORIES: "/categories",
   PRODUCT: "/product",
   PRODUCT_CODE: "/product/product_code",
   PRODUCTS: "/products",

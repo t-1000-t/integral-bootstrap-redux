@@ -10,6 +10,7 @@ import ViewProduct from "../Page/MainBoots/ViewProduct/ViewProduct";
 import routes from "../../routes/routes";
 import stylish from "./App.module.css";
 import FooterBoots from "../Page/FooterBoots/FooterBoots";
+import ViewListCategory from "../Page/MainBoots/ViewListCategory/ViewListCategory";
 
 function App() {
     return (
@@ -21,6 +22,10 @@ function App() {
                         <Route exact path={routes.HOME} component={MainBoots}/>
                         <Route exact path={routes.CONTACT} component={ContactBoots}/>
                         {/* <Route exact path={routes.FEEDBACK} component={FeedBackForm} /> */}
+                        <Route
+                            exact path={`${routes.CATEGORIES}`}
+                            component={ViewListCategory}
+                        />
                         <Route
                             path={`${routes.PRODUCTS}/:categoryNum`}
                             component={ViewCategoryProducts}

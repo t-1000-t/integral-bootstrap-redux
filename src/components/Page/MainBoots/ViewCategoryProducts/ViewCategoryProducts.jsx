@@ -5,7 +5,7 @@ import CardProduct from "./CardProduct"
 import closeDropdown from "../../../middleware/closeDropdown"
 import routes from "../../../../routes";
 import forGetArrProductsReducer
-    from "../../../services/ServiceHooks/allReducers/forGetArrProductsReducer/forGetArrProductsReducer";
+    from "../../../services/ServiceHooks/allReducers/forGetArrProductsReducer";
 
 
 function ViewCategoryProducts() {
@@ -61,7 +61,7 @@ function ViewCategoryProducts() {
             {isLoading && (
                 <div className="text-center mt-5">
                     <div className="spinner-border m-5" role="status">
-                        <span className="sr-only">Loading...</span>
+                        <span className="sr-only"></span>
                     </div>
                 </div>
             )}
