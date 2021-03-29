@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import useCountRenders from "../../../services/useCountRenders";
+import useCountRenders from "../../../../services/useCountRenders";
 // import useFetchSearch from "../../../services/useFetchSearch/useFetchSearch";
 import MainCard from "../MainCard";
 // import arrSearchAction from "../../../../redux/Actions/arrSearchAction";

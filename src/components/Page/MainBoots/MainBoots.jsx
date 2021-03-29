@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useReducer} from "react";
-import MainCard from "./MainCard";
 import routes from "../../../routes";
 import axios from "axios"
-import itemsReducer from "../../services/ServiceHooks/allReducers/itemsReducer";
+import itemsReducer from "../../../services/ServiceHooks/allReducers/itemsReducer";
 import SinglePage from "./SinglePage/SinglePage";
+
 
 
 const MainBoots = () => {
@@ -24,18 +24,19 @@ const MainBoots = () => {
 
     const [items, dispatch] = useReducer(itemsReducer, [])
 
-
+    console.log("search", search)
     useEffect(() => {
         let source = axios.CancelToken.source()
         const fetchData = async () => {
             setIsLoadingSpinner(true)
             setIsError(false)
             try {
-                const result = await axios(`${routes.URLSearch}/api/search/${search}`, {
+                const result = await axios(`${routes.URLSearch}/api${routes.SEARCH}/${search}`, {
                     cancelToken: source.token
                 })
                 console.log("AxiosCancel: got response")
                 const {item} = result.data
+                console.log(item)
                 dispatch({type: 'addItems', payload: {item}})
             } catch (error) {
                 if (axios.isCancel(error)) {
@@ -54,46 +55,116 @@ const MainBoots = () => {
     }, [search])
 
     return (
-        <div className="bg-white">
-            <div className="container p-1">
-                <form
-                    onSubmit={(e) => {
-                        e.preventDefault()
-                        setSearch(() => isSearchQueryValue)
-                    }}
-                    className="form-inline mt-0 mt-md-0 ml-sm-2 mr-sm-4"
-                >
-                    <input
-                        className="form-control mr-sm-2"
-                        type="text"
-                        placeholder="Глобальный поиск..."
-                        aria-label="Глобальный поиск..."
-                        value={isSearchQueryValue}
-                        onChange={e => setIsSearchQueryValue(e.target.value)}
-                    />
-                </form>
-            </div>
+        <>
             {isError && <div>Something went wrong ...</div>}
-            <main role="main">
-                {isLoadingSpinner && (
-                    <div className="text-center">
-                        <div className="spinner-border m-5" role="status">
-                            <span className="sr-only">Loading...</span>
-                        </div>
+
+                {/*<main className="page">*/}
+                {/*    {isLoadingSpinner && (*/}
+                {/*        <div className="text-center">*/}
+                {/*            <div className="spinner-border m-5" role="status">*/}
+                {/*                <span className="sr-only">Loading...</span>*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*    )}*/}
+                {/*    {!isLoadingSpinner && (*/}
+                {/*        <div className="album py-1 bg-white">*/}
+                {/*            <div className="container">*/}
+                {/*                <SinglePage/>*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*    )}*/}
+                {/*</main>*/}
+            <main className="page">
+                <section className="page__section page__section_1">
+                    <h1 className="page__title">Отличная статья</h1>
+                    <div className="page__text">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
                     </div>
-                )}
-                {!isLoadingSpinner && (
-                    <div className="album py-1 bg-white">
-                        <div className="container">
-                            <div className="row">
-                                {items.length !== 0 ? items[0].map((elem, idx) => (
-                                    <MainCard key={idx} elem={elem}/>)) : <SinglePage/>}
-                            </div>
-                        </div>
+                </section>
+                <section className="page__section page__section_2">
+                    <h2 className="page__sub-title">Отличный раздел сайта</h2>
+                    <div className="page__text">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
                     </div>
-                )}
+                </section>
+                <section className="page__section page__section_3">
+                    <h2 className="page__sub-title">Отличный раздел сайта</h2>
+                    <div className="page__text">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
+                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
+                            libero
+                            molestias officia? Deserunt, maiores?</p>
+                    </div>
+                </section>
             </main>
-        </div>
+
+        </>
     )
 }
 

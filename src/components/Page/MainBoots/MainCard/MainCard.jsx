@@ -18,7 +18,7 @@ function MainCard({elem}) {
                     <div className="d-flex justify-content-between align-items-center">
                         <div className="btn-group">
                             <a href="/#" className="btn btn-primary">
-                                Купить
+                                Купить !!!!!
                             </a>
                         </div>
                     </div>

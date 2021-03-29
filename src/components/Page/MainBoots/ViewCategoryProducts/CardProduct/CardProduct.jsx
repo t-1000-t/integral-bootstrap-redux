@@ -10,7 +10,7 @@ class CardProduct extends Component {
                 <div className="card-body">
                     <h5 className="card-title">{elem.name}</h5>
                     <p className="card-text">{elem.retail_price_uah} грн.</p>
-                    <button type="button" className="btn btn-outline-success">Купить</button>
+                    <button type="button" className="btn btn-outline-success">Купить ++++</button>
                 </div>
             </div>
         );

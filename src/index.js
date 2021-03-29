@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import App from "./components/App";
 import store from "./redux/store";
 import "./index.css";
+import { funcIsMob } from "./services/isMobile"
 
 ReactDOM.render(
     <Provider store={store}>
@@ -11,3 +12,5 @@ ReactDOM.render(
     </Provider>,
   document.getElementById("root")
 );
+
+funcIsMob()

@@ -3,14 +3,14 @@ import navSearchQueryReducer from "./Reducers/navSearchQueryReducer";
 import mainBootsLoadingReducer from "./Reducers/mainBootsLoadingReducer";
 import arrMainBootsReducer from "./Reducers/arrMainBootsReducer";
 import viewCategoryProductsReducer from "./Reducers/viewCategoryProductsReducer";
-import forGetArrProductsReducer from "../components/services/ServiceHooks/allReducers/forGetArrProductsReducer";
+import forGetArrProductsReducer from "../services/ServiceHooks/allReducers/forGetArrProductsReducer";
 import searchLoadingToggleReducer from "./Reducers/searchLoadingToggleReducer";
-import arrSearchReducer from "../components/services/ServiceHooks/allReducers/arrSearchReducer";
-import dropDownAboutUsReducer from "../components/services/ServiceHooks/allReducers/dropDownAboutUsReducer";
-import navIsShowCatalogReducer from "../components/services/ServiceHooks/allReducers/navIsShowCatalogReducer";
-import navIsShowReducer from "../components/services/ServiceHooks/allReducers/navIsShowReducer";
-import itemsReducer from "../components/services/ServiceHooks/allReducers/itemsReducer";
-import mainReducer from "../components/services/ServiceHooks/allReducers/mainReducer";
+import arrSearchReducer from "../services/ServiceHooks/allReducers/arrSearchReducer";
+import dropDownAboutUsReducer from "../services/ServiceHooks/allReducers/dropDownAboutUsReducer";
+import navIsShowCatalogReducer from "../services/ServiceHooks/allReducers/navIsShowCatalogReducer";
+import navIsShowReducer from "../services/ServiceHooks/allReducers/navIsShowReducer";
+import itemsReducer from "../services/ServiceHooks/allReducers/itemsReducer";
+import mainReducer from "../services/ServiceHooks/allReducers/mainReducer";
 
 const rootReducer = combineReducers({
   arrSearchReducer,

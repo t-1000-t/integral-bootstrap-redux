@@ -1,0 +1,56 @@
+import addLiParentChild from "./createTags/addLiParentChild"
+export const funcIsMob = () => {
+
+    let isMobile = {
+        Android: function () {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function () {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function () {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function () {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function () {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function () {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        }
+    };
+
+    // menu
+    const iconMenu = document.querySelector('.menu__icon')
+    const menuBody = document.querySelector('.menu__body')
+
+    if (isMobile.any()) {
+        document.body.classList.add('_touch');
+        let arrow = document.querySelectorAll('.arrow');
+        for (let i = 0; i < arrow.length; i++) {
+            let thisLink = arrow[i];
+            thisLink.addEventListener('click', function () {
+                thisLink.parentElement.classList.toggle('_active')
+            })
+        }
+
+        menuBody.firstElementChild.remove()
+        const ul = document.createElement('ul')
+        ul.classList.add('menu__list-touch')
+        addLiParentChild(menuBody, ul)
+
+    } else {
+        document.body.classList.add('_pc');
+    }
+
+
+    if (iconMenu) {
+        iconMenu.addEventListener('click', function () {
+            document.body.classList.toggle('_lock')
+            iconMenu.classList.toggle('_active')
+            menuBody.classList.toggle('_active')
+        })
+    }
+}

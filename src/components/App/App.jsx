@@ -1,23 +1,25 @@
 import React from "react";
 import {BrowserRouter} from "react-router-dom";
 import {Switch, Route, Redirect} from "react-router"
-import MainBoots from "../Page/MainBoots/MainBoots";
-import NavigationBoots from "../Page/NavigationBoots";
 import ContactBoots from "../Page/MainBoots/ContactBoots/ContactBoots";
 import ViewCategoryProducts from "../Page/MainBoots/ViewCategoryProducts";
-
 import ViewProduct from "../Page/MainBoots/ViewProduct/ViewProduct";
 import routes from "../../routes/routes";
-import stylish from "./App.module.css";
+import "./App.css";
 import FooterBoots from "../Page/FooterBoots/FooterBoots";
 import ViewListCategory from "../Page/MainBoots/ViewListCategory/ViewListCategory";
+import NavigationBoots from "../Page/NavigationBoots";
+import MainBoots from "../Page/MainBoots/MainBoots";
 
 function App() {
     return (
+
         <BrowserRouter>
-            <div className={stylish.wrapperA}>
-                <div className={stylish.wrapperHT}>
-                    <NavigationBoots/>
+            <header className="header">
+                <div className="header__container">
+                    <NavigationBoots />
+                </div>
+            </header>
                     <Switch>
                         <Route exact path={routes.HOME} component={MainBoots}/>
                         <Route exact path={routes.CONTACT} component={ContactBoots}/>
@@ -34,14 +36,11 @@ function App() {
                             path={`${routes.PRODUCT}/:someIdProduct`}
                             component={ViewProduct}
                         />
-
                         <Redirect to={routes.HOME}/>
                     </Switch>
-                </div>
-                <footer>
-                    <FooterBoots/>
-                </footer>
-            </div>
+            <footer>
+                <FooterBoots/>
+            </footer>
         </BrowserRouter>
     );
 }
