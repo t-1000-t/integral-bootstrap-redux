@@ -1,54 +1,9 @@
-import React, {useState, useEffect, useReducer, useRef} from "react";
-// import {NavLink} from "react-router-dom";
-
+import React from "react";
 import Drop from "../MainBoots/Drop";
-import shortid from "shortid";
 import categ_list from "../../../services/categ_list";
-// import routes from "../../../routes/routes";
-import navIsShowCatalogReducer from "../../../services/ServiceHooks/allReducers/navIsShowCatalogReducer";
-import navIsShowReducer from "../../../services/ServiceHooks/allReducers/navIsShowReducer";
-import dropDownAboutUsReducer from "../../../services/ServiceHooks/allReducers/dropDownAboutUsReducer";
-import arrSearchReducer from "../../../services/ServiceHooks/allReducers/arrSearchReducer";
 import "./NavigationBoots.css"
 
-
-function NavigationBoots({isSearchQueryValue, setIsSearchQueryValue, setSearch}) {
-    const [collapsed, setCollapsed] = useState('')
-
-    // selectors function
-    const [navISC, dispatchCatalog] = useReducer(navIsShowCatalogReducer, false)
-    const [navIS, dispatch] = useReducer(navIsShowReducer, false)
-    const [showAU, dispatchAboutUs] = useReducer(dropDownAboutUsReducer, false)
-    const [isArraySP, dispatchArraySP] = useReducer(arrSearchReducer, [])
-
-
-    // useEffect for handleKeyPress
-    useEffect(() => {
-        function handleKeyPress(e) {
-            e.key !== "Escape" ? setCollapsed('') : dispatchCatalog({type: "NAV_SHOW_CATALOG_CLOSE", payload: {navISC}})
-        }
-
-        window.addEventListener("keydown", handleKeyPress)
-        return () => window.removeEventListener('keydown', handleKeyPress)
-    }, [collapsed, navISC])
-
-
-    // useEffect for handlerPressMouse
-
-    const navRef = useRef()
-
-
-    useEffect(() => {
-        function handleKeyMouse(e) {
-            e.target && navRef.current !== e.target.id ? setCollapsed('') : dispatchCatalog({
-                type: "NAV_SHOW_CATALOG_CLOSE",
-                payload: {navISC}
-            })
-        }
-
-        window.addEventListener("mouseup", handleKeyMouse)
-        return () => window.removeEventListener('mouseup', handleKeyMouse)
-    })
+function NavigationBoots() {
     return (
         <>
             <a href="/#" className="header__logo">
@@ -67,20 +22,7 @@ function NavigationBoots({isSearchQueryValue, setIsSearchQueryValue, setSearch})
                     <path d="M0 12h16v.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5V12z"/>
                 </svg>
             </a>
-            <form
-                onSubmit={(e) => {
-                    e.preventDefault()
-                    setSearch(() => isSearchQueryValue)
-                }}
-            >
-                <input
-                    type="text"
-                    placeholder="Глобальный поиск..."
-                    aria-label="Глобальный поиск..."
-                    value={isSearchQueryValue}
-                    onChange={e => setIsSearchQueryValue(e.target.value)}
-                />
-            </form>
+
             <div className="header__menu menu">
                 <div className="menu__icon">
                     <span></span>

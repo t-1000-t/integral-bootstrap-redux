@@ -1,7 +1,7 @@
 const navSearchQueryReducer = (state = "", action) => {
   switch (action.type) {
-    case "NAV_SEARCH_QUERY":
-      return (state = action.payload.textSearchQueryValue);
+    case "textSearchWord":
+      return state = action.payload.text
     default:
       return state;
   }

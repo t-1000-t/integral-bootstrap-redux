@@ -2,29 +2,19 @@ import React, {useState, useEffect, useReducer} from "react";
 import routes from "../../../routes";
 import axios from "axios"
 import itemsReducer from "../../../services/ServiceHooks/allReducers/itemsReducer";
-import SinglePage from "./SinglePage/SinglePage";
-
-
+import MainCard from "./MainCard";
+import navSearchQueryReducer from "../../../services/ServiceHooks/allReducers/navSearchQueryReducer";
 
 const MainBoots = () => {
     const [isLoadingSpinner, setIsLoadingSpinner] = useState(false)
     const [isError, setIsError] = useState(false)
-
-
-    // Array by text query
-    const [isSearchQueryValue, setIsSearchQueryValue] = useState('')
-    const [search, setSearch] = useState(null)
-
-    // for clean search text
-    useEffect(() => {
-        if (!isSearchQueryValue) {
-            setSearch(null)
-        }
-    }, [isSearchQueryValue])
+    const [text, setText] = useState('')
 
     const [items, dispatch] = useReducer(itemsReducer, [])
 
-    console.log("search", search)
+    // reducer function
+    const [search, dispatchText] = useReducer(navSearchQueryReducer, '')
+
     useEffect(() => {
         let source = axios.CancelToken.source()
         const fetchData = async () => {
@@ -54,117 +44,38 @@ const MainBoots = () => {
         }
     }, [search])
 
+
     return (
         <>
             {isError && <div>Something went wrong ...</div>}
 
-                {/*<main className="page">*/}
-                {/*    {isLoadingSpinner && (*/}
-                {/*        <div className="text-center">*/}
-                {/*            <div className="spinner-border m-5" role="status">*/}
-                {/*                <span className="sr-only">Loading...</span>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    )}*/}
-                {/*    {!isLoadingSpinner && (*/}
-                {/*        <div className="album py-1 bg-white">*/}
-                {/*            <div className="container">*/}
-                {/*                <SinglePage/>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    )}*/}
-                {/*</main>*/}
             <main className="page">
-                <section className="page__section page__section_1">
-                    <h1 className="page__title">Отличная статья</h1>
-                    <div className="page__text">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
+                {isLoadingSpinner && (
+                    <div>
+                        <div>
+                            <span>Loading...</span>
+                        </div>
                     </div>
-                </section>
-                <section className="page__section page__section_2">
-                    <h2 className="page__sub-title">Отличный раздел сайта</h2>
-                    <div className="page__text">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
-                    </div>
-                </section>
-                <section className="page__section page__section_3">
-                    <h2 className="page__sub-title">Отличный раздел сайта</h2>
-                    <div className="page__text">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cum dicta distinctio
-                            eius et eveniet hic nostrum numquam perferendis possimus quam sequi ullam? Dignissimos
-                            libero
-                            molestias officia? Deserunt, maiores?</p>
-                    </div>
-                </section>
+                )}
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault()
+                        dispatchText({type: 'textSearchWord', payload: {text: text}})
+                    }}
+                >
+                    <input
+                        type="text"
+                        placeholder="Глобальный поиск..."
+                        aria-label="Глобальный поиск..."
+                        value={text}
+                        onChange={e => setText(e.target.value)}
+                    />
+                </form>
+                {!isLoadingSpinner && (
+                    items.map(e => <MainCard elem={e}/>)
+                )}
             </main>
-
-        </>
+          </>
     )
 }
 
