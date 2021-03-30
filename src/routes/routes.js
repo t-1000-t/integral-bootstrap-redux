@@ -12,3 +12,4 @@ export default {
   FEEDBACK: "/feedback"
   //   PRODUCTS_DETAILS: "/products/:someone"
 };
+

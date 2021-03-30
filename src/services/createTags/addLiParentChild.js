@@ -1,18 +1,20 @@
-
-const list = ["О комапании", "Сертификаты", "Сотрудничество", "Отзывы", "Видео", "Гарантия", "Контакты"]
-
+import listBurger from "../../routes/routeBurger";
+console.log(listBurger)
 function addLiParentChild(parent, child) {
     function createLi(text) {
         const li = document.createElement('li')
-        const a = document.createElement('a')
+        const a = document.createElement('NavLink')
         a.classList.add('menu__link')
-        a.textContent = text
-        li.prepend(a)
+        a.textContent = text.name
+        a.setAttribute('to', text.link)
+        li.append(a)
         return li
     }
-    for (let i = 0; list.length > i; i++) {
-        child.prepend(createLi(list[i]))
+
+    for (let i = 0; listBurger.length > i; i++) {
+        child.append(createLi(listBurger[i]))
     }
-    parent.prepend(child)
+    parent.append(child)
 }
+
 export default addLiParentChild

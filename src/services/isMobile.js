@@ -1,5 +1,5 @@
-import addLiParentChild from "./createTags/addLiParentChild"
-export const funcIsMob = () => {
+
+export function funcIsMob() {
 
     let isMobile = {
         Android: function () {
@@ -35,11 +35,6 @@ export const funcIsMob = () => {
                 thisLink.parentElement.classList.toggle('_active')
             })
         }
-
-        menuBody.firstElementChild.remove()
-        const ul = document.createElement('ul')
-        ul.classList.add('menu__list-touch')
-        addLiParentChild(menuBody, ul)
 
     } else {
         document.body.classList.add('_pc');

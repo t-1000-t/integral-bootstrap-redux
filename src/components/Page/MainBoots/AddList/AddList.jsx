@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import routes from "../../../../routes";
-import {NavLink} from "react-router-dom";
+import {BrowserRouter as NavLink} from "react-router-dom";
 
 class AddList extends Component {
     render() {

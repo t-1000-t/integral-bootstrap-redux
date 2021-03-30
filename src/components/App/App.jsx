@@ -1,6 +1,7 @@
 import React from "react";
-import {BrowserRouter} from "react-router-dom";
-import {Switch, Route, Redirect} from "react-router"
+import {BrowserRouter as Router,
+    Switch,
+    Route, Redirect} from "react-router-dom";
 import ContactBoots from "../Page/MainBoots/ContactBoots/ContactBoots";
 import ViewCategoryProducts from "../Page/MainBoots/ViewCategoryProducts";
 import ViewProduct from "../Page/MainBoots/ViewProduct/ViewProduct";
@@ -13,35 +14,25 @@ import MainBoots from "../Page/MainBoots/MainBoots";
 
 function App() {
     return (
-
-        <BrowserRouter>
+        <Router>
             <header className="header">
                 <div className="header__container">
                     <NavigationBoots />
                 </div>
             </header>
                     <Switch>
-                        <Route exact path={routes.HOME} component={MainBoots}/>
-                        <Route exact path={routes.CONTACT} component={ContactBoots}/>
-                        {/* <Route exact path={routes.FEEDBACK} component={FeedBackForm} /> */}
-                        <Route
-                            exact path={`${routes.CATEGORIES}`}
-                            component={ViewListCategory}
-                        />
-                        <Route
-                            path={`${routes.PRODUCTS}/:categoryNum`}
-                            component={ViewCategoryProducts}
-                        />
-                        <Route
-                            path={`${routes.PRODUCT}/:someIdProduct`}
-                            component={ViewProduct}
-                        />
+                        <Route exact path={routes.HOME}><MainBoots /></Route>
+                        <Route exact path={routes.CONTACT}><ContactBoots /></Route>
+                        {/* <Route exact path={routes.FEEDBACK}><FeedBackForm/></Route> */}
+                        <Route exact path={routes.CATEGORIES}><ViewListCategory /></Route>
+                        <Route path={`${routes.PRODUCTS}/:categoryNum`}><ViewCategoryProducts />></Route>
+                        <Route path={`${routes.PRODUCT}/:someIdProduct`}><ViewProduct /></Route>
                         <Redirect to={routes.HOME}/>
                     </Switch>
             <footer>
                 <FooterBoots/>
             </footer>
-        </BrowserRouter>
+        </Router>
     );
 }
 
