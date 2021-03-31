@@ -4,7 +4,7 @@ import categ_list from "../../../services/categ_list";
 import "./NavigationBoots.css"
 import {
     BrowserRouter as Router,
-    Linkgit add
+    Link
 } from "react-router-dom";
 import listBurger from "../../../routes/routeBurger";
 import routes from "../../../routes/routes";
