@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useReducer} from "react"
 import axios from "axios"
 import routes from "../../../../routes/routes";
-import arrListAllCategories from "../../../../services/ServiceHooks/allReducers/arrListAllCategories";
+import arrListAllCategories from "../../../../services/ServiceHooks/allReducers/arrListAllCategoriesReducer";
 import Label from "./Label/Label";
 import {v4 as uuidv4} from "uuid"
 

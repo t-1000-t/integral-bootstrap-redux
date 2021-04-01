@@ -37,9 +37,9 @@ const [isTouchPC, setTouchPC] = useState(false)
                                 <span className="menu__arrow"></span>
                                 <ul className="menu__sub-list">
                                     {categ_list.category.map((elem, i) => (
-                                        <li>
+                                        <li key={`li + ${i}`}>
                                             <Drop
-                                                key={i}
+
                                                 category={elem.category}
                                                 list={elem.list}
                                             />

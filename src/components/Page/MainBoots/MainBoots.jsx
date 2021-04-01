@@ -5,6 +5,10 @@ import itemsReducer from "../../../services/ServiceHooks/allReducers/itemsReduce
 import MainCard from "./MainCard";
 import navSearchQueryReducer from "../../../services/ServiceHooks/allReducers/navSearchQueryReducer";
 
+import Carousel from "./Carousel/Carousel";
+import {middleImg} from "./Carousel/listSlider";
+import "./MainBoots.css"
+
 const MainBoots = () => {
     const [isLoadingSpinner, setIsLoadingSpinner] = useState(false)
     const [isError, setIsError] = useState(false)
@@ -57,6 +61,13 @@ const MainBoots = () => {
                         </div>
                     </div>
                 )}
+                <div className="appContainer">
+                    <Carousel title="Carousel">
+                        {middleImg.map((el, i) => (
+                            <img key={`"pic" + ${i}`} src={el.img} alt="Slider"/>
+                        ))}
+                    </Carousel>
+                </div>
                 <form
                     onSubmit={(e) => {
                         e.preventDefault()

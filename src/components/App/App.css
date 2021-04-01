@@ -15,14 +15,11 @@
 
 /*Header*/
 
-.page {
-    padding: 90px 0px 30px 0px;
-}
 
 .page__section {
     padding: 30px;
     max-width: 1200px;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 .page__section_1 {
@@ -184,7 +181,7 @@ body._touch .menu__list > li._active .menu__arrow {
 }
 
 /*------------------*/
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .menu__list {
         display: flex;
         align-items: center;
@@ -203,7 +200,7 @@ body._touch .menu__list > li._active .menu__arrow {
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .menu__icon {
         z-index: 5;
         display: block;

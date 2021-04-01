@@ -16,6 +16,7 @@
     "react-scripts": "^4.0.2",
     "redux": "^4.0.5",
     "shortid": "^2.2.16",
+    "styled-components": "^5.2.3",
     "use-local-storage": "^2.0.1",
     "uuid": "^8.3.2"
   },
@@ -41,6 +42,7 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "react-swipeable": "^6.1.0"
   }
 }
