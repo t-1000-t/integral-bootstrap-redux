@@ -12,6 +12,7 @@ import ViewListCategory from "../Page/MainBoots/ViewListCategory/ViewListCategor
 import NavigationBoots from "../Page/NavigationBoots";
 import MainBoots from "../Page/MainBoots/MainBoots";
 
+
 function App() {
     return (
         <Router>

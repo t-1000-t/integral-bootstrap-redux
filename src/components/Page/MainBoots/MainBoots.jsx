@@ -6,7 +6,6 @@ import MainCard from "./MainCard";
 import navSearchQueryReducer from "../../../services/ServiceHooks/allReducers/navSearchQueryReducer";
 
 import Carousel from "./Carousel/Carousel";
-import {middleImg} from "./Carousel/listSlider";
 import "./MainBoots.css"
 
 const MainBoots = () => {
@@ -62,11 +61,7 @@ const MainBoots = () => {
                     </div>
                 )}
                 <div className="appContainer">
-                    <Carousel title="Carousel">
-                        {middleImg.map((el, i) => (
-                            <img key={`"pic" + ${i}`} src={el.img} alt="Slider"/>
-                        ))}
-                    </Carousel>
+                    <Carousel />
                 </div>
                 <form
                     onSubmit={(e) => {

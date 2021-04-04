@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import Drop from "../MainBoots/Drop";
 import categ_list from "../../../services/categ_list";
 import "./NavigationBoots.css"
@@ -10,14 +10,17 @@ import listBurger from "../../../routes/routeBurger";
 import routes from "../../../routes/routes";
 import logo from "../../../images/logo/logo-61x61.jpg"
 
-function NavigationBoots() {
-const [isTouchPC, setTouchPC] = useState(false)
 
-    const touchSelect = useRef()
-    touchSelect.current = document.querySelector('._touch')
+function NavigationBoots() {
+    const [some, setSome] = useState(null)
     useEffect(() => {
-        setTouchPC(touchSelect.current)
-    }, [isTouchPC]);
+        const isTouch = document.querySelector('._touch')
+        if (!isTouch) {
+            setSome(false)
+        } else {
+            setSome(true)
+        }
+    })
 
     return (
         <>
@@ -31,7 +34,7 @@ const [isTouchPC, setTouchPC] = useState(false)
                 </div>
                 <Router>
                     <nav className="menu__body">
-                        {!isTouchPC && <ul id="menu__list" className="menu__list">
+                        {!some && <ul id="menu__list" className="menu__list">
                             <li>
                                 <Link to="/" className="menu__link">Каталог товаров</Link>
                                 <span className="menu__arrow"></span>
@@ -48,15 +51,13 @@ const [isTouchPC, setTouchPC] = useState(false)
                                 </ul>
                             </li>
                         </ul>}
-                        {isTouchPC &&  <ul id="menu__list-touch" className="menu__list-touch">
+                        {some && <ul id="menu__list-touch" className="menu__list-touch">
                             <li>
-                                {listBurger.map((el, i) => (<Link key={i} to={`${el.link}`} className="menu__link">{el.name}</Link>))}
+                                {listBurger.map((el, i) => (
+                                    <Link key={i} to={`${el.link}`} className="menu__link">{el.name}</Link>))}
                             </li>
                         </ul>}
                     </nav>
-
-
-
                 </Router>
             </div>
 

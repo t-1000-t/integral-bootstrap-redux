@@ -10,6 +10,7 @@ import itemsReducer from "../services/ServiceHooks/allReducers/itemsReducer";
 import mainReducer from "../services/ServiceHooks/allReducers/mainReducer";
 
 
+
 const rootReducer = combineReducers({
   arrSearchReducer,
   itemsReducer,

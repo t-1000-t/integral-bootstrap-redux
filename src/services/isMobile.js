@@ -1,4 +1,3 @@
-
 export function funcIsMob() {
 
     let isMobile = {
@@ -22,10 +21,6 @@ export function funcIsMob() {
         }
     };
 
-    // menu
-    const iconMenu = document.querySelector('.menu__icon')
-    const menuBody = document.querySelector('.menu__body')
-
     if (isMobile.any()) {
         document.body.classList.add('_touch');
         let arrow = document.querySelectorAll('.arrow');
@@ -40,6 +35,9 @@ export function funcIsMob() {
         document.body.classList.add('_pc');
     }
 
+// menu
+    const iconMenu = document.querySelector('.menu__icon')
+    const menuBody = document.querySelector('.menu__body')
 
     if (iconMenu) {
         iconMenu.addEventListener('click', function () {

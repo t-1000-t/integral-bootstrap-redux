@@ -1,66 +1,46 @@
-import React, {useReducer, useState} from "react";
-import {useSwipeable} from "react-swipeable";
-import carouselReducer from "../../../../services/ServiceHooks/allReducers/CarouselReducer/carouselReducer"
-import {getOrder, initialState} from "../../../../services/ServiceHooks/allReducers/CarouselReducer/getMiddleWare";
-import {
-    CarouselContainer,
-    CarouselSlot,
-    SlideButton
-} from "./styleComponents";
+import React, {useState} from "react";
+import {Swiper, SwiperSlide} from "swiper/react";
+import SwiperCore, {Navigation, Pagination, Controller, Thumbs, Autoplay} from 'swiper';
+
+import 'swiper/swiper-bundle.css';
 import "./Carousel.css"
-import useInterval from "../../../../services/ServiceHooks/customHooks/useInterval";
+import {middleImg} from "./listSlider"
 
-const Carousel = props => {
-    const [state, dispatch] = useReducer(carouselReducer, initialState);
+SwiperCore.use([Navigation, Pagination, Controller, Thumbs, Autoplay]);
 
-    let testTouch = document.querySelector('._pc')
+const Carousel = () => {
 
-    const numItems = React.Children.count(props.children);
+    // Swipers
+    const [thumbsSwiper] = useState(null);
+    const [controlledSwiper] = useState(null);
 
-    const slide = dir => {
-        dispatch({type: dir, numItems});
-        setTimeout(() => {
-            dispatch({type: "stopSliding"});
-        }, 50);
-    };
+    const sliders = []
 
-    const handlers = useSwipeable({
-        onSwipedLeft: () => slide("NEXT"),
-        onSwipedRight: () => slide("PREV"),
-        preventDefaultTouchmoveEvent: true,
-        trackMouse: true
-    });
-
-    // Interval
-    const [slideshowDelay] = useState(5000)
-
-    useInterval(
-        () => {
-            slide("NEXT")
-        }, slideshowDelay
-    );
+    middleImg.map((el, i) => {
+        sliders.push(
+            <SwiperSlide key={`Slider-${i}`} tag="li" data-swiper-autoplay="4000">
+                <img src={el.img} alt={`Slide ${i}`} className="imgBoxCarouse"/>
+            </SwiperSlide>
+        )
+    })
 
     return (
-        <div {...handlers}>
-            <div className="wrapperCarousel">
-                <CarouselContainer dir={state.dir} sliding={state.sliding}>
-                    {React.Children.map(props.children, (child, index) => (
-                        <CarouselSlot
-                            key={index}
-                            order={getOrder({index: index, pos: state.pos, numItems})}
-                        >
-                            {child}
-                        </CarouselSlot>
-                    ))}
-                </CarouselContainer>
-            </div>
-            {testTouch && <SlideButton onClick={() => slide("PREV")} float="left">
-                Prev
-            </SlideButton>}
-            {testTouch && <SlideButton onClick={() => slide("NEXT")} float="right">
-                Next
-            </SlideButton>}
-        </div>
+        <>
+            <Swiper
+                id="sliders-top"
+                wrapperTag="ul"
+                tag="section"
+                spaceBetween={0}
+                slidesPerView={1}
+                pagination
+                autoplay
+                thumbs={{swiper: thumbsSwiper}}
+                controller={{control: controlledSwiper}}
+            >
+                {sliders}
+            </Swiper>
+
+        </>
     );
 };
 
