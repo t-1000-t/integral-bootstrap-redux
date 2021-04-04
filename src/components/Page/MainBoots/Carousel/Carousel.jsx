@@ -16,13 +16,12 @@ const Carousel = () => {
 
     const sliders = []
 
-    middleImg.map((el, i) => {
+        middleImg.map((el, i) =>
         sliders.push(
             <SwiperSlide key={`Slider-${i}`} tag="li" data-swiper-autoplay="4000">
                 <img src={el.img} alt={`Slide ${i}`} className="imgBoxCarouse"/>
             </SwiperSlide>
-        )
-    })
+        ))
 
     return (
         <>

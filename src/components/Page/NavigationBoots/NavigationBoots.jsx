@@ -20,7 +20,7 @@ function NavigationBoots() {
         } else {
             setSome(true)
         }
-    })
+    }, [some])
 
     return (
         <>
