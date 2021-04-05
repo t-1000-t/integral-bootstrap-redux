@@ -53,15 +53,8 @@ const MainBoots = () => {
             {isError && <div>Something went wrong ...</div>}
 
             <main className="page">
-                {isLoadingSpinner && (
-                    <div>
-                        <div>
-                            <span>Loading...</span>
-                        </div>
-                    </div>
-                )}
                 <div className="appContainer">
-                    <Carousel />
+                    <Carousel/>
                 </div>
                 <form
                     onSubmit={(e) => {
@@ -77,11 +70,20 @@ const MainBoots = () => {
                         onChange={e => setText(e.target.value)}
                     />
                 </form>
-                {!isLoadingSpinner && (
-                    items.map(e => <MainCard elem={e}/>)
-                )}
+                <div className="containerListCard">
+                    {isLoadingSpinner && (
+                        <div>
+                            <div>
+                                <span>Loading...</span>
+                            </div>
+                        </div>
+                    )}
+                    {!isLoadingSpinner && items.length > 0 && (
+                        items[0].map((e, i) => <MainCard key={`mainCard-${i}`} elem={e}/>)
+                    )}
+                </div>
             </main>
-          </>
+        </>
     )
 }
 
