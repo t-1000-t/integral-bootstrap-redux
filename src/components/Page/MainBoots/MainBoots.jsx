@@ -7,6 +7,9 @@ import navSearchQueryReducer from "../../../services/ServiceHooks/allReducers/na
 
 import Carousel from "./Carousel/Carousel";
 import "./MainBoots.css"
+import {Link} from "react-router-dom";
+import categ_list from "../../../services/categ_list.json";
+import Drop from "./Drop";
 
 const MainBoots = () => {
     const [isLoadingSpinner, setIsLoadingSpinner] = useState(false)
@@ -47,6 +50,13 @@ const MainBoots = () => {
         }
     }, [search])
 
+    const [someMain, setSomeMain] = useState(null)
+    useEffect(() => {
+        const isTouch = document.querySelector('._touch')
+        !isTouch ? setSomeMain(true) : setSomeMain(false)
+    }, [someMain])
+
+    const [toggleCategory, setToggleCategory] = useState(false)
 
     return (
         <>
@@ -69,7 +79,34 @@ const MainBoots = () => {
                         value={text}
                         onChange={e => setText(e.target.value)}
                     />
+
                 </form>
+
+
+                {!someMain &&
+                <ul id="menu__listMain" className="menu__listMain">
+                    <li className="containerMain">
+                        <button className="menu__linkMain">
+                            <Link to="/" onClick={() => {
+                                setToggleCategory(!toggleCategory)
+                            }}>Каталог товаров</Link>
+                        </button>
+                        <span className="menu__arrowMain"></span>
+                            <ul className={toggleCategory ? "menu__sub-listUlMain" : "menu__sub-listUlMainBlock"}>
+                                {categ_list.category.map((elem, i) => (
+                                    <li key={`li + ${i}`} className="menu__sub-listLiMain">
+                                        <Drop
+                                            category={elem.category}
+                                            list={elem.list}
+                                        />
+                                    </li>
+                                ))}
+                            </ul>
+
+                    </li>
+                </ul>}
+
+
                 <div className="containerListCard">
                     {isLoadingSpinner && (
                         <div>

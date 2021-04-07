@@ -13,9 +13,58 @@
 .page {
     margin: 90px 15px 30px 15px;
 }
+
 .appContainer {
     font-family: sans-serif;
     text-align: center;
     width: 95%;
     margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .menu__listMain {
+        margin-top: 10px;
+        padding: 15px 15px 15px 15px;
+    }
+
+    .menu__linkMain {
+
+    }
+
+    .menu__arrowMain {
+
+    }
+
+    .menu__sub-listUlMain {
+
+        padding: 15px 15px 15px 15px;
+
+    }
+
+
+    .menu__sub-listUlMain {
+        padding: 15px 15px 15px 15px;
+        /*border: 1px solid gray;*/
+        border-top: none;
+        opacity: 1;
+        max-height: 100%;
+        overflow: hidden;
+        padding: 15px;
+        transition: all 0.3s;
+    }
+
+    .menu__sub-listUlMainBlock {
+        /*border: 1px solid gray;*/
+        border-top: none;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 15px;
+        transition: all 0.3s;
+    }
+    .menu__sub-listLiMain {
+        padding: 5px 5px 5px 5px;
+
+    }
+
 }
