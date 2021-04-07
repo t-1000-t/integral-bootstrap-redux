@@ -1,77 +1,41 @@
-.container {
-    max-width: 1140px;
-}
-
-.containerListCard {
-    margin-top: 30px;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.page {
-    margin: 90px 15px 30px 15px;
-}
-
-.appContainer {
-    font-family: sans-serif;
-    text-align: center;
-    width: 95%;
-    margin-bottom: 30px;
-}
 
 @media (max-width: 768px) {
-    .menu__listMain {
-        margin-top: 10px;
-        padding: 15px 15px 15px 15px;
-    }
 
-    .menu__arrowMain {
-    }
-
-    .containerMain {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .menu__sub-listUlMain {
-        padding: 15px 15px 15px 15px;
-    }
-
-    .menu__sub-listUlMain {
+    .menu__sub-listUlAddList {
         padding: 15px 15px 15px 15px;
         /*border: 1px solid gray;*/
         border-top: none;
         opacity: 1;
         max-height: 100%;
         overflow: hidden;
-        padding: 15px;
+        padding: 10px;
         transition: all 0.3s;
     }
 
-    .menu__sub-listUlMainBlock {
+    .menu__sub-listUlAddListBlock {
         /*border: 1px solid gray;*/
         border-top: none;
         opacity: 0;
         max-height: 0;
         overflow: hidden;
-        padding: 0 15px;
+        padding: 0 10px;
         transition: all 0.3s;
     }
-    .menu__sub-listLiMain {
-        padding: 5px 5px 5px 5px;
+
+    .menu__sub-listLiAddList {
+        padding: 10px 10px 10px 10px;
     }
+
     /* Common button styles */
-    .menu__button {
-        background-color: #a294b3;
+    .button {
         float: left;
         min-width: 80px;
         max-width: 180px;
         display: block;
         margin: 1em;
-        padding: 1em 2em;
+        /*padding: 1em 2em;*/
         border: none;
+        background: none;
         color: inherit;
         vertical-align: middle;
         position: relative;
@@ -79,25 +43,24 @@
         -webkit-backface-visibility: hidden;
         -moz-osx-font-smoothing: grayscale;
     }
-    .menu__button:focus {
+    .button:focus {
         outline: none;
     }
-
-    .menu__button > span {
+    .button > span {
         vertical-align: middle;
     }
 
     /* Pipaluk */
-    .menu__button--pipaluk {
+    .button--pipaluk {
         width: 180px;
         padding: 1.5em 3em;
         color: #fff;
     }
-    .menu__button--pipaluk.button--inverted {
+    .button--pipaluk.button--inverted {
         color: #7986cb;
     }
-    .menu__button--pipaluk::before,
-    .menu__button--pipaluk::after {
+    .button--pipaluk::before,
+    .button--pipaluk::after {
         content: '';
         border-radius: inherit;
         position: absolute;
@@ -111,37 +74,37 @@
         -webkit-transition-timing-function: cubic-bezier(0.25, 0, 0.3, 1);
         transition-timing-function: cubic-bezier(0.25, 0, 0.3, 1);
     }
-    .menu__button--pipaluk::before {
+    .button--pipaluk::before {
         border: 2px solid #7986cb;
     }
-    .menu__button--pipaluk.button--inverted::before {
+    .button--pipaluk.button--inverted::before {
         border-color: #fff;
     }
-    .menu__button--pipaluk::after {
+    .button--pipaluk::after {
         background: #7986cb;
     }
-    .menu__button--pipaluk.button--inverted::after {
+    .button--pipaluk.button--inverted::after {
         background: #fff;
     }
-    .menu__button--pipaluk:hover::before {
+    .button--pipaluk:hover::before {
         -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
     }
-    .menu__button--pipaluk::before,
-    .menu__button--pipaluk:hover::after {
+    .button--pipaluk::before,
+    .button--pipaluk:hover::after {
         -webkit-transform: scale3d(0.7, 0.7, 1);
         transform: scale3d(0.7, 0.7, 1);
     }
-    .menu__button--pipaluk:hover::after {
+    .button--pipaluk:hover::after {
         background-color: #3f51b5;
     }
-    .menu__button--pipaluk.button--inverted:hover::after {
+    .button--pipaluk.button--inverted:hover::after {
         background-color: #fff;
     }
-    .menu__button--round-s {
+    .button--round-s {
         border-radius: 5px;
     }
-    .menu__button--text-thick {
+    .button--text-thick {
         font-weight: 500;
     }
 }

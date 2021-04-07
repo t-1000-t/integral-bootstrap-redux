@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import AddList from "../AddList/AddList";
+import "./Drop.css"
 
 const Drop = ({id, category, list}) => {
     const [open, setOpen] = useState(false)
@@ -9,13 +10,11 @@ const Drop = ({id, category, list}) => {
     }
 
     return (
-        <div key={id} className="">
-            <button onClick={() => toggleList()} type="button">
+        <div className="dropBox">
+            <button onClick={() => toggleList()} className="drop__button drop__button--pipaluk drop__button--inverted  drop__button--round-s drop__button--text-thick">
                 {category}
             </button>
-
-                <AddList idRL={id} list={list} toggleList={toggleList} open={open}/>
-
+                <AddList idRL={id} list={list} open={open}/>
             {open && <button onClick={() => toggleList()} className="dropdown-item text-muted">
                 Закрыть
                 <svg

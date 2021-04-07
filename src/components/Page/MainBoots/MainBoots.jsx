@@ -82,27 +82,28 @@ const MainBoots = () => {
 
                 </form>
 
-
                 {!someMain &&
                 <ul id="menu__listMain" className="menu__listMain">
                     <li className="containerMain">
-                        <button className="menu__linkMain">
-                            <Link to="/" onClick={() => {
-                                setToggleCategory(!toggleCategory)
-                            }}>Каталог товаров</Link>
-                        </button>
+                        <Link to="/" onClick={() => {
+                            setToggleCategory(!toggleCategory)
+                        }}>
+                            <button className="menu__button menu__button--pipaluk menu__button--round-s">
+                                Каталог товаров
+                            </button>
+                        </Link>
                         <span className="menu__arrowMain"></span>
-                            <ul className={toggleCategory ? "menu__sub-listUlMain" : "menu__sub-listUlMainBlock"}>
-                                {categ_list.category.map((elem, i) => (
-                                    <li key={`li + ${i}`} className="menu__sub-listLiMain">
-                                        <Drop
-                                            category={elem.category}
-                                            list={elem.list}
-                                        />
-                                    </li>
-                                ))}
-                            </ul>
 
+                        <ul className={toggleCategory ? "menu__sub-listUlMain" : "menu__sub-listUlMainBlock"}>
+                            {categ_list.category.map((elem, i) => (
+                                <li key={`li + ${i}`} className="menu__sub-listLiMain">
+                                    <Drop
+                                        category={elem.category}
+                                        list={elem.list}
+                                    />
+                                </li>
+                            ))}
+                        </ul>
                     </li>
                 </ul>}
 
