@@ -25,6 +25,11 @@ const MainBoots = () => {
         const fetchData = async () => {
             setIsLoadingSpinner(true)
             setIsError(false)
+            if (!search) {
+                dispatch({type: 'addItems', payload: {item: []}})
+                setIsLoadingSpinner(false)
+                return
+            }
             try {
                 const result = await axios(`${routes.URLSearch}/api${routes.SEARCH}/${search}`, {
                     cancelToken: source.token
@@ -49,6 +54,7 @@ const MainBoots = () => {
         }
     }, [search])
 
+    // check isTouch
     const [someMain, setSomeMain] = useState(null)
     useEffect(() => {
         const isTouch = document.querySelector('._touch')
@@ -56,68 +62,71 @@ const MainBoots = () => {
     }, [someMain])
 
     const [toggleCategory, setToggleCategory] = useState(false)
-
+    const [toggleForm, setToggleForm] = useState(false)
     return (
         <>
             {isError && <div>Something went wrong ...</div>}
 
-            <main className="page">
-                <div className="appContainer">
-                    <Carousel/>
-                </div>
-                <form
-                    onSubmit={(e) => {
-                        e.preventDefault()
-                        dispatchText({type: 'textSearchWord', payload: {text: text}})
-                    }}
-                >
-                    <input
-                        type="text"
-                        placeholder="Глобальный поиск..."
-                        aria-label="Глобальный поиск..."
-                        value={text}
-                        onChange={e => setText(e.target.value)}
-                    />
+            <div className="appContainer">
+                <Carousel/>
+            </div>
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault()
+                    dispatchText({type: 'textSearchWord', payload: {text: text}})
+                }}
+            >
+                <input
+                    type="text"
+                    placeholder="Глобальный поиск..."
+                    aria-label="Глобальный поиск..."
+                    value={text}
+                    onChange={e => setText(e.target.value)}
+                />
+            </form>
 
-                </form>
+            {!someMain &&
+            <ul id="menu__listMain" className="menu__listMain">
+                <li className="containerMain">
+                    <button onClick={() => {
+                        setToggleCategory(!toggleCategory)
+                    }} className="menu__button menu__button--pipaluk menu__button--round-s">
+                        Каталог товаров
+                    </button>
+                    <span className="menu__arrowMain"></span>
 
-                {!someMain &&
-                <ul id="menu__listMain" className="menu__listMain">
-                    <li className="containerMain">
-                        <button onClick={() => {
-                            setToggleCategory(!toggleCategory)
-                        }} className="menu__button menu__button--pipaluk menu__button--round-s">
-                            Каталог товаров
-                        </button>
-                        <span className="menu__arrowMain"></span>
+                    <ul className={toggleCategory ? "menu__sub-listUlMain" : "menu__sub-listUlMainBlock"}>
+                        {categ_list.category.map((elem, i) => (
+                            <li key={`li + ${i}`} className="menu__sub-listLiMain">
+                                <Drop
+                                    category={elem.category}
+                                    list={elem.list}
+                                />
+                            </li>
+                        ))}
+                    </ul>
+                </li>
+            </ul>}
 
-                        <ul className={toggleCategory ? "menu__sub-listUlMain" : "menu__sub-listUlMainBlock"}>
-                            {categ_list.category.map((elem, i) => (
-                                <li key={`li + ${i}`} className="menu__sub-listLiMain">
-                                    <Drop
-                                        category={elem.category}
-                                        list={elem.list}
-                                    />
-                                </li>
-                            ))}
-                        </ul>
-                    </li>
-                </ul>}
+            <button onClick={() => setToggleForm(!toggleForm)} className="menu__button menu__button--pipaluk menu__button--round-s">
+                форма обратной сывязи
+            </button>
+            {toggleForm && <div className={toggleForm ? "main__FormVisible" : "main__FormBlock"}>
+                Form!
+            </div>}
 
-
-                <div className="containerListCard">
-                    {isLoadingSpinner && (
+            <div className="containerListCard">
+                {isLoadingSpinner && (
+                    <div>
                         <div>
-                            <div>
-                                <span>Loading...</span>
-                            </div>
+                            <span>Loading...</span>
                         </div>
-                    )}
-                    {!isLoadingSpinner && items.length > 0 && (
-                        items[0].map((e, i) => <MainCard key={`mainCard-${i}`} elem={e}/>)
-                    )}
-                </div>
-            </main>
+                    </div>
+                )}
+                {!isLoadingSpinner && items.length > 0 && (
+                    items[0].map((e, i) => <MainCard key={`mainCard-${i}`} elem={e}/>)
+                )}
+            </div>
         </>
     )
 }

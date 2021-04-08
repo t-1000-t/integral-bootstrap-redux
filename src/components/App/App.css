@@ -1,6 +1,26 @@
+/* header main footer */
+.wrapperA {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.wrapperHT {
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 90px 15px 30px 15px;
+}
+
 /*Header*/
-
-
 .page__section {
     padding: 30px;
     max-width: 1200px;
@@ -165,6 +185,11 @@ body._touch .menu__list > li._active .menu__arrow {
     transform: rotate(-180deg)
 }
 
+/* Footer height */
+.footer {
+    margin: 20px 15px 20px 15px;
+}
+
 /*------------------*/
 @media (min-width: 769px) {
     .menu__list {
@@ -227,10 +252,12 @@ body._touch .menu__list > li._active .menu__arrow {
     .menu__icon._active span {
         transform: scale(0) translate(0px, -50%);
     }
+
     .menu__icon._active::before {
         top: 50%;
         transform: rotate(-45deg) translate(0px, -50%);
     }
+
     .menu__icon._active::after {
         bottom: 50%;
         transform: rotate(45deg) translate(0px, 50%);
@@ -278,6 +305,7 @@ body._touch .menu__list > li._active .menu__arrow {
         font-size: 20px;
         color: #000;
     }
+
     .menu__sub-list {
         position: relative;
         background-color: #fff;

@@ -3,7 +3,7 @@
     .dropBox {
         display: flex;
         flex-direction: column;
-        /*align-items: center;*/
+        align-items: center;
         width: 100%;
     }
 
@@ -14,8 +14,9 @@
     /* Common button styles */
     .drop__button {
         float: left;
-        min-width: 180px;
-        max-width: 180px;
+        width: 95%;
+        /*min-width: 180px;*/
+        /*max-width: 180px;*/
         display: block;
         margin: 5px 5px 0px 5px;
         padding: 1em 2em;

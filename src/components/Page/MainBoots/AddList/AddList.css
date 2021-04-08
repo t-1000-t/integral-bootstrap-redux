@@ -2,11 +2,15 @@
 @media (max-width: 768px) {
 
     .addListUl_menu__sub-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         padding: 0px 10px 10px 10px;
         /*border: 1px solid gray;*/
         border-top: none;
         opacity: 1;
         max-height: 100%;
+        width: 100%;
         overflow: hidden;
         transition: all 0.3s;
     }
@@ -23,13 +27,17 @@
 
     .addListLi_menu__sub-list {
         /*padding: 10px 10px 10px 10px;*/
+        display: flex;
+        justify-content: center;
+        width: 100%;
     }
 
     /* Common button styles */
     .addList_button {
         float: left;
-        min-width: 240px;
-        max-width: 90%;
+        width: 95%;
+        /*min-width: 240px;*/
+        /*max-width: 90%;*/
         display: block;
         margin: 5px 5px 0px 5px;
         /*padding: 1em 2em;*/
