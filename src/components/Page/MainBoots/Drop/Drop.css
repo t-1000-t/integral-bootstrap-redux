@@ -3,16 +3,22 @@
     .dropBox {
         display: flex;
         flex-direction: column;
+        /*align-items: center;*/
+        width: 100%;
+    }
+
+    .dropBox > lable {
+        align-items: flex-end;
     }
 
     /* Common button styles */
     .drop__button {
         float: left;
-        min-width: 80px;
+        min-width: 180px;
         max-width: 180px;
         display: block;
-        margin: 1em;
-        /*padding: 1em 2em;*/
+        margin: 5px 5px 0px 5px;
+        padding: 1em 2em;
         border: none;
         background: none;
         color: inherit;
@@ -28,8 +34,8 @@
 
     /* Pipaluk */
     .drop__button--pipaluk {
-        width: 180px;
-        padding: 1.5em 3em;
+        min-width: 160px;
+        padding: 0.75em 1.5em;
         color: #fff;
     }
     .drop__button--pipaluk.button--inverted {
@@ -69,7 +75,7 @@
     .drop__button--pipaluk::before,
     .drop__button--pipaluk:hover::after {
         -webkit-transform: scale3d(0.7, 0.7, 1);
-        transform: scale3d(0.7, 0.7, 1);
+        transform: scale3d(0.87, 0.64, 1);
     }
     .drop__button--pipaluk:hover::after {
         background-color: #3f51b5;
@@ -82,5 +88,65 @@
     }
     .drop__button--text-thick {
         font-weight: 500;
+    }
+    /*  Close button  */
+    .drop__outer {
+        position: relative;
+        margin: auto;
+        width: 25px;
+        padding: 15px;
+        cursor: pointer;
+    }
+
+    .drop__inner {
+        width: inherit;
+        text-align: center;
+    }
+
+    .drop__label {
+        font-size: 1em;
+        line-height: 2em;
+        text-transform: uppercase;
+        color: #7986cb;
+        transition: all .3s ease-in;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .drop__inner:before, .drop__inner:after {
+        position: absolute;
+        content: '';
+        height: 2px;
+        width: inherit;
+        background: darkred;
+        left: 0;
+        transition: all .3s ease-in;
+    }
+
+    .drop__inner:before {
+        top: 50%;
+        transform: rotate(45deg);
+    }
+
+    .drop__inner:after {
+        bottom: 50%;
+        transform: rotate(-45deg);
+    }
+
+    .drop__outer:hover .drop__label {
+        opacity: 1;
+    }
+
+    .drop__outer:hover .drop__inner:before,
+    .drop__outer:hover .drop__inner:after {
+        transform: rotate(0);
+    }
+
+    .drop__outer:hover .drop__inner:before {
+        top: 0;
+    }
+
+    .drop__outer:hover .drop__inner:after {
+        bottom: 0;
     }
 }

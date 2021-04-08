@@ -85,13 +85,11 @@ const MainBoots = () => {
                 {!someMain &&
                 <ul id="menu__listMain" className="menu__listMain">
                     <li className="containerMain">
-                        <Link to="/" onClick={() => {
+                        <button onClick={() => {
                             setToggleCategory(!toggleCategory)
-                        }}>
-                            <button className="menu__button menu__button--pipaluk menu__button--round-s">
-                                Каталог товаров
-                            </button>
-                        </Link>
+                        }} className="menu__button menu__button--pipaluk menu__button--round-s">
+                            Каталог товаров
+                        </button>
                         <span className="menu__arrowMain"></span>
 
                         <ul className={toggleCategory ? "menu__sub-listUlMain" : "menu__sub-listUlMainBlock"}>

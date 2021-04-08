@@ -1,18 +1,17 @@
 
 @media (max-width: 768px) {
 
-    .menu__sub-listUlAddList {
-        padding: 15px 15px 15px 15px;
+    .addListUl_menu__sub-list {
+        padding: 0px 10px 10px 10px;
         /*border: 1px solid gray;*/
         border-top: none;
         opacity: 1;
         max-height: 100%;
         overflow: hidden;
-        padding: 10px;
         transition: all 0.3s;
     }
 
-    .menu__sub-listUlAddListBlock {
+    .addListUlBlock_menu__sub-list {
         /*border: 1px solid gray;*/
         border-top: none;
         opacity: 0;
@@ -22,17 +21,17 @@
         transition: all 0.3s;
     }
 
-    .menu__sub-listLiAddList {
-        padding: 10px 10px 10px 10px;
+    .addListLi_menu__sub-list {
+        /*padding: 10px 10px 10px 10px;*/
     }
 
     /* Common button styles */
-    .button {
+    .addList_button {
         float: left;
-        min-width: 80px;
-        max-width: 180px;
+        min-width: 240px;
+        max-width: 90%;
         display: block;
-        margin: 1em;
+        margin: 5px 5px 0px 5px;
         /*padding: 1em 2em;*/
         border: none;
         background: none;
@@ -43,24 +42,24 @@
         -webkit-backface-visibility: hidden;
         -moz-osx-font-smoothing: grayscale;
     }
-    .button:focus {
+    .addList_button:focus {
         outline: none;
     }
-    .button > span {
+    .addList_button > span {
         vertical-align: middle;
     }
 
     /* Pipaluk */
-    .button--pipaluk {
-        width: 180px;
-        padding: 1.5em 3em;
+    .addList_button--pipaluk {
+        max-width: 90%;
+        padding: 0.75em 1.75em;
         color: #fff;
     }
-    .button--pipaluk.button--inverted {
+    .addList_button--pipaluk.addList_button--inverted {
         color: #7986cb;
     }
-    .button--pipaluk::before,
-    .button--pipaluk::after {
+    .addList_button--pipaluk::before,
+    .addList_button--pipaluk::after {
         content: '';
         border-radius: inherit;
         position: absolute;
@@ -74,37 +73,37 @@
         -webkit-transition-timing-function: cubic-bezier(0.25, 0, 0.3, 1);
         transition-timing-function: cubic-bezier(0.25, 0, 0.3, 1);
     }
-    .button--pipaluk::before {
+    .addList_button--pipaluk::before {
         border: 2px solid #7986cb;
     }
-    .button--pipaluk.button--inverted::before {
+    .addList_button--pipaluk.addList_button--inverted::before {
         border-color: #fff;
     }
-    .button--pipaluk::after {
+    .addList_button--pipaluk::after {
         background: #7986cb;
     }
-    .button--pipaluk.button--inverted::after {
+    .addList_button--pipaluk.addList_button--inverted::after {
         background: #fff;
     }
-    .button--pipaluk:hover::before {
+    .addList_button--pipaluk:hover::before {
         -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
     }
-    .button--pipaluk::before,
-    .button--pipaluk:hover::after {
+    .addList_button--pipaluk::before,
+    .addList_button--pipaluk:hover::after {
         -webkit-transform: scale3d(0.7, 0.7, 1);
-        transform: scale3d(0.7, 0.7, 1);
+        transform: scale3d(0.87, 0.64, 1);
     }
-    .button--pipaluk:hover::after {
+    .addList_button--pipaluk:hover::after {
         background-color: #3f51b5;
     }
-    .button--pipaluk.button--inverted:hover::after {
+    .addList_button--pipaluk.addList_button--inverted:hover::after {
         background-color: #fff;
     }
-    .button--round-s {
+    .addList_button--round-s {
         border-radius: 5px;
     }
-    .button--text-thick {
+    .addList_button--text-thick {
         font-weight: 500;
     }
 }

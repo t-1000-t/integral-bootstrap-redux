@@ -6,11 +6,11 @@ import "./AddList.css"
 
 function AddList({list, open}) {
     return (
-        <ul className={open ? "menu__sub-listUlAddList" : "menu__sub-listUlAddListBlock"}>
+        <ul className={open ? "addListUl_menu__sub-list" : "addListUlBlock_menu__sub-list"}>
             {open && list.map((item, i) => (
-                <li key={`ItemsName + ${i}`}>
+                <li key={`ItemsName + ${i}`} className="addListLi_menu__sub-list">
                     <Link to={`${routes.PRODUCTS}/${item.category_number}`}>
-                        <button className="button button--pipaluk button--inverted  button--round-s button--text-thick">
+                        <button className="addList_button addList_button--pipaluk addList_button--inverted  addList_button--round-s addList_button--text-thick">
                             {item.name}
                         </button>
                     </Link>
