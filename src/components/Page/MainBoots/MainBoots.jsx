@@ -7,7 +7,6 @@ import navSearchQueryReducer from "../../../services/ServiceHooks/allReducers/na
 
 import Carousel from "./Carousel/Carousel";
 import "./MainBoots.css"
-import {Link} from "react-router-dom";
 import categ_list from "../../../services/categ_list.json";
 import Drop from "./Drop";
 
