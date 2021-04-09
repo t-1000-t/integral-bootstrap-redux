@@ -11,7 +11,8 @@ function FeedBackForm() {
     }
 
     function onReset() {
-        document.getElementById("myForm").reset();
+        // document.getElementById("myForm").reset();
+        formik.resetForm()
         return;
     }
 
@@ -24,7 +25,7 @@ function FeedBackForm() {
             message: ""
         },
         onSubmit: async values => {
-            const data = JSON.stringify(values);
+            const data = JSON.stringify(values, null, 2);
 
             const myHeaders = new Headers();
             myHeaders.append("Access-Control-Allow-Origin", "*");
@@ -36,12 +37,12 @@ function FeedBackForm() {
                 headers: myHeaders,
                 body: data
             };
-            fetch("https://sending-feedback-form.herokuapp.com/send", requestOptions)
-                // const proxy = "https://cors-anywhere.herokuapp.com";
-                // fetch("http://localhost:5000/send", requestOptions)
-                .then(response => response.text())
-                .then(result => console.log(result))
-                .catch(error => console.log("error", error))
+
+            fetch(
+                "https://sending-feedback-form.herokuapp.com/send", requestOptions)
+                // "http://localhost:5000/send", requestOptions)
+                .then(result => result)
+                .catch(error => console.error("error", error))
                 .finally(onDisableButton());
         }
     });
@@ -104,7 +105,7 @@ function FeedBackForm() {
                             value={formik.values.email}
                         />
                     </p>
-                    <p className="full">
+                    <p className="formBack__full">
                         <label htmlFor="message">Сообщение</label>
                         <textarea
                             id="message"
@@ -114,7 +115,7 @@ function FeedBackForm() {
                             value={formik.values.message}
                         />
                     </p>
-                    <p className="full">
+                    <p className="formBack__full">
                         <button disabled={bool} id="butSub" type="submit">
                             Отправить
                         </button>

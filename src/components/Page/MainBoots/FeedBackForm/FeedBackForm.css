@@ -41,7 +41,7 @@
     margin: 0;
 }
 
-.formBack__contact form .full {
+.formBack__contact form .formBack__full {
     grid-column: 1 / 3;
 }
 
