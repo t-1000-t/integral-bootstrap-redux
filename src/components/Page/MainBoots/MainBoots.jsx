@@ -9,6 +9,7 @@ import Carousel from "./Carousel/Carousel";
 import "./MainBoots.css"
 import categ_list from "../../../services/categ_list.json";
 import Drop from "./Drop";
+import FeedBackForm from "./FeedBackForm";
 
 const MainBoots = () => {
     const [isLoadingSpinner, setIsLoadingSpinner] = useState(false)
@@ -70,21 +71,22 @@ const MainBoots = () => {
             <div className="appContainer">
                 <Carousel/>
             </div>
-            <form
-                onSubmit={(e) => {
-                    e.preventDefault()
-                    dispatchText({type: 'textSearchWord', payload: {text: text}})
-                }}
-            >
-                <input
-                    type="text"
-                    placeholder="Глобальный поиск..."
-                    aria-label="Глобальный поиск..."
-                    value={text}
-                    onChange={e => setText(e.target.value)}
-                />
-            </form>
-
+            <div className="main__searchGlobal">
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault()
+                        dispatchText({type: 'textSearchWord', payload: {text: text}})
+                    }}
+                >
+                    <input
+                        type="text"
+                        placeholder="Глобальный поиск..."
+                        aria-label="Глобальный поиск..."
+                        value={text}
+                        onChange={e => setText(e.target.value)}
+                    />
+                </form>
+            </div>
             {!someMain &&
             <ul id="menu__listMain" className="menu__listMain">
                 <li className="containerMain">
@@ -108,11 +110,12 @@ const MainBoots = () => {
                 </li>
             </ul>}
 
-            <button onClick={() => setToggleForm(!toggleForm)} className="menu__button menu__button--pipaluk menu__button--round-s">
+            <button onClick={() => setToggleForm(!toggleForm)}
+                    className="menu__button menu__button--pipaluk menu__button--round-s">
                 форма обратной сывязи
             </button>
             {toggleForm && <div className={toggleForm ? "main__FormVisible" : "main__FormBlock"}>
-                Form!
+                <FeedBackForm/>
             </div>}
 
             <div className="containerListCard">

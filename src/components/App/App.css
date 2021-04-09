@@ -12,7 +12,6 @@
     flex-shrink: 1;
 }
 
-
 .page {
     display: flex;
     flex-direction: column;
@@ -269,7 +268,7 @@ body._touch .menu__list > li._active .menu__arrow {
         left: -100%;
         width: 100%;
         height: 100%;
-        background-color: rgb(162, 148, 179);
+        background-color: #c9e6ff;
         padding: 100px 30px 30px 30px;
         transition: left 0.3s ease 0s;
         overflow: auto;
@@ -295,7 +294,7 @@ body._touch .menu__list > li._active .menu__arrow {
     }
 
     .menu__link {
-        color: #def8f8;
+        color: #444;
         display: block;
         margin: 15px 15px 15px 0;
         font-size: 24px;

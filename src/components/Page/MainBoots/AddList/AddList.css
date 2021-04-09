@@ -36,11 +36,8 @@
     .addList_button {
         float: left;
         width: 95%;
-        /*min-width: 240px;*/
-        /*max-width: 90%;*/
         display: block;
         margin: 5px 5px 0px 5px;
-        /*padding: 1em 2em;*/
         border: none;
         background: none;
         color: inherit;
@@ -62,6 +59,7 @@
         max-width: 90%;
         padding: 0.75em 1.75em;
         color: #fff;
+        cursor: pointer;
     }
     .addList_button--pipaluk.addList_button--inverted {
         color: #7986cb;

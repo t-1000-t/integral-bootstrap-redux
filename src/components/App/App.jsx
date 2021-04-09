@@ -29,7 +29,6 @@ function App() {
                         <Switch>
                             <Route exact path={routes.HOME}><MainBoots/></Route>
                             <Route exact path={routes.CONTACT}><ContactBoots/></Route>
-                            {/* <Route exact path={routes.FEEDBACK}><FeedBackForm/></Route> */}
                             <Route exact path={routes.CATEGORIES}><ViewListCategory/></Route>
                             <Route path={`${routes.PRODUCTS}/:categoryNum`}><ViewCategoryProducts/>></Route>
                             <Route path={`${routes.PRODUCT}/:someIdProduct`}><ViewProduct/></Route>

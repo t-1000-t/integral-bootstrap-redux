@@ -15,8 +15,6 @@
     .drop__button {
         float: left;
         width: 95%;
-        /*min-width: 180px;*/
-        /*max-width: 180px;*/
         display: block;
         margin: 5px 5px 0px 5px;
         padding: 1em 2em;
@@ -28,6 +26,7 @@
         z-index: 1;
         -webkit-backface-visibility: hidden;
         -moz-osx-font-smoothing: grayscale;
+        cursor: pointer;
     }
     .drop__button:focus {
         outline: none;
@@ -109,7 +108,7 @@
         line-height: 2em;
         text-transform: uppercase;
         color: #7986cb;
-        transition: all .3s ease-in;
+        transition: all 0.3s;
         opacity: 0;
         cursor: pointer;
     }
@@ -121,7 +120,7 @@
         width: inherit;
         background: darkred;
         left: 0;
-        transition: all .3s ease-in;
+        transition: all 0.3s;
     }
 
     .drop__inner:before {
