@@ -6,9 +6,8 @@ function FeedBackForm() {
     const [bool, setBool] = useState(false);
 
     function onDisableButton() {
-        console.log("YES");
-        // setBool(true);
-        // onReset();
+        setBool(true);
+        onReset();
     }
 
     function onReset() {
