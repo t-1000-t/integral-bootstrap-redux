@@ -1,6 +1,6 @@
 import React from "react";
 import "./MainCard.css"
-import {BrowserRouter as NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import routes from "../../../../routes";
 
 function MainCard({elem}) {
@@ -9,7 +9,7 @@ function MainCard({elem}) {
             <p>
                 &nbsp; &nbsp; Код: {elem.product_code}
             </p>
-            <NavLink className="mainCardBoxImg" to={`${routes.PRODUCT}`}>
+            <NavLink className="mainCardBoxImg" to={`${routes.PRODUCT}/${elem.productID}`}>
                 <img
                     className="imgMainCard"
                     src={elem.large_image}

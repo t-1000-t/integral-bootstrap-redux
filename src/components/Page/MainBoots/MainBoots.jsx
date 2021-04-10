@@ -67,7 +67,6 @@ const MainBoots = () => {
     return (
         <>
             {isError && <div>Something went wrong ...</div>}
-
             <div className="appContainer">
                 <Carousel/>
             </div>

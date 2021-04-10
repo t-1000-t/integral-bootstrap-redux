@@ -23,6 +23,7 @@ function ViewCategoryProducts() {
     //     closeDropdown()
     // }, [])
 
+    console.log(categoryNumber)
     console.log(currentPage)
 
     // --- useEffect for will get all products --- //
@@ -58,9 +59,9 @@ function ViewCategoryProducts() {
     return (
         <>
             {isLoading && (
-                <div className="text-center mt-5">
-                    <div className="spinner-border m-5" role="status">
-                        <span className="sr-only"></span>
+                <div className="">
+                    <div className="">
+                        <span className="">LOADING!</span>
                     </div>
                 </div>
             )}
@@ -89,7 +90,7 @@ function ViewCategoryProducts() {
                         </button>
                     </div>
                 </div>
-                <div className='m-3'>Third</div>
+                <div className="">Third</div>
             </div>)}
         </>
     );

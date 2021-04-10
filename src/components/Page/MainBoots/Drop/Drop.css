@@ -84,7 +84,7 @@
         background-color: #fff;
     }
     .drop__button--round-s {
-        border-radius: 5px;
+        /*border-radius: 5px;*/
     }
     .drop__button--text-thick {
         font-weight: 500;

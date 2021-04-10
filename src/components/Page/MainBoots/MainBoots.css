@@ -137,7 +137,7 @@
         background-color: #fff;
     }
     .menu__button--round-s {
-        border-radius: 5px;
+        /*border-radius: 5px;*/
     }
     .menu__button--text-thick {
         font-weight: 500;

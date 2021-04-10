@@ -107,7 +107,7 @@
         background-color: #fff;
     }
     .addList_button--round-s {
-        border-radius: 5px;
+        /*border-radius: 5px;*/
     }
     .addList_button--text-thick {
         font-weight: 500;
