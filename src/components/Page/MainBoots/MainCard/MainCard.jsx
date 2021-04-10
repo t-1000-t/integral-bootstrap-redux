@@ -1,6 +1,6 @@
 import React from "react";
 import "./MainCard.css"
-import {BrowserRouter as Link, NavLink} from "react-router-dom";
+import {BrowserRouter as NavLink} from "react-router-dom";
 import routes from "../../../../routes";
 
 function MainCard({elem}) {
