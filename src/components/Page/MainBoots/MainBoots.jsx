@@ -109,15 +109,6 @@ const MainBoots = () => {
                     </ul>
                 </li>
             </ul>}
-
-            <button onClick={() => setToggleForm(!toggleForm)}
-                    className="menu__button menu__button--pipaluk menu__button--round-s">
-                форма обратной сывязи
-            </button>
-            {toggleForm && <div className={toggleForm ? "main__FormVisible" : "main__FormBlock"}>
-                <FeedBackForm/>
-            </div>}
-
             <div className="containerListCard">
                 {isLoadingSpinner && (
                     <div>
@@ -130,6 +121,13 @@ const MainBoots = () => {
                     items[0].map((e, i) => <MainCard key={`mainCard-${i}`} elem={e}/>)
                 )}
             </div>
+            <button onClick={() => setToggleForm(!toggleForm)}
+                    className="menu__button menu__button--pipaluk menu__button--round-s">
+                форма обратной сывязи
+            </button>
+            {toggleForm && <div className={toggleForm ? "main__FormVisible" : "main__FormBlock"}>
+                <FeedBackForm toggleForm={toggleForm}/>
+            </div>}
         </>
     )
 }

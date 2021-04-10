@@ -1,10 +1,41 @@
 .containerMainCard {
-    width: 45%;
+    width: 46%;
     height: 100%;
+    padding: 3%;
+    margin: 2%;
+    background-color: #ffffff;
+}
+
+.containerMainCard > p {
+    font-family: 'Exo 2', sans-serif;
+    font-size: calc(11px + (2 * 2 * 0.7) * ((100vh - 320px) / 1280));
+    font-weight: 300;
 }
 
 .mainCardBoxImg {
     display: flex;
+    cursor: pointer;
+}
+
+.mainCardBoxText > p {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: 'Exo 2', sans-serif;
+    font-size: calc(11px + (3 * 3 * 0.7) * ((100vh - 320px) / 1280));
+    font-weight: 500;
+}
+
+.mainCardBoxButton {
+    width: 100%;
+    padding: 5%;
+    border: none;
+    background-color: #0ab02a;
+    color: white;
+    font-family: 'Roboto Light', sans-serif;
+    font-size: calc(13px + (3 * 3 * 0.7) * ((100vh - 320px) / 1280));
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .imgMainCard {

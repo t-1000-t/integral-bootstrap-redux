@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {useFormik} from "formik";
 import "./FeedBackForm.css"
 
-function FeedBackForm() {
+function FeedBackForm({toggleForm}) {
     const [bool, setBool] = useState(false);
 
     function onDisableButton() {
@@ -12,7 +12,11 @@ function FeedBackForm() {
 
     function onReset() {
         // document.getElementById("myForm").reset();
+        // reset Form formik
         formik.resetForm()
+
+        // close feedBackForm
+        toggleForm()
         return;
     }
 
@@ -46,6 +50,9 @@ function FeedBackForm() {
                 .finally(onDisableButton());
         }
     });
+
+    // const {firstName, lastName, phone, email, message} = formik.values
+
     return (<>
         <div className="formBack__wrapper animated bounceInLeft">
             <div className="formBack__company-info">

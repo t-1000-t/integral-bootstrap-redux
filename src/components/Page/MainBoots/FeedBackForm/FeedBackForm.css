@@ -51,6 +51,7 @@
     width: 100%;
     padding: 1em;
     border: 1px solid #c9e6ff;
+    cursor: pointer;
 }
 
 .formBack__contact form button {
