@@ -1,10 +1,11 @@
 import React, {useState, useEffect, useReducer} from "react"
 import {useParams} from "react-router-dom"
 import axios from 'axios'
-import CardProduct from "./CardProduct"
 import routes from "../../../../routes";
+import MainCard from "../MainCard";
 import forGetArrProductsReducer
     from "../../../../services/ServiceHooks/allReducers/forGetArrProductsReducer";
+import "./ViewCategoryProducts.css"
 
 
 function ViewCategoryProducts() {
@@ -58,6 +59,7 @@ function ViewCategoryProducts() {
 
     return (
         <>
+            {isError && <div>Something went wrong ...</div>}
             {isLoading && (
                 <div className="">
                     <div className="">
@@ -66,31 +68,11 @@ function ViewCategoryProducts() {
                 </div>
             )}
 
-            {!isLoading && (<div className="d-flex justify-content-between">
-                <div className='m-3'>First</div>
-                <div className="container">
-                    {isError && <div>Something went wrong ...</div>}
-
-                    <div className="d-flex justify-content-center">
-                        <button disabled={!currentPage} onClick={() => {
-                            setCurrentPage(e => e - 1)
-                        }} type="button" className="btn btn-secondary m-2">
-                        </button>
-                        <div className="row row-cols-1 row-cols-md-3 mt-3 pt-5">
-                            {products.length > 0 &&
-                            products.map(elem => (
-                                <div key={elem.productID} className="col mb-4">
-                                    <CardProduct elem={elem}/>
-                                </div>
-                            ))}
-                        </div>
-                        <button onClick={() => {
-                            setCurrentPage(e => e + 1)
-                        }} type="button" className="btn btn-secondary m-2">
-                        </button>
-                    </div>
-                </div>
-                <div className="">Third</div>
+            {!isLoading && (<div className="containerCatProd">
+                {products.length > 0 &&
+                products.map(elem => (
+                    <MainCard key={elem.productID} elem={elem}/>
+                ))}
             </div>)}
         </>
     );

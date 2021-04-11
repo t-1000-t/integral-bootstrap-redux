@@ -1,0 +1,14 @@
+.containerCatProd {
+    margin-top: 10px;
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .containerCatProd {
+
+    }
+}
+
