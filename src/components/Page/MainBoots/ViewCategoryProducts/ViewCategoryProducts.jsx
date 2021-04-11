@@ -9,7 +9,7 @@ import "./ViewCategoryProducts.css"
 
 
 function ViewCategoryProducts() {
-    const [currentPage, setCurrentPage] = useState(0)
+    const [currentPage] = useState(0)
     const [isError, setIsError] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
 
