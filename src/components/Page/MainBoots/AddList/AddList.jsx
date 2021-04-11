@@ -5,7 +5,6 @@ import "./AddList.css"
 
 
 function AddList({list, open}) {
-    console.log(list)
     return (
         <ul className={open ? "addListUl_menu__sub-list" : "addListUlBlock_menu__sub-list"}>
             {open && list.map((item, i) => (

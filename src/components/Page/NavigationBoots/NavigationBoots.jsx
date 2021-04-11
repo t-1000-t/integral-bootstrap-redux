@@ -6,6 +6,7 @@ import {NavLink} from "react-router-dom";
 import listBurger from "../../../routes/routeBurger";
 import routes from "../../../routes/routes";
 import logo from "../../../images/logo/logo-61x61.jpg"
+import toggleBurger from "../../../services/toggleBurger";
 
 
 function NavigationBoots() {
@@ -18,6 +19,7 @@ function NavigationBoots() {
             setSome(true)
         }
     }, [some])
+
 
     return (
         <>
@@ -47,9 +49,9 @@ function NavigationBoots() {
                         </li>
                     </ul>}
                     {some && <ul id="menu__list-touch" className="menu__list-touch">
-                        <li>
+                        <li onClick={() => toggleBurger()}>
                             {listBurger.map((el, i) => (
-                                <NavLink key={i} to={`${el.link}`} className="menu__link">{el.name}</NavLink>))}
+                                <NavLink key={i} id={el.id} to={`${el.link}`} className="menu__link">{el.name}</NavLink>))}
                         </li>
                     </ul>}
                 </nav>

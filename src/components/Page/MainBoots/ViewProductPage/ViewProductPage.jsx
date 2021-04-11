@@ -1,5 +1,5 @@
 import React, {useEffect, useReducer, useState} from 'react';
-import {useHistory, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import axios from "axios";
 import routes from "../../../../routes";
 import forGetProductReducer from "../../../../services/ServiceHooks/allReducers/forGetProductReducer";
@@ -10,11 +10,11 @@ function ViewProductPage() {
     const [isError, setIsError] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
 
-        let history = useHistory();
-
-        function handleClick() {
-            history.push(routes.HOME);
-        }
+        // let history = useHistory();
+        //
+        // function handleClick() {
+        //     history.push(routes.HOME);
+        // }
 
     // useParams
     const params = useParams()
@@ -64,9 +64,9 @@ function ViewProductPage() {
                 </div>
             )}
 
-            <button type="button" onClick={handleClick}>
-                Go back
-            </button>
+            {/*<button type="button" onClick={handleClick}>*/}
+            {/*    Go back*/}
+            {/*</button>*/}
 
             <ProductDetails elem={product} />
         </article>
