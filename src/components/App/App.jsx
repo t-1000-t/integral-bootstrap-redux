@@ -24,7 +24,7 @@ function App() {
                         <Switch>
                             <Route exact path={routes.HOME}><MainBoots/></Route>
                             <Route exact path={routes.CONTACT}><ContactBoots/></Route>
-                            <Route path={`${routes.PRODUCTS}/:categoryNum`}><ViewCategoryProducts/></Route>
+                            <Route path={`${routes.PRODUCTS_LIST}/:categoryNum`}><ViewCategoryProducts/></Route>
                             <Route path={`${routes.PRODUCT}/:someIdProduct`}><ViewProductPage/></Route>
                             <Redirect to={routes.HOME}/>
                         </Switch>

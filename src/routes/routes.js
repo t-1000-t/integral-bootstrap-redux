@@ -7,9 +7,11 @@ export default {
   CATEGORIES: "/categories",
   PRODUCT: "/product",
   PRODUCT_CODE: "/product/product_code",
-  PRODUCTS: "/products",
-  SEARCH: "/search",
-  FEEDBACK: "/feedback"
+  API_PRODUCTS: "api/products",
+  PRODUCTS_LIST: "/products",
+  SEARCH: "search",
+  FEEDBACK: "/feedback",
+  API_FILTERS_ALL: "api/filters_all"
   //   PRODUCTS_DETAILS: "/products/:someone"
 };
 

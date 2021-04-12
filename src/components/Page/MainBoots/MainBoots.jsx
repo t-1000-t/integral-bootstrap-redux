@@ -32,7 +32,7 @@ const MainBoots = () => {
                 return
             }
             try {
-                const result = await axios(`${routes.URLSearch}/api${routes.SEARCH}/${search}`, {
+                const result = await axios(`${routes.URLSearch}/api/${routes.SEARCH}/${search}`, {
                     cancelToken: source.token
                 })
                 console.log("AxiosCancel: got response")

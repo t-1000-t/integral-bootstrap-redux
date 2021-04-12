@@ -6,12 +6,14 @@ import MainCard from "../MainCard";
 import forGetArrProductsReducer
     from "../../../../services/ServiceHooks/allReducers/forGetArrProductsReducer";
 import "./ViewCategoryProducts.css"
+import FilterList from "./FilterList";
 
 
 function ViewCategoryProducts() {
     const [currentPage] = useState(0)
     const [isError, setIsError] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
+    const [openFilter, setOpenFilter] = useState(false)
 
     const [products, dispatchP] = useReducer(forGetArrProductsReducer, [])
 
@@ -23,9 +25,6 @@ function ViewCategoryProducts() {
     // useEffect(() => {
     //     closeDropdown()
     // }, [])
-
-    console.log(categoryNumber)
-    console.log(currentPage)
 
     // --- useEffect for will get all products --- //
     useEffect(() => {
@@ -68,12 +67,18 @@ function ViewCategoryProducts() {
                 </div>
             )}
 
-            {!isLoading && (<div className="containerCatProd">
-                {products.length > 0 &&
-                products.map(elem => (
-                    <MainCard key={elem.productID} elem={elem}/>
-                ))}
-            </div>)}
+            {!isLoading && (
+                <>
+                    <button onClick={() => setOpenFilter(!openFilter)}>Фильтр</button>
+                    {openFilter && <FilterList category={categoryNumber}/>}
+                    <div className="containerCatProd">
+                        {products.length > 0 &&
+                        products.map(elem => (
+                            <MainCard key={elem.productID} elem={elem}/>
+                        ))}
+                    </div>
+                </>
+            )}
         </>
     );
 }

@@ -81,9 +81,9 @@ function ViewListCategory() {
                 </div>
             )}
 
-            {!isLoading && (<div className="container mt-5">
+            {!isLoading && (<div className="">
                 {isError && <div>Something went wrong ...</div>}
-                <form className="d-flex flex-wrap" onSubmit={handlerSubmit}>
+                <form className="" onSubmit={handlerSubmit}>
                     {status === 1 && listLabel.length > 0 && listLabel.map(elem =>
                         <Label key={elem.id} updateLabelCheck={updateLabelCheck} elem={elem}/>
                     )}
