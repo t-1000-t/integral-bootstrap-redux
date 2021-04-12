@@ -3,7 +3,7 @@ import filters_all from "../../../../../services/filtersAll/filters_all";
 // import ListCategoryName from "../ListCategoryName"
 
 function FilterList({category}) {
-    const [listFilter, setListFilter] = useState([])
+    const [listFilter, setListFilter] = useState({})
 
     useEffect(() => {
         filters_all(category).then(data => {
@@ -19,7 +19,7 @@ function FilterList({category}) {
         }).then(elem => {
             setListFilter(elem)
         })
-    }, [])
+    }, [category])
 
     return (
         <>
