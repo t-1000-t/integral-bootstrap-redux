@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import filters_all from "../../../../../services/filtersAll/filters_all";
-// import ListCategoryName from "../ListCategoryName"
+import ListCategoryName from "../ListCategoryName"
 
 function FilterList({category}) {
     const [listFilter, setListFilter] = useState({})
@@ -31,11 +31,10 @@ function FilterList({category}) {
                             key={elem.optionID}
                             className=""
                         >
-                            {elem.name}
-                            {/*<ListCategoryName*/}
-                            {/*    elem={elem}*/}
-                            {/*    // updateElemStatus={this.updateElemStatus}*/}
-                            {/*/>*/}
+                            <ListCategoryName
+                                elem={elem}
+                                // updateElemStatus={this.updateElemStatus}
+                            />
                         </li>
                     ))}
                 </ul>
