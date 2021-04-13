@@ -17,14 +17,6 @@ function FilterList({category}) {
         })).then(items => setListFilter(items))
     }, [category])
 
-    // copy listFilter
-    useEffect(() => {
-        if (!listFilter.result) {
-            return
-        }
-
-    }, [])
-
 
     // for change checkBox
     const handleChange = event => {
