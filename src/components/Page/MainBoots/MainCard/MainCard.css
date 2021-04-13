@@ -1,6 +1,8 @@
 .containerMainCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 46%;
-    height: 100%;
     padding: 3%;
     margin: 2%;
     background-color: #ffffff;

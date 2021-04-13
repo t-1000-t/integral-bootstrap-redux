@@ -70,12 +70,16 @@ function ViewCategoryProducts() {
             {!isLoading && (
                 <>
                     <button onClick={() => setOpenFilter(!openFilter)}>Фильтр</button>
-                    {openFilter && <FilterList category={categoryNumber}/>}
-                    <div className="containerCatProd">
+                    <div className="wrapperFilCat">
+                        {openFilter && <div className="containerFilterList">
+                             <FilterList category={categoryNumber}/>
+                        </div>}
+                        {/*<div className="containerCatProd">*/}
                         {products.length > 0 &&
                         products.map(elem => (
                             <MainCard key={elem.productID} elem={elem}/>
                         ))}
+                        {/*</div>*/}
                     </div>
                 </>
             )}

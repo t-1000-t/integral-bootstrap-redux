@@ -210,6 +210,12 @@ body._touch .menu__list > li._active .menu__arrow {
 }
 
 @media (max-width: 768px) {
+    .page > button:first-child {
+        position: fixed;
+        top: 72px;
+        left: calc(20px);
+    }
+
     .menu__icon {
         z-index: 5;
         display: block;

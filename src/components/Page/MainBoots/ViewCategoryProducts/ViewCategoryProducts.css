@@ -1,8 +1,18 @@
-.containerCatProd {
-    margin-top: 10px;
+/*.containerCatProd {*/
+/*    display: flex;*/
+/*    !*justify-content: space-between;*!*/
+/*    flex-wrap: wrap;*/
+/*}*/
+
+.containerFilterList {
+    width: 46%;
+    padding: 3%;
+    margin: 2%;
+    background-color: #ffffff;
+}
+
+.wrapperFilCat {
     display: flex;
-    width: 95%;
-    justify-content: space-between;
     flex-wrap: wrap;
 }
 
