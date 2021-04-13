@@ -4,30 +4,17 @@ import FilterCategoryName from "../FilterCategoryName"
 
 function FilterList({category}) {
     const [listFilter, setListFilter] = useState({})
-    const [itemID, setItemID] = useState({})
-    const [bool, setBool] = useState(false)
-    const [listCheckFilter, setListCheckFilter] = useState({})
-
-    // for change checkBox
-    const changeItemID = (id) => {
-        setBool(!bool)
-        setItemID({itemID: id, bool: bool})
-    }
 
     // get FilterList
     useEffect(() => {
         // if (!itemID) {
-        filters_all(category).then(data => {
-            return {
-                status: data.status, result: data.result.map(e => {
-                    return {
-                        ...e, filters: e.filters.map((el) => {
-                            return {...el, completed: false};
-                        })
-                    }
-                })
-            }
-        }).then(elem => setListFilter(elem))
+        filters_all(category).then(data => ({
+            status: data.status, result: data.result.map(e => ({
+                ...e, filters: e.filters.map(el => ({
+                    ...el, completed: false
+                }))
+            }))
+        })).then(items => setListFilter(items))
     }, [category])
 
     // copy listFilter
@@ -35,51 +22,47 @@ function FilterList({category}) {
         if (!listFilter.result) {
             return
         }
-        setListCheckFilter({...listFilter})
-    }, [listFilter])
 
-    // copy list
-    useEffect(() => {
-        if (!listCheckFilter.result) {
+    }, [])
+
+
+    // for change checkBox
+    const handleChange = event => {
+        if (!listFilter) {
             return
         }
 
-        function updateList() {
-            return {
-                status: listCheckFilter.status,
-                result: listCheckFilter.result.map((elem) => {
-                    return {
-                        ...elem,
-                        filters: elem.filters.map((el) => {
-                            if (el.filterID === itemID.itemID) {
-                                return {...el, completed: !el.completed};
-                            }
-                            return el;
-                        }),
-                    };
+        setListFilter({
+            status: listFilter.status, result: listFilter.result.map(e => ({
+                ...e, filters: e.filters.map(el => {
+                    if (el.filterID === event.target.id) {
+                        return {...el, [event.target.completed]: event.target.checked}
+                    } else {
+                        return {...el}
+                    }
                 })
-            }
-        }
-        setListCheckFilter(updateList())
-    }, [itemID])
-
+            }))
+        })
+    };
 
     return (
         <>
             <ul className="">
-                {listCheckFilter.status === 1 && listCheckFilter.result.map((elem) => (
+                {listFilter.status === 1 && listFilter.result.map((elem) => (
                     <li
                         key={elem.optionID}
                         className=""
                     >
-                        <FilterCategoryName
-                            elem={elem}
-                            changeItemID={changeItemID}
-                        />
+                        <label key={elem.optionID}>
+                            <FilterCategoryName
+                                elem={elem}
+                                handleChange={handleChange}
+                                checked={listFilter[elem.id]}
+                            />
+                        </label>
                     </li>
                 ))}
             </ul>
-
         </>
     );
 }

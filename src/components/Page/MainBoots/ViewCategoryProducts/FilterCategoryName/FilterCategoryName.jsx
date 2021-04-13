@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./FilterCategoryName.css";
 
-function FilterCategoryName({elem, changeItemID}) {
+function FilterCategoryName({elem, checked, handleChange}) {
     const [openFilterElement, setOpenFilterElement] = useState(false)
 
     return (
@@ -13,15 +13,13 @@ function FilterCategoryName({elem, changeItemID}) {
                 {openFilterElement && elem.filters.map((item) => {
                     return <button key={item.filterID} className="">
                         <span className="">{item.name}</span>
-
                         <input
-                            type="checkbox"
                             className="inputFilterCategoryName"
-                            checked={item.completed}
-                            onChange={() => changeItemID(item.filterID)}
-                            // onClick={() => {
-                            //     setBool(!bool)
-                            // }}
+                            id={item.filterID}
+                            completed={checked}
+                            type="checkbox"
+                            checked={checked}
+                            onChange={handleChange}
                         />
                     </button>
                 })}
