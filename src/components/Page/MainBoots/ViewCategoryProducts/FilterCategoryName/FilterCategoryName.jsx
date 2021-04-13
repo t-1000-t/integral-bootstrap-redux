@@ -16,7 +16,7 @@ function FilterCategoryName({elem, changeItemID}) {
 
                         <input
                             type="checkbox"
-                            className=""
+                            className="inputFilterCategoryName"
                             checked={item.completed}
                             onChange={() => changeItemID(item.filterID)}
                             // onClick={() => {

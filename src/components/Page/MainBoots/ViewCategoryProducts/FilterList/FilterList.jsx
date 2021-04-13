@@ -60,9 +60,8 @@ function FilterList({category}) {
                 })
             }
         }
-
         setListCheckFilter(updateList())
-    }, [itemID, listCheckFilter.status, listCheckFilter.result])
+    }, [itemID])
 
 
     return (
