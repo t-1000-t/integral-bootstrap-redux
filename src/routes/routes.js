@@ -9,6 +9,7 @@ export default {
   PRODUCT_CODE: "/product/product_code",
   API_PRODUCTS: "api/products",
   PRODUCTS_LIST: "/products",
+  API_PRODUCTS_FILTER: "api/products_filter",
   SEARCH: "search",
   FEEDBACK: "/feedback",
   API_FILTERS_ALL: "api/filters_all"

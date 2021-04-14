@@ -3,6 +3,7 @@
         font-family: 'Roboto Light', sans-serif;
         font-size: calc(10px + (2 * 2 * 0.7) * ((100vh - 320px) / 1280));
         font-weight: 300;
+        width: 160px;
         padding: 5px;
         margin: 2px;
         background-color: #4e9bba;
@@ -11,4 +12,5 @@
         margin: 5px;
         background-color: #0ab02a;
     }
+
 }
