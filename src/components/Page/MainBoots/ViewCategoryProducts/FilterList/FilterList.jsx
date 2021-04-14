@@ -53,7 +53,6 @@ function FilterList({category}) {
             e.filters.map(el => {
                 if (el.completed === true) {
                     arrFilCheck.push(el.filterID)
-                } else {
                     return el
                 }
             })
