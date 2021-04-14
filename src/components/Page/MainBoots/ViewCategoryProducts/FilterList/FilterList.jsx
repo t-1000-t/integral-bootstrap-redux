@@ -50,10 +50,9 @@ function FilterList({category}) {
         }
         const arrFilCheck = []
         listFilter.result.map(e => (
-            e.filters.map(el => {
+            e.filters.forEach(el => {
                 if (el.completed === true) {
                     arrFilCheck.push(el.filterID)
-                    return el
                 }
             })
         ))
