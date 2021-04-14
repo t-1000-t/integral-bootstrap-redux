@@ -99,7 +99,7 @@ function ViewCategoryProducts() {
             source.cancel()
         }
 
-    }, [location])
+    }, [location, categoryNumber])
 
 
     return (

@@ -53,6 +53,8 @@ function FilterList({category}) {
             e.filters.map(el => {
                 if (el.completed === true) {
                     arrFilCheck.push(el.filterID)
+                } else {
+                    return el
                 }
             })
         ))
@@ -89,7 +91,7 @@ function FilterList({category}) {
         history.push({
             pathname: `${routes.PRODUCTS_LIST}/${catNum}/${linkParams}`
         });
-    }, [matchParams])
+    }, [matchParams, catNum, history, linkParams])
 
     return (
         <>
