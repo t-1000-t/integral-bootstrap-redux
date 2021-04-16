@@ -74,9 +74,9 @@ function ViewListCategory() {
     return (
         <>
             {isLoading && (
-                <div className="text-center mt-5">
-                    <div className="spinner-border m-5" role="status">
-                        <span className="sr-only"></span>
+                <div className="">
+                    <div className="" role="">
+                        <span className=""></span>
                     </div>
                 </div>
             )}

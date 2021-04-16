@@ -4,19 +4,25 @@ import "./ProductDetails.css"
 function ProductDetails({elem}) {
     console.log("element", elem)
     return (
-        <section className="">
-            <div className="">
-                <img
-                    className="productImgDetails"
-                    src={`${elem.large_image}`}
-                    alt={`${elem.articul}`}
-                />
-            </div>
-
-            <div className="">
-               <p>PRODUCT!!!</p>
-            </div>
-        </section>
+        <article>
+            <h4>{elem.name}</h4>
+            <span>Код товара: {elem.product_code}</span>
+            <section className="">
+                <div className="">
+                    <p>{elem.self_delivery === 1 ? "Хит продаж" : ""}</p>
+                    <img
+                        className="productImgDetails"
+                        src={`${elem.large_image}`}
+                        alt={`${elem.articul}`}
+                    />
+                </div>
+                <div className="productsWrapperDescription">
+                    <p>{elem.brief_description}</p>
+                    <h5>{elem.retail_price_uah} грн.</h5>
+                </div>
+                <button type="button" className="productsDetailsBoxButton">Купить</button>
+            </section>
+        </article>
     )
 }
 

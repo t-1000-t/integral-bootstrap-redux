@@ -7,6 +7,7 @@ import listBurger from "../../../routes/routeBurger";
 import routes from "../../../routes/routes";
 import logo from "../../../images/logo/logo-61x61.jpg"
 import toggleBurger from "../../../services/toggleBurger";
+import closeBurger from "../../../services/closeBurger/closeBurger";
 
 
 function NavigationBoots() {
@@ -23,7 +24,7 @@ function NavigationBoots() {
 
     return (
         <>
-            <NavLink to={routes.HOME}>
+            <NavLink to={routes.HOME} onClick={() => closeBurger()}>
                 <img className="header__logo" src={logo} alt="Integral"/>
             </NavLink>
 

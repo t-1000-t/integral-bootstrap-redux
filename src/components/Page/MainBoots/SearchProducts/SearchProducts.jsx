@@ -27,9 +27,9 @@ const SearchProducts = ({ loading, data }) => {
         </div>
       )}
       {!loading && (
-        <div className="album py-5 bg-white">
-          <div className="container">
-            <div className="row">
+        <div className="">
+          <div className="">
+            <div className="">
               {data === true ? (
                 data.item.map((elem, idx) => (
                   <MainCard key={idx} id={idx} elem={elem}></MainCard>

@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useReducer} from "react"
-import {useLocation, useParams} from "react-router-dom"
+import {useLocation, useParams, useRouteMatch} from "react-router-dom"
 import axios from 'axios'
 import routes from "../../../../routes";
 import MainCard from "../MainCard";
@@ -20,7 +20,8 @@ function ViewCategoryProducts() {
     // useParams
     const params = useParams()
     const categoryNumber = params.categoryNum
-
+    const match = useRouteMatch()
+    console.log(match)
     // useLocation
     let location = useLocation();
 
@@ -116,9 +117,7 @@ function ViewCategoryProducts() {
                 <button onClick={() => setOpenFilter(!openFilter)}>Фильтр</button>
                 <div className="wrapperFilCat">
                     {openFilter &&
-                    // <div className="containerFilterList">
                         <FilterList category={categoryNumber}/>
-                    // </div>
                     }
                 </div>
             </>
