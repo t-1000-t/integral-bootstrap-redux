@@ -1,6 +1,7 @@
+.filter__menuList {
+    display: flex;
+    align-items: center;
+}
 @media (max-width: 768px) {
-    .filterList_BoxUl {
-        display: flex;
-        flex-wrap: wrap;
-    }
+
 }

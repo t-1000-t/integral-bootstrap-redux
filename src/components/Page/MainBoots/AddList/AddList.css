@@ -1,115 +1,135 @@
 
-@media (max-width: 768px) {
+.addListUl_menu__sub-list {
+    border: 1px solid #4170a9;
+    border-top: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 10px 20px 10px;
+    /*border: 1px solid gray;*/
+    border-top: none;
+    background-color: #c3c3c3;
+    opacity: 1;
+    max-height: 100%;
+    width: 90%;
+    overflow: hidden;
+    transition: all 0.3s;
+}
 
-    .addListUl_menu__sub-list {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0px 10px 10px 10px;
-        /*border: 1px solid gray;*/
-        border-top: none;
-        opacity: 1;
-        max-height: 100%;
-        width: 100%;
-        overflow: hidden;
-        transition: all 0.3s;
-    }
+.addListUlBlock_menu__sub-list {
+    /*border: 1px solid gray;*/
+    border-top: none;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 10px;
+    transition: all 0.3s;
+}
 
-    .addListUlBlock_menu__sub-list {
-        /*border: 1px solid gray;*/
-        border-top: none;
-        opacity: 0;
-        max-height: 0;
-        overflow: hidden;
-        padding: 0 10px;
-        transition: all 0.3s;
-    }
+.addListLi_menu__sub-list {
+    /*padding: 10px 10px 10px 10px;*/
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 
-    .addListLi_menu__sub-list {
-        /*padding: 10px 10px 10px 10px;*/
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
+/* Common button styles */
+.addList_button {
+    float: left;
+    width: 95%;
+    display: block;
+    margin: 5px 5px 0px 5px;
+    border: none;
+    background: none;
+    color: inherit;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-    /* Common button styles */
-    .addList_button {
-        float: left;
-        width: 95%;
-        display: block;
-        margin: 5px 5px 0px 5px;
-        border: none;
-        background: none;
-        color: inherit;
-        vertical-align: middle;
-        position: relative;
-        z-index: 1;
-        -webkit-backface-visibility: hidden;
-        -moz-osx-font-smoothing: grayscale;
-    }
-    .addList_button:focus {
-        outline: none;
-    }
-    .addList_button > span {
-        vertical-align: middle;
-    }
+.addList_button:focus {
+    outline: none;
+}
 
-    /* Pipaluk */
-    .addList_button--pipaluk {
-        max-width: 90%;
-        padding: 0.75em 1.75em;
-        color: #fff;
-        cursor: pointer;
-    }
-    .addList_button--pipaluk.addList_button--inverted {
-        color: #7986cb;
-    }
-    .addList_button--pipaluk::before,
-    .addList_button--pipaluk::after {
-        content: '';
-        border-radius: inherit;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        -webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
-        transition: transform 0.3s, background-color 0.3s;
-        -webkit-transition-timing-function: cubic-bezier(0.25, 0, 0.3, 1);
-        transition-timing-function: cubic-bezier(0.25, 0, 0.3, 1);
-    }
-    .addList_button--pipaluk::before {
-        border: 2px solid #7986cb;
-    }
-    .addList_button--pipaluk.addList_button--inverted::before {
-        border-color: #fff;
-    }
-    .addList_button--pipaluk::after {
-        background: #7986cb;
-    }
-    .addList_button--pipaluk.addList_button--inverted::after {
-        background: #fff;
-    }
-    .addList_button--pipaluk:hover::before {
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: scale3d(1, 1, 1);
-    }
-    .addList_button--pipaluk::before,
-    .addList_button--pipaluk:hover::after {
-        -webkit-transform: scale3d(0.7, 0.7, 1);
-        transform: scale3d(0.87, 0.64, 1);
-    }
-    .addList_button--pipaluk:hover::after {
-        background-color: #3f51b5;
-    }
-    .addList_button--pipaluk.addList_button--inverted:hover::after {
-        background-color: #fff;
-    }
-    .addList_button--round-s {
-        /*border-radius: 5px;*/
-    }
-    .addList_button--text-thick {
-        font-weight: 500;
-    }
+.addList_button > span {
+    vertical-align: middle;
+}
+
+/* Pipaluk */
+.addList_button--pipaluk {
+    padding: 0.75em 1.75em;
+    color: #fff;
+    cursor: pointer;
+}
+
+.addList_button--pipaluk.addList_button--inverted {
+    color: #fff;
+}
+
+.addList_button--pipaluk::before,
+.addList_button--pipaluk::after {
+    content: '';
+    border-radius: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    -webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
+    transition: transform 0.3s, background-color 0.3s;
+    -webkit-transition-timing-function: cubic-bezier(0.25, 0, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.25, 0, 0.3, 1);
+}
+
+.addList_button--pipaluk::before {
+    border: 2px solid #7986cb;
+}
+
+.addList_button--pipaluk.addList_button--inverted::before {
+    border-color: #fff;
+}
+
+.addList_button--pipaluk::after {
+    background: #7986cb;
+}
+
+.addList_button--pipaluk.addList_button--inverted::after {
+    background: #4170a9;
+    color: #c9e6ff;
+}
+
+.addList_button--pipaluk:hover::before {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+}
+
+.addList_button--pipaluk::before,
+.addList_button--pipaluk:hover::after {
+    -webkit-transform: scale3d(0.7, 0.7, 1);
+    transform: scale3d(0.87, 0.64, 1);
+}
+
+.addList_button--pipaluk:hover::after {
+    background-color: #3f51b5;
+}
+
+.addList_button--pipaluk.addList_button--inverted:hover::after {
+    background-color: #3f51b5;
+}
+
+.addList_button--round-s {
+    /*border-radius: 5px;*/
+}
+
+.addList_button--text-thick {
+    font-weight: 500;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+}
+
+@media (max-width: 767px) {
 }

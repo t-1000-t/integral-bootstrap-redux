@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import AddList from "../AddList/AddList";
+import backBlack from "../../../../images/iconNavigation/eject_black_36dp.svg"
 import "./Drop.css"
 
 const Drop = ({id, category, list}) => {
@@ -18,9 +19,9 @@ const Drop = ({id, category, list}) => {
             <AddList idRL={id} list={list} open={open}/>
             {open && <div className="drop__outer" onClick={() => toggleList()}>
                 <div className="drop__inner">
-                <label className="drop__label">Back</label>
+                    <label className="drop__label">close</label>
                 </div>
-                </div>}
+            </div>}
             {/*{open && <button onClick={() => toggleList()} className="drop__button drop__button--pipaluk drop__button--inverted  drop__button--round-s drop__button--text-thick">*/}
             {/*    <p>Закрыть</p>*/}
             {/*    <svg*/}

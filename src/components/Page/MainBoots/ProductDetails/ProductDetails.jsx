@@ -18,7 +18,7 @@ function ProductDetails({elem}) {
                 </div>
                 <div className="productsWrapperDescription">
                     <p>{elem.brief_description}</p>
-                    <h5>{elem.retail_price_uah} грн.</h5>
+                    <h4>{elem.retail_price_uah} грн.</h4>
                 </div>
                 <button type="button" className="productsDetailsBoxButton">Купить</button>
             </section>

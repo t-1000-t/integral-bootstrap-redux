@@ -25,6 +25,11 @@ export function funcIsMob() {
     };
 
     if (isMobile.any()) {
+        const menuIcon = document.getElementById("menu__icon")
+        const menuBody = document.getElementById("menu__body")
+        menuIcon.classList.add("menu__icon")
+        menuBody.classList.add("menu__body")
+
         document.body.classList.add('_touch');
         let arrow = document.querySelectorAll('.arrow');
         for (let i = 0; i < arrow.length; i++) {

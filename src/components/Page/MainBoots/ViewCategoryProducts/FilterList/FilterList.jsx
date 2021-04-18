@@ -93,22 +93,20 @@ function FilterList({category}) {
 
     return (
         <>
-            <ul className="filterList_BoxUl">
-                {listFilter.status === 1 && listFilter.result.map((elem) => (
-                    <li
-                        key={elem.optionID}
-                        className=""
-                    >
-                        <label key={elem.optionID}>
-                            <FilterCategoryName
-                                elem={elem}
-                                handleChange={handleChange}
-                                checked={listFilter[elem.id]}
-                            />
-                        </label>
-                    </li>
-                ))}
-            </ul>
+            {listFilter.status === 1 && listFilter.result.map((elem) => (
+                <li
+                    key={elem.optionID}
+                    className=""
+                >
+                    <label key={elem.optionID}>
+                        <FilterCategoryName
+                            elem={elem}
+                            handleChange={handleChange}
+                            checked={listFilter[elem.id]}
+                        />
+                    </label>
+                </li>
+            ))}
         </>
     );
 }

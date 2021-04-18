@@ -1,3 +1,27 @@
+/*.filterCatName__sub-list {*/
+/*    position: absolute;*/
+/*    top: 100%;*/
+/*    right: 0;*/
+/*    !*padding: 15px;*!*/
+/*    min-width: 350px;*/
+
+/*    !*background-color: #444;*!*/
+/*    transform: translate(0px, 10%);*/
+/*    opacity: 0;*/
+/*    visibility: hidden;*/
+/*    pointer-events: none;*/
+/*    transition: all 0.3s ease 0s;*/
+/*}*/
+
+.filterCatName__sub-list li {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0;
+}
+
+.filterCatName__sub-list li:last-child {
+    margin: 0;
+}
+
 @media (max-width: 768px) {
     .filterCategoryButtonName {
         font-family: 'Roboto Light', sans-serif;

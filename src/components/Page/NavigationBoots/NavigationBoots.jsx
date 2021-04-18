@@ -29,10 +29,10 @@ function NavigationBoots() {
             </NavLink>
 
             <div className="header__menu menu">
-                <div className="menu__icon">
+                <div id="menu__icon">
                     <span></span>
                 </div>
-                <nav className="menu__body">
+                <nav id="menu__body">
                     {!some && <ul id="menu__list" className="menu__list">
                         <li>
                             <NavLink to="/" className="menu__link">Каталог товаров</NavLink>

@@ -6,15 +6,15 @@ function FilterCategoryName({elem, checked, handleChange}) {
 
     return (
         <>
-            <button className="filterCategoryButtonName" onClick={() => setOpenFilterElement(!openFilterElement)}>
+            <button className="" onClick={() => setOpenFilterElement(!openFilterElement)}>
                 {elem.name}
             </button>
-            <>
+            <ul className="">
                 {openFilterElement && elem.filters.map((item) => {
                     return <button key={item.filterID} className="">
                         <span className="">{item.name}</span>
                         <input
-                            className="inputFilterCategoryName"
+                            // className="inputFilterCategoryName"
                             id={item.filterID}
                             completed={checked}
                             type="checkbox"
@@ -23,7 +23,7 @@ function FilterCategoryName({elem, checked, handleChange}) {
                         />
                     </button>
                 })}
-            </>
+            </ul>
         </>
     );
 }

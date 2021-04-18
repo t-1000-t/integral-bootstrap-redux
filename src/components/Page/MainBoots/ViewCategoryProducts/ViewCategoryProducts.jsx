@@ -6,6 +6,7 @@ import MainCard from "../MainCard";
 import forGetArrProductsReducer
     from "../../../../services/ServiceHooks/allReducers/forGetArrProductsReducer";
 import "./ViewCategoryProducts.css"
+import filterIcon from "../../../../images/iconNavigation/tune_black_24dp.svg"
 import FilterList from "./FilterList";
 
 
@@ -113,21 +114,27 @@ function ViewCategoryProducts() {
                 </div>
             )}
             {isError && <div>Something went wrong ...</div>}
-            <>
-                <button onClick={() => setOpenFilter(!openFilter)}>Фильтр</button>
-                <div className="wrapperFilCat">
-                    {openFilter &&
-                        <FilterList category={categoryNumber}/>
-                    }
+            <div className="container__viewCatProd">
+                <div className="wrapperFilProd__viewCatProd">
+                    <ul className="filter__list">
+                        <li>
+                            <img onClick={() => setOpenFilter(!openFilter)} className="filter__link" src={filterIcon}
+                                 alt="filter"/>
+                            <span className="filter__arrow"></span>
+                            {openFilter && <ul className="filter__sub-list">
+                                <FilterList category={categoryNumber}/>
+                            </ul>}
+                        </li>
+                    </ul>
                 </div>
-            </>
 
-            {!isLoading && <div className="wrapperFilCat">
-                {products.length > 0 &&
+                {!isLoading && <div className="wrapperFilCat">
+                    {products.length > 0 &&
                     products.map(elem => (
                         <MainCard key={elem.productID} elem={elem}/>
                     ))}
-            </div>}
+                </div>}
+            </div>
         </>
     );
 }

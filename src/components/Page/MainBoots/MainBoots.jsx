@@ -65,24 +65,24 @@ const MainBoots = () => {
     const [toggleCategory, setToggleCategory] = useState(false)
     const [toggleForm, setToggleForm] = useState(false)
     return (
-        <>
+        <div className="page__container">
             {isError && <div>Something went wrong ...</div>}
             <div className="appContainer">
                 <Carousel/>
             </div>
             <div className="main__searchGlobal">
-                <form
-                    onSubmit={(e) => {
-                        e.preventDefault()
-                        dispatchText({type: 'textSearchWord', payload: {text: text}})
-                    }}
+                <form className="main__formGlobal"
+                      onSubmit={(e) => {
+                          e.preventDefault()
+                          dispatchText({type: 'textSearchWord', payload: {text: text}})
+                      }}
                 >
-                    <input
-                        type="text"
-                        placeholder="Глобальный поиск..."
-                        aria-label="Глобальный поиск..."
-                        value={text}
-                        onChange={e => setText(e.target.value)}
+                    <input className="main__inputGlobal"
+                           type="text"
+                           placeholder="Глобальный поиск..."
+                           aria-label="Глобальный поиск..."
+                           value={text}
+                           onChange={e => setText(e.target.value)}
                     />
                 </form>
             </div>
@@ -127,7 +127,7 @@ const MainBoots = () => {
             {toggleForm && <div className={toggleForm ? "main__FormVisible" : "main__FormBlock"}>
                 <FeedBackForm toggleForm={toggleForm}/>
             </div>}
-        </>
+        </div>
     )
 }
 

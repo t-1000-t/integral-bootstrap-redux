@@ -8,9 +8,11 @@ import "./App.css";
 import FooterBoots from "../Page/FooterBoots/FooterBoots";
 import NavigationBoots from "../Page/NavigationBoots";
 import MainBoots from "../Page/MainBoots/MainBoots";
+import widthResize from "../../services/widthResize"
 
 
 function App() {
+    widthResize()
     return (
         <BrowserRouter>
             <div className="wrapperA">

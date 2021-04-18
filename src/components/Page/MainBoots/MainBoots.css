@@ -1,5 +1,9 @@
-.container {
-    max-width: 1140px;
+.page__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px auto;
+    width: 1200px;
 }
 
 .containerListCard {
@@ -10,7 +14,6 @@
     flex-wrap: wrap;
 }
 
-
 .appContainer {
     font-family: sans-serif;
     text-align: center;
@@ -18,150 +21,182 @@
     margin-bottom: 30px;
 }
 
-.main__searchGlobal form input {
+.main__searchGlobal > form > input {
     width: 100%;
     padding: 0.5em;
     border: 1px solid #c9e6ff;
     font-size: inherit;
 }
 
-@media (max-width: 768px) {
-    .menu__arrowMain {
-    }
+.wrap__mainMenu {
+}
 
-    .containerMain {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        width: 100%;
-    }
-    .menu__listMain {
-        margin: 10px 0px 10px 0px;
-        width: 100%;
-    }
-    .menu__sub-listUlMain {
-        /*border: 1px solid gray;*/
-        border-top: none;
-        opacity: 1;
-        max-height: 100%;
-        width: 95%;
-        overflow: hidden;
-        transition: all 0.5s;
-    }
+.main__searchGlobal {
+    width: 100%;
+}
 
-    .menu__sub-listUlMainBlock {
-        /*border: 1px solid gray;*/
-        border-top: none;
-        opacity: 0;
-        max-height: 0;
-        width: 95%;
-        overflow: hidden;
-        transition: all 0s;
-    }
-    .menu__sub-listLiMain {
-        /*padding: 5px 5px 5px 5px;*/
-    }
+.menu__arrowMain {
+}
 
-    /* Common button styles */
-    .menu__button {
-        background-color: #c9e6ff;
-        float: left;
-        width: 95%;
-        display: block;
-        border: none;
-        color: inherit;
-        vertical-align: middle;
-        position: relative;
-        z-index: 1;
-        -webkit-backface-visibility: hidden;
-        -moz-osx-font-smoothing: grayscale;
-        cursor: pointer;
-    }
-    .menu__button:focus {
-        outline: none;
-    }
+.containerMain {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
 
-    .menu__button > span {
-        vertical-align: middle;
-    }
+.menu__listMain {
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+}
 
-    /* Pipaluk */
-    .menu__button--pipaluk {
-        width: 95%;
-        padding: 0.75em 1.5em;
-        color: #fff;
-    }
-    .menu__button--pipaluk.button--inverted {
-        color: #4170a9;
-    }
-    .menu__button--pipaluk::before,
-    .menu__button--pipaluk::after {
-        content: '';
-        border-radius: inherit;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        -webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
-        transition: transform 0.3s, background-color 0.3s;
-        -webkit-transition-timing-function: cubic-bezier(0.25, 0, 0.3, 1);
-        transition-timing-function: cubic-bezier(0.25, 0, 0.3, 1);
-    }
-    .menu__button--pipaluk::before {
-        border: 2px solid #4170a9;
-    }
-    .menu__button--pipaluk.button--inverted::before {
-        border-color: #fff;
-    }
-    .menu__button--pipaluk::after {
-        background: #4170a9;
-    }
-    .menu__button--pipaluk.button--inverted::after {
-        background: #fff;
-    }
-    .menu__button--pipaluk:hover::before {
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: scale3d(1, 1, 1);
-    }
-    .menu__button--pipaluk::before,
-    .menu__button--pipaluk:hover::after {
-        -webkit-transform: scale3d(0.87, 0.64, 1);
-        transform: scale3d(0.87, 0.64, 1);
-    }
-    .menu__button--pipaluk:hover::after {
-        background-color: #4170a9;
-    }
-    .menu__button--pipaluk.button--inverted:hover::after {
-        background-color: #fff;
-    }
-    .menu__button--round-s {
-        /*border-radius: 5px;*/
-    }
-    .menu__button--text-thick {
-        font-weight: 500;
-    }
+.menu__sub-listUlMain {
+    border: 1px solid #4170a9;
+    border-top: none;
+    opacity: 1;
+    max-height: 100%;
+    width: 95%;
+    overflow: hidden;
+    transition: all 0.5s;
+    padding: 0px 10px 20px 10px;
+}
+
+.menu__sub-listUlMainBlock {
+    /*border: 1px solid gray;*/
+    border-top: none;
+    opacity: 0;
+    max-height: 0;
+    width: 95%;
+    overflow: hidden;
+    transition: all 0s;
+}
+
+.menu__sub-listLiMain {
+    /*padding: 5px 5px 5px 5px;*/
+}
+
+/* Common button styles */
+.menu__button {
+    background-color: #c9e6ff;
+    float: left;
+    width: 95%;
+    display: block;
+    border: none;
+    color: inherit;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: pointer;
+}
+
+.menu__button:focus {
+    outline: none;
+}
+
+.menu__button > span {
+    vertical-align: middle;
+}
+
+/* Pipaluk */
+.menu__button--pipaluk {
+    width: 100%;
+    padding: 0.75em 1.5em;
+    color: #fff;
+}
+
+.menu__button--pipaluk.button--inverted {
+    color: #4170a9;
+}
+
+.menu__button--pipaluk::before,
+.menu__button--pipaluk::after {
+    content: '';
+    border-radius: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    -webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
+    transition: transform 0.3s, background-color 0.3s;
+    -webkit-transition-timing-function: cubic-bezier(0.25, 0, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.25, 0, 0.3, 1);
+}
+
+.menu__button--pipaluk::before {
+    border: 2px solid #4170a9;
+}
+
+.menu__button--pipaluk.button--inverted::before {
+    border-color: #fff;
+}
+
+.menu__button--pipaluk::after {
+    background: #4170a9;
+}
+
+.menu__button--pipaluk.button--inverted::after {
+    background: #fff;
+}
+
+.menu__button--pipaluk:hover::before {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+}
+
+.menu__button--pipaluk::before,
+.menu__button--pipaluk:hover::after {
+    -webkit-transform: scale3d(0.87, 0.64, 1);
+    transform: scale3d(0.87, 0.64, 1);
+}
+
+.menu__button--pipaluk:hover::after {
+    background-color: #4170a9;
+}
+
+.menu__button--pipaluk.button--inverted:hover::after {
+    background-color: #fff;
+}
+
+.menu__button--round-s {
+    /*border-radius: 5px;*/
+}
+
+.menu__button--text-thick {
+    font-weight: 500;
+}
 
 /*  Form visible  */
-    .main__FormVisible {
-        border: 1px solid #4170a9;
-        border-top: none;
-        opacity: 1;
-        width: 95%;
-        max-height: 100%;
-        overflow: hidden;
-        padding: 15px;
-        transition: all 0.3s;
-    }
-    .main__FormBlock {
-        border: 1px solid #4170a9;
-        border-top: none;
-        opacity: 0;
-        max-height: 0;
-        overflow: hidden;
-        padding: 0 15px;
-        transition: all 0s;
-        width: 95%;
-    }
+.main__FormVisible {
+    border: 1px solid #4170a9;
+    border-top: none;
+    opacity: 1;
+    width: 95%;
+    max-height: 100%;
+    overflow: hidden;
+    padding: 15px;
+    transition: all 0.3s;
+}
+
+.main__FormBlock {
+    border: 1px solid #4170a9;
+    border-top: none;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 15px;
+    transition: all 0s;
+    width: 95%;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+}
+
+@media (min-width: 415px) and (max-width: 767px) {
+}
+
+@media (max-width: 414px) {
 }
