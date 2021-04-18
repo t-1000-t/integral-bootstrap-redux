@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import AddList from "../AddList/AddList";
-import backBlack from "../../../../images/iconNavigation/eject_black_36dp.svg"
 import "./Drop.css"
 
 const Drop = ({id, category, list}) => {
