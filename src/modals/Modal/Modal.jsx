@@ -1,11 +1,9 @@
 import React, { Component, createRef } from 'react';
 import { createPortal } from 'react-dom';
-import styles from './Modal.module.css';
+import "./Modal.css";
 
-const DROPDOWN_MODAL = document.querySelector('#dropdown-modal');
+const ROOT_MODAL = document.getElementById('root-modal');
 
-const modal = [styles.modal];
-const overlay = [styles.overlay];
 
 class Modal extends Component {
     modalRef = createRef();
@@ -32,16 +30,16 @@ class Modal extends Component {
         const { id, largeImageURL } = this.props;
         return createPortal(
             <div
-                className={overlay}
+                className="overlay"
                 ref={this.modalRef}
                 onClick={this.handleMouseClick}
                 role="presentation"
             >
-                <div className={modal}>
+                <div className="modal">
                     <img src={largeImageURL} alt="img" id={id} />
                 </div>
             </div>,
-            DROPDOWN_MODAL,
+            ROOT_MODAL,
         );
     }
 }

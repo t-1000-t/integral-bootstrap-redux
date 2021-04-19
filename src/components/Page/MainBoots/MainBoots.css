@@ -19,6 +19,7 @@
     text-align: center;
     width: 95%;
     margin-bottom: 30px;
+    margin-top: 0px;
 }
 
 .main__searchGlobal > form > input {

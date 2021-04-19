@@ -19,11 +19,10 @@
 .menu__sub-list {
     position: absolute;
     top: 100%;
-    right: 0;
-    /*padding: 15px;*/
-    min-width: 350px;
-
-    /*background-color: #444;*/
+    left: -50%;
+    margin-top: -6px;
+    min-width: 300px;
+    /*background-color: white;*/
     transform: translate(0px, 10%);
     opacity: 0;
     visibility: hidden;
@@ -33,7 +32,6 @@
 
 .menu__sub-list li {
     margin: 0px 0px 0px 0px;
-    padding: 0px 0;
 }
 
 .menu__sub-list li:last-child {
@@ -44,9 +42,6 @@
     display: none;
 }
 
-/*.menu__list > li {*/
-/*    padding: 10px 0;*/
-/*}*/
 
 @media (max-width: 768px) {
 

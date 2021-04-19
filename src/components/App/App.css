@@ -15,7 +15,7 @@
 .page {
     display: flex;
     justify-content: center;
-    margin: 75px 15px 30px 15px;
+    margin: 70px 15px 30px 15px;
 }
 
 /*Header*/
@@ -73,7 +73,7 @@
     display: flex;
     padding: 0px 30px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: left;
     min-height: 70px;
 }
 
@@ -180,7 +180,7 @@
 .menu__link {
     color: #fff;
     display: block;
-    margin: 15px 15px 15px 0;
+    margin: 21px 20px 21px 0;
     font-size: 24px;
 }
 
@@ -241,7 +241,7 @@ body._touch .menu__list > li._active .menu__arrow {
 
 /* Footer height */
 .footer {
-    margin: 20px 15px 20px 15px;
+    min-height: 70px;
 }
 
 /*------------------*/

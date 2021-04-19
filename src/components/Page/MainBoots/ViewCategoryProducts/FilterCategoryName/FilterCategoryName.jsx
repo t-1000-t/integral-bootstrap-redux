@@ -6,7 +6,7 @@ function FilterCategoryName({elem, checked, handleChange}) {
 
     return (
         <>
-            <button className="" onClick={() => setOpenFilterElement(!openFilterElement)}>
+            <button className="filterCatName_button filterCatName_button--pipaluk filterCatName_button--inverted filterCatName_button--round-s filterCatName_button--text-thick active" onClick={() => setOpenFilterElement(!openFilterElement)}>
                 {elem.name}
             </button>
             <ul className="">

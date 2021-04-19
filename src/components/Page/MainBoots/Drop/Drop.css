@@ -15,7 +15,7 @@
     float: left;
     width: 95%;
     display: block;
-    margin: 5px 5px 0px 5px;
+    margin: 6px 5px -5px 5px;
     padding: 1em;
     border: none;
     background: none;
@@ -119,7 +119,8 @@
     font-size: 1em;
     line-height: 1.7em;
     text-transform: uppercase;
-    color: #444;
+    color: darkred;
+    background-color: rgba(250,172,37, 0.5);
     transition: all 0.3s;
     opacity: 0;
     cursor: pointer;

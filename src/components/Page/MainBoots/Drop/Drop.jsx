@@ -12,7 +12,7 @@ const Drop = ({id, category, list}) => {
     return (
         <div className="dropBox">
             <button onClick={() => toggleList()}
-                    className="drop__button drop__button--pipaluk drop__button--inverted  drop__button--round-s drop__button--text-thick">
+                    className="drop__button drop__button--pipaluk drop__button--inverted drop__button--round-s drop__button--text-thick">
                 {category}
             </button>
             <AddList idRL={id} list={list} open={open}/>

@@ -96,7 +96,7 @@ function FilterList({category}) {
             {listFilter.status === 1 && listFilter.result.map((elem) => (
                 <li
                     key={elem.optionID}
-                    className=""
+                    className="filter__wrapLabel"
                 >
                     <label key={elem.optionID}>
                         <FilterCategoryName

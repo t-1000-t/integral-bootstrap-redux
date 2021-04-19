@@ -5,6 +5,8 @@ import routes from "../../../../routes";
 import forGetProductReducer from "../../../../services/ServiceHooks/allReducers/forGetProductReducer";
 import "./ViewProductPage.css"
 import ProductDetails from "../ProductDetails";
+import LoaderBase from "../../../../modals/LoaderBase/LoaderBase";
+import DotLoader from "react-spinners/DotLoader"
 
 function ViewProductPage() {
     const [isError, setIsError] = useState(false)
@@ -59,9 +61,11 @@ function ViewProductPage() {
         <article>
             {isError && <div>Something went wrong ...</div>}
             {isLoading && (
-                <div className="wrapperProduct">
-                    LOADING!2
-                </div>
+                <LoaderBase
+                    // className="wrapperProduct"
+                >
+                    <DotLoader />
+                </LoaderBase>
             )}
 
             {/*<button type="button" onClick={handleClick}>*/}

@@ -8,6 +8,8 @@ import forGetArrProductsReducer
 import "./ViewCategoryProducts.css"
 import filterIcon from "../../../../images/iconNavigation/tune_black_24dp.svg"
 import FilterList from "./FilterList";
+import LoaderBase from "../../../../modals/LoaderBase/LoaderBase";
+import DotLoader from "react-spinners/DotLoader";
 
 
 function ViewCategoryProducts() {
@@ -15,6 +17,7 @@ function ViewCategoryProducts() {
     const [isError, setIsError] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [openFilter, setOpenFilter] = useState(false)
+    const [color] = useState("#4170a9");
 
     const [products, dispatchP] = useReducer(forGetArrProductsReducer, [])
 
@@ -107,23 +110,23 @@ function ViewCategoryProducts() {
     return (
         <>
             {isLoading && (
-                <div className="">
-                    <div className="">
-                        <span className="">LOADING!</span>
-                    </div>
-                </div>
+                    <LoaderBase className="">
+                        <DotLoader color={color} />
+                    </LoaderBase>
             )}
             {isError && <div>Something went wrong ...</div>}
             <div className="container__viewCatProd">
-                <div className="wrapperFilProd__viewCatProd">
+               <div className="wrapperFilProd__viewCatProd">
                     <ul className="filter__list">
-                        <li>
+                        <li className="filter__li">
                             <img onClick={() => setOpenFilter(!openFilter)} className="filter__link" src={filterIcon}
                                  alt="filter"/>
                             <span className="filter__arrow"></span>
-                            {openFilter && <ul className="filter__sub-list">
+                            {/*{openFilter && */}
+                            <ul className={openFilter ? "filter__sub-list" : "filter__sub-list-active"}>
                                 <FilterList category={categoryNumber}/>
-                            </ul>}
+                            </ul>
+                            {/*}*/}
                         </li>
                     </ul>
                 </div>
