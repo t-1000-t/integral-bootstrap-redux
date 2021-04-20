@@ -2,17 +2,18 @@ import React, {useState} from "react";
 import "./FilterCategoryName.css";
 
 function FilterCategoryName({elem, checked, handleChange}) {
-    const [openFilterElement, setOpenFilterElement] = useState(false)
+    const [openFilter, setOpenFilter] = useState(false)
 
     return (
         <>
-            <button className="filterCatName_button filterCatName_button--pipaluk filterCatName_button--inverted filterCatName_button--round-s filterCatName_button--text-thick active" onClick={() => setOpenFilterElement(!openFilterElement)}>
+            <button onClick={() => setOpenFilter(!openFilter)}
+                    className="filterCatName_button filterCatName_button--pipaluk filterCatName_button--inverted filterCatName_button--round-s filterCatName_button--text-thick active">
                 {elem.name}
             </button>
-            <ul className="">
-                {openFilterElement && elem.filters.map((item) => {
-                    return <button key={item.filterID} className="">
-                        <span className="">{item.name}</span>
+            <ul className={openFilter ? "" : "filterCatName__ul"}>
+                {elem.filters.map((item) => {
+                    return <button key={item.filterID} className="filterCatName__ul-btn">
+                        <span className="filterCatName__ul-span">{item.name}</span>
                         <input
                             // className="inputFilterCategoryName"
                             id={item.filterID}
@@ -24,6 +25,11 @@ function FilterCategoryName({elem, checked, handleChange}) {
                     </button>
                 })}
             </ul>
+            {openFilter && <div className="filterCatName__outer" onClick={() => setOpenFilter(!openFilter)}>
+                <div className="filterCatName__inner">
+                    <label className="filterCatName__label">close</label>
+                </div>
+            </div>}
         </>
     );
 }

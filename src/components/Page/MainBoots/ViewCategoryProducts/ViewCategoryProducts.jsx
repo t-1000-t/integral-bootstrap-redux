@@ -6,7 +6,8 @@ import MainCard from "../MainCard";
 import forGetArrProductsReducer
     from "../../../../services/ServiceHooks/allReducers/forGetArrProductsReducer";
 import "./ViewCategoryProducts.css"
-import filterIcon from "../../../../images/iconNavigation/tune_black_24dp.svg"
+import filterIconB from "../../../../images/iconNavigation/baseline_tune_black_24dp.png"
+import filterIconW from "../../../../images/iconNavigation/baseline_tune_white_24dp.png"
 import FilterList from "./FilterList";
 import LoaderBase from "../../../../modals/LoaderBase/LoaderBase";
 import DotLoader from "react-spinners/DotLoader";
@@ -17,6 +18,7 @@ function ViewCategoryProducts() {
     const [isError, setIsError] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [openFilter, setOpenFilter] = useState(false)
+    const [isBtn, setIsBtn] = useState([])
     const [color] = useState("#4170a9");
 
     const [products, dispatchP] = useReducer(forGetArrProductsReducer, [])
@@ -106,27 +108,28 @@ function ViewCategoryProducts() {
 
     }, [location, categoryNumber])
 
-
+    console.log(isBtn)
     return (
         <>
             {isLoading && (
-                    <LoaderBase className="">
-                        <DotLoader color={color} />
-                    </LoaderBase>
+                <LoaderBase className="">
+                    <DotLoader color={color}/>
+                </LoaderBase>
             )}
             {isError && <div>Something went wrong ...</div>}
             <div className="container__viewCatProd">
-               <div className="wrapperFilProd__viewCatProd">
+                <div className="wrapperFilProd__viewCatProd">
                     <ul className="filter__list">
                         <li className="filter__li">
-                            <img onClick={() => setOpenFilter(!openFilter)} className="filter__link" src={filterIcon}
-                                 alt="filter"/>
+                            <button className="filter__btn" type="button" disabled={isBtn.length === 0}>
+                                <img onClick={() => setOpenFilter(!openFilter)} className="filter__link"
+                                     src={isBtn.length === 0 ? "" : filterIconW}
+                                     alt="OFF"/>
+                            </button>
                             <span className="filter__arrow"></span>
-                            {/*{openFilter && */}
-                            <ul className={openFilter ? "filter__sub-list" : "filter__sub-list-active"}>
-                                <FilterList category={categoryNumber}/>
+                            <ul className={openFilter ? "filter__sub-list-active" : "filter__sub-list"}>
+                                <FilterList category={categoryNumber} setIsBtn={setIsBtn}/>
                             </ul>
-                            {/*}*/}
                         </li>
                     </ul>
                 </div>

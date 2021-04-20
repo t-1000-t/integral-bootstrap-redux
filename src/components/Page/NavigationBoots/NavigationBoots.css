@@ -20,7 +20,7 @@
     position: absolute;
     top: 100%;
     left: -50%;
-    margin-top: -6px;
+    margin-top: 0px;
     min-width: 300px;
     /*background-color: white;*/
     transform: translate(0px, 10%);
@@ -28,6 +28,8 @@
     visibility: hidden;
     pointer-events: none;
     transition: all 0.3s ease 0s;
+    overflow: auto;
+    height: 600px;
 }
 
 .menu__sub-list li {

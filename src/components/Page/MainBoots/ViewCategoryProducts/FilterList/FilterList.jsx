@@ -6,7 +6,7 @@ import routes from "../../../../../routes/routes";
 import "./FilterList.css"
 
 
-function FilterList({category}) {
+function FilterList({category, setIsBtn}) {
     const [listFilter, setListFilter] = useState({})
     const [arrayFilterCheck, setArrayFilterCheck] = useState([])
     const [linkParams, setLinkParams] = useState('')
@@ -21,7 +21,10 @@ function FilterList({category}) {
                     ...el, completed: false
                 }))
             }))
-        })).then(items => setListFilter(items))
+        })).then(items => {
+            setListFilter(items)
+            setIsBtn(items.result)
+        })
     }, [category])
 
     // for change checkBox
@@ -96,15 +99,13 @@ function FilterList({category}) {
             {listFilter.status === 1 && listFilter.result.map((elem) => (
                 <li
                     key={elem.optionID}
-                    className="filter__wrapLabel"
+                    className="filter__wrapper"
                 >
-                    <label key={elem.optionID}>
-                        <FilterCategoryName
-                            elem={elem}
-                            handleChange={handleChange}
-                            checked={listFilter[elem.id]}
-                        />
-                    </label>
+                    <FilterCategoryName
+                        elem={elem}
+                        handleChange={handleChange}
+                        checked={listFilter[elem.id]}
+                    />
                 </li>
             ))}
         </>
