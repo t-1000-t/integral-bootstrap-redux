@@ -25,7 +25,7 @@ function FilterList({category, setIsBtn}) {
             setListFilter(items)
             setIsBtn(items.result)
         })
-    }, [category])
+    }, [category, setIsBtn])
 
     // for change checkBox
     const handleChange = event => {
