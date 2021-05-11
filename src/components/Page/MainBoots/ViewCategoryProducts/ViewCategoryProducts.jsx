@@ -6,7 +6,6 @@ import MainCard from "../MainCard";
 import forGetArrProductsReducer
     from "../../../../services/ServiceHooks/allReducers/forGetArrProductsReducer";
 import "./ViewCategoryProducts.css"
-import filterIconB from "../../../../images/iconNavigation/baseline_tune_black_24dp.png"
 import filterIconW from "../../../../images/iconNavigation/baseline_tune_white_24dp.png"
 import FilterList from "./FilterList";
 import LoaderBase from "../../../../modals/LoaderBase/LoaderBase";
